@@ -3,3 +3,21 @@
 ################################################################################
 
 /MetroOne.Api/appsettings.json
+# Ignore VS temp folders
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Rider-specific
+.idea/
+
+# VS Code
+.vscode/
+
+# System
+Thumbs.db
+.DS_Store

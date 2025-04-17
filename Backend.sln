@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroOne.Api", "MetroOne.Api\MetroOne.Api.csproj", "{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroOne.API", "MetroOne.Api\MetroOne.API.csproj", "{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroOne.BLL", "MetroOne.BLL\MetroOne.BLL.csproj", "{BFE61FDD-EFA7-754D-4958-5F5026FF7518}"
 EndProject
