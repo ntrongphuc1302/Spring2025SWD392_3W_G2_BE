@@ -16,4 +16,8 @@ The corresponding frontend for this project can be found at:
 
 # Team:
 
-1. Nguyễn Trọng Phúc
+1. Nguyễn Trung Tính - SE130596
+2. Nguyễn Hữu Giàu - SE150014
+3. Triệu Phú Thắng - SE151058
+4. Vũ Thành Nam - SE161878
+5. Nguyễn Trọng Phúc - SE171107
