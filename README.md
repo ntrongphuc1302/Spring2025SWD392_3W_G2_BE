@@ -14,6 +14,12 @@ The corresponding frontend for this project can be found at:
 
 [MetroOne Frontend Repository](https://github.com/ntrongphuc1302/Spring2025SWD392_3W_G2_FE)
 
+## Backend Repository
+
+The corresponding backend for this project can be found at:
+
+[MetroOne Backend Repository](https://github.com/ntrongphuc1302/Spring2025SWD392_3W_G2_BE)
+
 # Team:
 
 | #  | Name               | Student ID | Role  |
