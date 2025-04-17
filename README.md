@@ -16,8 +16,10 @@ The corresponding frontend for this project can be found at:
 
 # Team:
 
-1. Nguyễn Trung Tính - SE130596
-2. Nguyễn Hữu Giàu - SE150014
-3. Triệu Phú Thắng - SE151058
-4. Vũ Thành Nam - SE161878
-5. Nguyễn Trọng Phúc - SE171107
+| #  | Name               | Student ID | Role  |
+|----|--------------------|------------|-------|
+| 1  | Nguyễn Trung Tính  | SE130596   | FE    |
+| 2  | Nguyễn Hữu Giàu    | SE150014   | FE    |
+| 3  | Triệu Phú Thắng    | SE151058   | BE    |
+| 4  | Vũ Thành Nam       | SE161878   | FE    |
+| 5  | Nguyễn Trọng Phúc  | SE171107   | BE    |
