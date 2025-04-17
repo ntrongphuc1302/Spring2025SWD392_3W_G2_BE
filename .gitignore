@@ -400,6 +400,7 @@ FodyWeavers.xsd
 *.sln.iml
 
 appsettings.json
+MetroOne.Api/appsettings.json
 
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
