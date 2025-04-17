@@ -1,0 +1,6 @@
+@Backend_HostAddress = http://localhost:5042
+
+GET {{Backend_HostAddress}}/metro-one/
+Accept: application/json
+
+###

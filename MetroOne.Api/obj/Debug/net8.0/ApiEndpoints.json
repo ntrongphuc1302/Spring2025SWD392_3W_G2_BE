@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "Backend.Controllers.MetroOneController",
+    "Method": "CheckDatabaseConnection",
+    "RelativePath": "MetroOne/CheckDatabaseConnection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
