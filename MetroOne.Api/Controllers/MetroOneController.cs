@@ -17,24 +17,24 @@ namespace Backend.Controllers
     {
         private readonly MetroonedbContext _context;
         private readonly ILogger<MetroOneController> _logger;
-        //private readonly IAuthService _authService;
+        private readonly IAuthService _authService;
 
-        public MetroOneController(MetroonedbContext context, ILogger<MetroOneController> logger)
+        public MetroOneController(MetroonedbContext context, ILogger<MetroOneController> logger, IAuthService authService)
         {
             _context = context;
             _logger = logger;
-            //_authService = authService;
+            _authService = authService;
         }
 
-        //[HttpPost("login")]
-        //public async Task<IActionResult> Login([FromBody] LoginRequest dto)
-        //{
-        //    var result = await _authService.LoginAsync(dto);
-        //    if (result == null)
-        //        return Unauthorized(new { message = "Invalid email or password" });
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest dto)
+        {
+            var result = await _authService.LoginAsync(dto);
+            if (result == null)
+                return Unauthorized(new { message = "Invalid email or password" });
 
-        //    return Ok(result);
-        //}
+            return Ok(result);
+        }
 
         #region DEBUG
         // GET: /MetroOne/CheckDatabaseConnection

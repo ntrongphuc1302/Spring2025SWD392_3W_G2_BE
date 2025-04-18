@@ -29,7 +29,7 @@ namespace MetroOne.BLL.Services.Implementations
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_jwtSettings.Secret);
+            var key = Encoding.UTF8.GetBytes(_jwtSettings.Key);
 
             var claims = new[]
             {
@@ -38,10 +38,14 @@ namespace MetroOne.BLL.Services.Implementations
             new Claim(ClaimTypes.Role, user.Role ?? "User"),
             };
 
+            var now = DateTime.UtcNow;
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
+                NotBefore = now,
+                IssuedAt = now,
+                Expires = now.AddMinutes(_jwtSettings.ExpiryMinutes),
                 Issuer = _jwtSettings.Issuer,
                 Audience = _jwtSettings.Audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
