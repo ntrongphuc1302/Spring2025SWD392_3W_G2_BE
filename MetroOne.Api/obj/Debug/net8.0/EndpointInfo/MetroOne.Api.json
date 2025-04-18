@@ -78,6 +78,18 @@
           }
         }
       }
+    },
+    "/api/Train/getTrain": {
+      "get": {
+        "tags": [
+          "Train"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

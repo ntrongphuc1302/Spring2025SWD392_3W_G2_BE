@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "MetroOne.API.Controllers.TrainController.TrainController",
+    "Method": "Index",
+    "RelativePath": "api/Train/getTrain",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.Controllers.MetroOneController",
     "Method": "CheckDatabaseConnection",
     "RelativePath": "MetroOne/CheckDatabaseConnection",

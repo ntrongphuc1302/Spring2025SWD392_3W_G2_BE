@@ -10,6 +10,7 @@ namespace MetroOne.DAL.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         IUserRepository Users { get; }
+        ITrainRepository TrainRepository { get; }
 
         Task<int> SaveAsync();
     }
