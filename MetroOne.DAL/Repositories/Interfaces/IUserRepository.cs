@@ -10,5 +10,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
     public interface IUserRepository
     {
         Task<User?> GetByEmailAsync(string email);
+        Task<Boolean> IsEmailExistsAsync(string email);
+        Task<Boolean> CreateAsync(User user);
     }
 }

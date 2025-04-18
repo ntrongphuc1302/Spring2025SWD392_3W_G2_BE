@@ -24,5 +24,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.MetroOneController",
+    "Method": "Register",
+    "RelativePath": "MetroOne/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

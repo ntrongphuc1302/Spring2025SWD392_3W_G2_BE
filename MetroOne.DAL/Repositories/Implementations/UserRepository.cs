@@ -19,6 +19,17 @@ namespace MetroOne.DAL.Repositories.Implementations
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public async Task<bool> IsEmailExistsAsync(string email)
+        {
+            return await _context.Users.AnyAsync(u => u.Email == email);
+        }
+
+        public async Task<bool> CreateAsync(User user)
+        {
+            await _context.Users.AddAsync(user);
+            return await _context.SaveChangesAsync() > 0;
+        }
     }
 
 }

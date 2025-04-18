@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Config;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using MetroOne.DAL.Models;
 using Azure;
 using MetroOne.DAL.UnitOfWork;
 
@@ -19,12 +19,14 @@ namespace MetroOne.BLL.Services.Implementations
         private readonly JwtSettings _jwtSettings;
         private readonly IUnitOfWork _unitOfWork;
 
+
         public AuthService(IUnitOfWork unitOfWork, IOptions<JwtSettings> jwtOptions)
         {
             _unitOfWork = unitOfWork;
             _jwtSettings = jwtOptions.Value;
         }
 
+        #region Login
         public async Task<LoginResponse?> LoginAsync(LoginRequest dto)
         {
             // Check if the user exists and validate the password
@@ -68,6 +70,44 @@ namespace MetroOne.BLL.Services.Implementations
 
             return (responseOjb);
         }
+
+        #endregion
+
+        #region Register
+        public async Task<RegisterResponse?> RegisterAsync(RegisterRequest dto)
+        {
+            var role = dto.Role ?? "Passenger"; // Default role
+
+            //check if role is Passenger or Admin or Driver
+            if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin" && dto.Role != "Driver")
+                role = "Passenger"; // Default role
+
+            // Check if the email already exists
+            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
+                return null;
+
+
+            var user = new User
+                {
+                    Email = dto.Email,
+                    Password = dto.Password, // Use hashing in real apps
+                    FullName = dto.FullName,
+                    Phone = dto.Phone,
+                    Role = role
+            };
+            var result = await _unitOfWork.Users.CreateAsync(user);
+            if (!result)
+                return null;
+            return new RegisterResponse
+            {
+                UserId = user.UserId,
+                Email = user.Email,
+                FullName = user.FullName,
+                Role = user.Role
+            };
+        }
+
+        #endregion
     }
 
 }

@@ -5,7 +5,7 @@ namespace MetroOne.DAL.Models;
 
 public partial class User
 {
-    public required int UserId { get; set; }
+    public int UserId { get; set; }
 
     public required string FullName { get; set; }
 

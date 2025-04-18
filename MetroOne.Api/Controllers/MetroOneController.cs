@@ -36,6 +36,16 @@ namespace Backend.Controllers
             return Ok(result);
         }
 
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterRequest dto)
+        {
+            var result = await _authService.RegisterAsync(dto);
+            if (result == null)
+                return BadRequest("Email is already in use");
+
+            return Ok(result);
+        }
+
         #region DEBUG
         // GET: /MetroOne/CheckDatabaseConnection
         [HttpGet("CheckDatabaseConnection")]

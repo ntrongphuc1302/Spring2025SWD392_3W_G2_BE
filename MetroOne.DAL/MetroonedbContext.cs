@@ -194,6 +194,9 @@ public partial class MetroonedbContext : DbContext
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.Role).HasMaxLength(50);
         });
+        modelBuilder.Entity<User>()
+                    .Property(u => u.UserId)
+                    .ValueGeneratedOnAdd();
 
         OnModelCreatingPartial(modelBuilder);
     }

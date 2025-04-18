@@ -11,6 +11,8 @@ namespace MetroOne.BLL.Services.Interfaces
     public interface IAuthService
     {
         Task<LoginResponse?> LoginAsync(LoginRequest dto);
+        Task<RegisterResponse?> RegisterAsync(RegisterRequest dto);
+
     }
 
 }
