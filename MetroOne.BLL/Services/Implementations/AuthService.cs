@@ -8,23 +8,27 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Config;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Azure;
+using MetroOne.DAL.UnitOfWork;
 
 namespace MetroOne.BLL.Services.Implementations
 {
     public class AuthService : IAuthService
     {
-        private readonly IUserRepository _userRepo;
         private readonly JwtSettings _jwtSettings;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AuthService(IUserRepository userRepo, IOptions<JwtSettings> jwtOptions)
+        public AuthService(IUnitOfWork unitOfWork, IOptions<JwtSettings> jwtOptions)
         {
-            _userRepo = userRepo;
+            _unitOfWork = unitOfWork;
             _jwtSettings = jwtOptions.Value;
         }
 
         public async Task<LoginResponse?> LoginAsync(LoginRequest dto)
         {
-            var user = await _userRepo.GetByEmailAsync(dto.Email);
+            // Check if the user exists and validate the password
+            var user = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
             if (user == null || user.Password != dto.Password) // Use hashing in real apps
                 return null;
 
@@ -54,13 +58,15 @@ namespace MetroOne.BLL.Services.Implementations
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var jwt = tokenHandler.WriteToken(token);
 
-            return new LoginResponse
+            var responseOjb = new LoginResponse
             {
                 Token = jwt,
                 Role = user.Role,
                 FullName = user.FullName,
                 ExpiresIn = _jwtSettings.ExpiryMinutes * 60
             };
+
+            return (responseOjb);
         }
     }
 

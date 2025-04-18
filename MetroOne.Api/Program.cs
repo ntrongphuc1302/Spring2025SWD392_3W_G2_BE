@@ -4,6 +4,7 @@ using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DAL;
 using MetroOne.DAL.Repositories.Implementations;
 using MetroOne.DAL.Repositories.Interfaces;
+using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -64,12 +65,15 @@ builder.Services.AddAuthorization();
 
 #endregion
 
-#region add CORS
+#region CORS
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 #endregion
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
