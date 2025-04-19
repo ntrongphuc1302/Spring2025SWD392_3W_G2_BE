@@ -153,6 +153,8 @@ public partial class MetroonedbContext : DbContext
             entity.Property(e => e.StartStationId).HasColumnName("StartStationID");
             entity.Property(e => e.TrainName).HasMaxLength(100);
 
+            entity.Property(e => e.Capacity).HasColumnName("Capacity").HasColumnType("int");
+
             entity.HasOne(d => d.EndStation).WithMany(p => p.TrainEndStations)
                 .HasForeignKey(d => d.EndStationId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
