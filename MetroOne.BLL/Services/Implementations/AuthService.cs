@@ -31,7 +31,7 @@ namespace MetroOne.BLL.Services.Implementations
         {
             // Check if the user exists and validate the password
             var user = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
-            if (user == null || user.Password != dto.Password) // Use hashing in real apps
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -41,7 +41,7 @@ namespace MetroOne.BLL.Services.Implementations
             {
             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role ?? "User"),
+            new Claim(ClaimTypes.Role, user.Role ?? "Passenger"),
             };
 
             var now = DateTime.UtcNow;
@@ -90,7 +90,7 @@ namespace MetroOne.BLL.Services.Implementations
             var user = new User
                 {
                     Email = dto.Email,
-                    Password = dto.Password, // Use hashing in real apps
+                    Password = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor:12),
                     FullName = dto.FullName,
                     Phone = dto.Phone,
                     Role = role
