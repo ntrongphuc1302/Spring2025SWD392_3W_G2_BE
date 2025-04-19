@@ -1,18 +1,8 @@
 [
   {
-    "ContainingType": "Backend.Controllers.MetroOneController",
-    "Method": "CheckDatabaseConnection",
-    "RelativePath": "MetroOne/CheckDatabaseConnection",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.Controllers.MetroOneController",
+    "ContainingType": "Backend.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "MetroOne/login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -26,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.Controllers.MetroOneController",
+    "ContainingType": "Backend.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "MetroOne/register",
+    "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -42,9 +32,29 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.Controllers.MetroOneController",
+    "ContainingType": "Backend.Controllers.DebugController",
+    "Method": "CheckDatabaseConnection",
+    "RelativePath": "api/Debug/CheckDatabaseConnection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UsersController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UsersController",
     "Method": "SoftDeleteUser",
-    "RelativePath": "MetroOne/user/delete",
+    "RelativePath": "api/Users/delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -58,9 +68,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.Controllers.MetroOneController",
+    "ContainingType": "Backend.Controllers.UsersController",
     "Method": "UpdateUser",
-    "RelativePath": "MetroOne/user/update",
+    "RelativePath": "api/Users/update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

@@ -37,7 +37,9 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"))
 
 builder.Services.AddSwaggerGen(opt =>
 {
-    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MetroOne API", Version = "v1" });
+    opt.SwaggerDoc("Users", new OpenApiInfo { Title = "User APIs", Version = "v1" });
+    opt.SwaggerDoc("Auth", new OpenApiInfo { Title = "User APIs", Version = "v1" });
+    opt.SwaggerDoc("Debug", new OpenApiInfo { Title = "Debug APIs", Version = "v1" });
 
     // Add JWT bearer to Swagger
     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -79,7 +81,6 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 
 // Register the DbContext with the connection string
@@ -96,7 +97,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/Auth/swagger.json", "Auth API");
+        options.SwaggerEndpoint("/swagger/Users/swagger.json", "User APIs");
+        options.SwaggerEndpoint("/swagger/Debug/swagger.json", "Debug APIs");
+    });
 }
 
 app.UseHttpsRedirection();
