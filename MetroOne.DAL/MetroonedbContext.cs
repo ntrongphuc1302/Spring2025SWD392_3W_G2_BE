@@ -193,6 +193,9 @@ public partial class MetroonedbContext : DbContext
             entity.Property(e => e.Password).HasMaxLength(100);
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.Role).HasMaxLength(50);
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValueSql("('Active')");
         });
         modelBuilder.Entity<User>()
                     .Property(u => u.UserId)

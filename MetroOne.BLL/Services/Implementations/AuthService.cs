@@ -76,10 +76,17 @@ namespace MetroOne.BLL.Services.Implementations
         #region Register
         public async Task<RegisterResponse?> RegisterAsync(RegisterRequest dto)
         {
-            var role = dto.Role ?? "Passenger"; // Default role
+            var role = dto.Role ?? "Passenger";
 
-            if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin" && dto.Role != "Driver")
-                role = "Passenger"; // Default role
+            if (string.Equals(dto.Status, "Deleted", StringComparison.OrdinalIgnoreCase))
+                throw new Exception("Cannot register with Deleted status");
+
+            var status = string.IsNullOrWhiteSpace(dto.Status) ? "Active" : dto.Status;
+
+
+
+            if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin")
+                role = "Passenger";
 
             // Check if the email already exists
             if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
@@ -93,7 +100,7 @@ namespace MetroOne.BLL.Services.Implementations
                     FullName = dto.FullName,
                     Phone = dto.Phone,
                     Role = role,
-                    Status = dto.Status ?? "Active", // Default status
+                    Status = status
             };
             var result = await _unitOfWork.Users.CreateAsync(user);
             if (!result)
