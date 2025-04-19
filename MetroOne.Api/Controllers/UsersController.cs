@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Requests;
+using MetroOne.DTO.Constants;
 
 namespace Backend.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 [ApiExplorerSettings(GroupName = "Users")]
 public class UsersController : ControllerBase
 {
@@ -16,7 +16,8 @@ public class UsersController : ControllerBase
         _userService = userService;
     }
 
-    [HttpPut("update")]
+    [HttpPut]
+    [Route(ApiRoutes.Users.Update)]
     public async Task<IActionResult> UpdateUser(UpdateUserRequest dto)
     {
         try
@@ -30,7 +31,8 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpDelete("delete")]
+    [HttpDelete]
+    [Route(ApiRoutes.Users.Delete)] 
     public async Task<IActionResult> SoftDeleteUser(DeleteUserRequest userId)
     {
         try
@@ -48,9 +50,25 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+    [Route(ApiRoutes.Users.GetAll)]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _userService.GetAllUsersAsync();
         return Ok(users);
+    }
+
+    [HttpGet]
+    [Route(ApiRoutes.Users.GetById)]
+    public async Task<IActionResult> GetUserById(int id)
+    {
+        try
+        {
+            var user = await _userService.GetByIdAsync(id);
+            return Ok(user);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 }

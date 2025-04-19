@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Requests;
+using MetroOne.DTO.Constants;
 
 namespace Backend.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 [ApiExplorerSettings(GroupName = "Auth")]
 public class AuthController : ControllerBase
 {
@@ -18,7 +18,8 @@ public class AuthController : ControllerBase
         _logger = logger;
     }
 
-    [HttpPost("login")]
+    [HttpPost]
+    [Route(ApiRoutes.Auth.Login)]
     public async Task<IActionResult> Login([FromBody] LoginRequest dto)
     {
         try
@@ -33,7 +34,8 @@ public class AuthController : ControllerBase
         }
     }
 
-    [HttpPost("register")]
+    [HttpPost]
+    [Route(ApiRoutes.Auth.Register)]
     public async Task<IActionResult> Register(RegisterRequest dto)
     {
         try

@@ -2,7 +2,7 @@
   {
     "ContainingType": "Backend.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "Backend.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/register",
+    "RelativePath": "api/auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "Backend.Controllers.DebugController",
     "Method": "CheckDatabaseConnection",
-    "RelativePath": "api/Debug/CheckDatabaseConnection",
+    "RelativePath": "api/debug/db-check",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -43,8 +43,24 @@
   },
   {
     "ContainingType": "Backend.Controllers.UsersController",
+    "Method": "GetUserById",
+    "RelativePath": "api/user/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UsersController",
     "Method": "GetAllUsers",
-    "RelativePath": "api/Users",
+    "RelativePath": "api/user/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -54,7 +70,7 @@
   {
     "ContainingType": "Backend.Controllers.UsersController",
     "Method": "SoftDeleteUser",
-    "RelativePath": "api/Users/delete",
+    "RelativePath": "api/user/delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -70,7 +86,7 @@
   {
     "ContainingType": "Backend.Controllers.UsersController",
     "Method": "UpdateUser",
-    "RelativePath": "api/Users/update",
+    "RelativePath": "api/user/update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
