@@ -27,8 +27,10 @@ namespace MetroOne.DTO.Requests
         [RegularExpression(@"^(\+?\d{1,3})?[- ]?\d{10}$", ErrorMessage = "Invalid phone number format.")]
         [StringLength(20)]
         public required string Phone { get; set; }
+        public string? Role { get; set; }
 
-        public string? Role { get; set; } //Optional default is "Passenger"
+        [RegularExpression(@"^(Active|Deactivated|Deleted)$", ErrorMessage = "Status must be Active, Deactivated or Deleted")]
+        public string? Status { get; set; }
     }
 
 }

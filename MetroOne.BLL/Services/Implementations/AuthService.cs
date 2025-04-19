@@ -93,7 +93,8 @@ namespace MetroOne.BLL.Services.Implementations
                     Password = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor:12),
                     FullName = dto.FullName,
                     Phone = dto.Phone,
-                    Role = role
+                    Role = role,
+                    Status = dto.Status ?? "Active", // Default status
             };
             var result = await _unitOfWork.Users.CreateAsync(user);
             if (!result)
@@ -103,7 +104,8 @@ namespace MetroOne.BLL.Services.Implementations
                 UserId = user.UserId,
                 Email = user.Email,
                 FullName = user.FullName,
-                Role = user.Role
+                Role = user.Role,
+                Status = user.Status
             };
         }
 

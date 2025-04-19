@@ -67,6 +67,37 @@
         }
       }
     },
+    "/MetroOne/user/update": {
+      "put": {
+        "tags": [
+          "MetroOne"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/MetroOne/CheckDatabaseConnection": {
       "get": {
         "tags": [
@@ -133,6 +164,53 @@
             "type": "string"
           },
           "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "pattern": "^(Active|Deactivated|Deleted)$",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateUserRequest": {
+        "required": [
+          "email",
+          "fullName",
+          "phone",
+          "role",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "maxLength": 100,
+            "minLength": 3,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
+            "minLength": 1,
+            "pattern": "^(0|\\+84)[3|5|7|8|9]\\d{8}$",
+            "type": "string"
+          },
+          "role": {
+            "minLength": 1,
+            "pattern": "^(Admin|Passenger)$",
+            "type": "string"
+          },
+          "status": {
+            "pattern": "^(Active|Deactivated|Deleted)$",
             "type": "string",
             "nullable": true
           }
