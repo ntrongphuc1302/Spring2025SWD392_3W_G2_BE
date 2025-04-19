@@ -37,7 +37,7 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> UpdateUserAsync(UpdateUserRequest dto)
+        public async Task<bool> UpdateUserAsync(User dto)
         {
             var user = await _context.Users.FindAsync(dto.UserId);
             if (user == null) return false;
