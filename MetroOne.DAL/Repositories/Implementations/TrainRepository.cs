@@ -33,9 +33,9 @@ namespace MetroOne.DAL.Repositories.Implementations
             }
         }
 
-        public async Task<Train?> getTrainByNameAsync(string TrainName)
+        public async Task<Train?> getTrainByNameAsync(string trainName)
         {
-            return await _context.Trains.FindAsync(TrainName);
+            return await _context.Trains.FirstOrDefaultAsync(t => t.TrainName == trainName);
         }
 
         public async Task<IEnumerable<Train?>> getTrainsAsync()

@@ -90,6 +90,27 @@
           }
         }
       }
+    },
+    "/api/Train/api/Train": {
+      "get": {
+        "tags": [
+          "Train"
+        ],
+        "parameters": [
+          {
+            "name": "trainName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

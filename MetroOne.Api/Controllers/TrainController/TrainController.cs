@@ -24,8 +24,6 @@ namespace MetroOne.API.Controllers.TrainController
             _authService = authService;
         }
 
-
-
         // GET: TrainController
         [HttpGet("getTrain")]
         public async Task<IActionResult> Index()
@@ -38,11 +36,17 @@ namespace MetroOne.API.Controllers.TrainController
             return Ok(trains);
         }
 
-        //// GET: TrainController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+        [HttpGet("api/[controller]")]
+        // GET: TrainController/Details/5
+        public async Task<ActionResult> GetTrainByName(string trainName)
+        {
+            var train = await _unitOfWork.TrainRepository.getTrainByNameAsync(trainName);
+            if (train == null)
+            {
+                return NotFound("TRAIN NOT FOUND OR DOESN'T EXIST!");
+            }
+            return Ok(train);
+        }
 
         //// GET: TrainController/Create
         //public ActionResult Create()

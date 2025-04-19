@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {}
+    "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {
+    "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj",
         "projectName": "MetroOne.DTO",
-        "projectPath": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj",
+        "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj",
         "packagesPath": "C:\\Users\\phuth\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\obj\\",
         "projectStyle": "PackageReference",

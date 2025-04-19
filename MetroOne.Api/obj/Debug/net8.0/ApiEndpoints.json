@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "MetroOne.API.Controllers.TrainController.TrainController",
+    "Method": "GetTrainByName",
+    "RelativePath": "api/Train/api/Train",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trainName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController.TrainController",
     "Method": "Index",
     "RelativePath": "api/Train/getTrain",
     "HttpMethod": "GET",
