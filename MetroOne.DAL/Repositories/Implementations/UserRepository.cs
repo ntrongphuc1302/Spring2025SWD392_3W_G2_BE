@@ -52,6 +52,13 @@ namespace MetroOne.DAL.Repositories.Implementations
             return true;
         }
 
+        public async Task<List<User>> GetAllActiveUsersAsync()
+        {
+            return await _context.Users
+                .Where(u => u.Status != "Deleted")
+                .ToListAsync();
+        }
+
     }
 
 }

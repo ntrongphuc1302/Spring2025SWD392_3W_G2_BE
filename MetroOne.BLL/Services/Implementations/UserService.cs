@@ -52,6 +52,22 @@ namespace MetroOne.BLL.Services.Implementations
             return true;
         }
 
+        public async Task<List<GetAllUsersResponse>> GetAllUsersAsync()
+        {
+            var users = await _unitOfWork.Users.GetAllActiveUsersAsync();
+
+            return users.Select(u => new GetAllUsersResponse
+            {
+                Id = u.UserId,
+                FullName = u.FullName,
+                Email = u.Email,
+                Phone = u.Phone,
+                Role = u.Role,
+                Status = u.Status
+            }).ToList();
+        }
+
+
 
     }
 }
