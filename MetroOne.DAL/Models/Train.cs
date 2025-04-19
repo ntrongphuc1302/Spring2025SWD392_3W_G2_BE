@@ -12,6 +12,7 @@ public partial class Train
     public int StartStationId { get; set; }
 
     public int EndStationId { get; set; }
+    public int Capacity { get; set; }
 
     public TimeOnly? EstimatedTime { get; set; }
 
