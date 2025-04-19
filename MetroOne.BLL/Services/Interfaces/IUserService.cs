@@ -11,6 +11,8 @@ namespace MetroOne.BLL.Services.Interfaces
     public interface IUserService
     {
         Task<bool> UpdateUserAsync(UpdateUserRequest dto);
+        Task<bool> SoftDeleteUserAsync(int userId);
+
     }
 
 }

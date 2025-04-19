@@ -98,6 +98,37 @@
         }
       }
     },
+    "/MetroOne/user/delete": {
+      "delete": {
+        "tags": [
+          "MetroOne"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/MetroOne/CheckDatabaseConnection": {
       "get": {
         "tags": [
@@ -113,6 +144,19 @@
   },
   "components": {
     "schemas": {
+      "DeleteUserRequest": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "required": [
           "email",

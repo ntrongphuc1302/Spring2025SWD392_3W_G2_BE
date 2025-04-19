@@ -32,7 +32,7 @@ namespace MetroOne.BLL.Services.Implementations
             // Check if the user exists and validate the password
             var user = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
-                return null;
+                throw new Exception(message: "Invalid email or password");
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_jwtSettings.Key);
@@ -63,7 +63,7 @@ namespace MetroOne.BLL.Services.Implementations
             var responseOjb = new LoginResponse
             {
                 Token = jwt,
-                Role = user.Role,
+                Role = user.Role ?? "Passenger",
                 FullName = user.FullName,
                 ExpiresIn = _jwtSettings.ExpiryMinutes * 60
             };
@@ -78,13 +78,12 @@ namespace MetroOne.BLL.Services.Implementations
         {
             var role = dto.Role ?? "Passenger"; // Default role
 
-            //check if role is Passenger or Admin or Driver
             if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin" && dto.Role != "Driver")
                 role = "Passenger"; // Default role
 
             // Check if the email already exists
             if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
-                return null;
+                throw new Exception(message:"Email already exists");
 
 
             var user = new User
@@ -98,7 +97,7 @@ namespace MetroOne.BLL.Services.Implementations
             };
             var result = await _unitOfWork.Users.CreateAsync(user);
             if (!result)
-                return null;
+                throw new Exception("Failed to create user");
             return new RegisterResponse
             {
                 UserId = user.UserId,
