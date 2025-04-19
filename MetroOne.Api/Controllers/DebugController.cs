@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MetroOne.DAL;
 using Microsoft.EntityFrameworkCore;
+using MetroOne.DTO.Constants;
 
 namespace Backend.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 [ApiExplorerSettings(GroupName = "Debug")]
 public class DebugController : ControllerBase
 {
@@ -18,7 +18,8 @@ public class DebugController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet("CheckDatabaseConnection")]
+    [HttpGet]
+    [Route(ApiRoutes.Debug.CheckDb)]
     public IActionResult CheckDatabaseConnection()
     {
         try

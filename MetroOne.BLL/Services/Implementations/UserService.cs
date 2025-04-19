@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MetroOne.BLL.Services.Interfaces;
+using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Responses;
 using Microsoft.EntityFrameworkCore;
@@ -67,7 +68,14 @@ namespace MetroOne.BLL.Services.Implementations
             }).ToList();
         }
 
+        public async Task<User> GetByIdAsync(int id)
+        {
+            var user = await _unitOfWork.Users.GetByIdAsync(id);
+            if (user == null || user.Status == "Deleted")
+                throw new Exception("User not found");
 
+            return user;
+        }
 
     }
 }
