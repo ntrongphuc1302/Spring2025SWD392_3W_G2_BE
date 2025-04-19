@@ -29,7 +29,7 @@ namespace MetroOne.DTO.Requests
         public required string Phone { get; set; }
         public string? Role { get; set; }
 
-        [RegularExpression(@"^(Active|Deactivated|Deleted)$", ErrorMessage = "Status must be Active, Deactivated or Deleted")]
+        [RegularExpression(@"^(Active|Deactivated)$", ErrorMessage = "Status must be Active, Deactivated")]
         public string? Status { get; set; }
     }
 
