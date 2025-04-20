@@ -16,6 +16,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
         Task<Boolean> CreateAsync(User user);
         Task<bool> UpdateUserAsync(User dto);
         Task<List<User>> GetAllActiveUsersAsync();
+        Task<bool> HardDeleteUserAsync(int id);
 
     }
 }
