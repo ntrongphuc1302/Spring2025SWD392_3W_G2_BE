@@ -6,7 +6,6 @@ using MetroOne.DTO.Constants;
 namespace Backend.Controllers;
 
 [ApiController]
-[ApiExplorerSettings(GroupName = "Auth")]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
@@ -18,7 +17,12 @@ public class AuthController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Login a user 
+    /// </summary>
+    /// 
     [HttpPost]
+    
     [Route(ApiRoutes.Auth.Login)]
     public async Task<IActionResult> Login([FromBody] LoginRequest dto)
     {
@@ -34,6 +38,9 @@ public class AuthController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Register a new user
+    /// </summary>
     [HttpPost]
     [Route(ApiRoutes.Auth.Register)]
     public async Task<IActionResult> Register(RegisterRequest dto)

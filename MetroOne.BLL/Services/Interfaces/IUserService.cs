@@ -15,6 +15,7 @@ namespace MetroOne.BLL.Services.Interfaces
         Task<bool> SoftDeleteUserAsync(int userId);
         Task<List<GetAllUsersResponse>> GetAllUsersAsync();
         Task<User> GetByIdAsync(int id);
+        Task<bool> HardDeleteUserAsync(int id);
 
     }
 

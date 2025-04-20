@@ -6,7 +6,6 @@ using MetroOne.DTO.Constants;
 namespace Backend.Controllers;
 
 [ApiController]
-[ApiExplorerSettings(GroupName = "Debug")]
 public class DebugController : ControllerBase
 {
     private readonly MetroonedbContext _context;

@@ -25,7 +25,7 @@ namespace MetroOne.BLL.Services.Implementations
             var user = await _unitOfWork.Users.GetByIdAsync(dto.UserId);
 
             if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
-               throw new Exception("Email already exists"); 
+                throw new Exception("Email already exists");
 
             if (user == null)
                 throw new Exception("User not found");
@@ -77,6 +77,32 @@ namespace MetroOne.BLL.Services.Implementations
             return user;
         }
 
+        public async Task<bool> HardDeleteUserAsync(int id)
+        {
+            var user = await _unitOfWork.Users.GetByIdAsync(id);
+            if (user != null)
+            {
+                var userId = user.UserId;
+
+                if (user.Status != "Deleted")
+                    throw new Exception("This User cannot be Hard deleted");
+
+                var result = await _unitOfWork.Users.HardDeleteUserAsync(userId);
+                if (result)
+                {
+                    await _unitOfWork.SaveAsync();
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Failed to delete user");
+                }
+            } else
+            {
+                throw new Exception("User not found");
+            }
+
+        }
     }
 }
 

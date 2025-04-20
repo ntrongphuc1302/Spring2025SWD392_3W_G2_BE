@@ -2,11 +2,11 @@
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers;
 
 [ApiController]
-[ApiExplorerSettings(GroupName = "Users")]
 public class UsersController : ControllerBase
 {
     private readonly IUserService _userService;
@@ -16,6 +16,11 @@ public class UsersController : ControllerBase
         _userService = userService;
     }
 
+    /// <summary>
+    /// Update a user's information
+    /// </summary>
+    ///
+    [Authorize]
     [HttpPut]
     [Route(ApiRoutes.Users.Update)]
     public async Task<IActionResult> UpdateUser(UpdateUserRequest dto)
@@ -31,16 +36,22 @@ public class UsersController : ControllerBase
         }
     }
 
+
+    /// <summary>
+    /// Deletes a user 
+    /// </summary>
+    /// <param name="id">The ID of the user to delete</param>
+    [Authorize]
     [HttpDelete]
     [Route(ApiRoutes.Users.Delete)] 
-    public async Task<IActionResult> SoftDeleteUser(DeleteUserRequest userId)
+    public async Task<IActionResult> SoftDeleteUser(int id)
     {
         try
         {
-            if (userId == null || userId.UserId <= 0)
+            if (id <= 0)
                 return BadRequest("Invalid user ID");
 
-            var success = await _userService.SoftDeleteUserAsync(userId.UserId);
+            var success = await _userService.SoftDeleteUserAsync(id);
             return success ? Ok("User deleted successfully") : NotFound("User not found or already deleted");
         }
         catch (Exception ex)
@@ -49,6 +60,36 @@ public class UsersController : ControllerBase
         }
     }
 
+
+    /// <summary>
+    /// Hard deletes a user from database
+    /// </summary>
+    /// <param name="userId">The ID of the user to delete</param>
+    /// 
+    [Authorize]
+    [HttpDelete]
+    [Route(ApiRoutes.Users.HardDelete)]
+    public async Task<IActionResult> HardDeleteUser(int userId)
+    {
+        try
+        {
+            if (userId <= 0)
+                return BadRequest("Invalid user ID");
+            var success = await _userService.HardDeleteUserAsync(userId);
+            return success ? Ok("User deleted successfully") : NotFound("User not found or already deleted");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    /// <summary>
+    /// Get all active users
+    /// </summary>
+    /// <returns>List of users</returns>
+    /// 
+    [Authorize]
     [HttpGet]
     [Route(ApiRoutes.Users.GetAll)]
     public async Task<IActionResult> GetAllUsers()
@@ -57,6 +98,12 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
+    /// <summary>
+    /// Get a user by ID 
+    /// </summary>
+    /// <param name="id">The ID of the user to delete</param>
+    /// 
+    [Authorize]
     [HttpGet]
     [Route(ApiRoutes.Users.GetById)]
     public async Task<IActionResult> GetUserById(int id)
