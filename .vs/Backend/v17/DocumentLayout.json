@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.bll\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|solutionrelative:metroone.bll\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.bll\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|solutionrelative:metroone.bll\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.bll\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|solutionrelative:metroone.bll\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.dal\\database\\structure.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|solutionrelative:metroone.dal\\database\\structure.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.api\\controllers\\traincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,32 +31,12 @@
       "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\controllers\\debugcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23C7BD2D-57CC-BE9A-9F20-8EE2592B8CCB}|MetroOne.DTO\\MetroOne.DTO.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.dto\\constants\\apiendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23C7BD2D-57CC-BE9A-9F20-8EE2592B8CCB}|MetroOne.DTO\\MetroOne.DTO.csproj|solutionrelative:metroone.dto\\constants\\apiendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.api\\metroone.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{FFA44C83-3242-96FD-7429-C7BE4C61C7C1}|MetroOne.Api\\MetroOne.API.csproj|solutionrelative:metroone.api\\metroone.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.bll\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|solutionrelative:metroone.bll\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.bll\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFE61FDD-EFA7-754D-4958-5F5026FF7518}|MetroOne.BLL\\MetroOne.BLL.csproj|solutionrelative:metroone.bll\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.dal\\repositories\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|solutionrelative:metroone.dal\\repositories\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.dal\\database\\structure.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|solutionrelative:metroone.dal\\database\\structure.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14E4342B-4CCD-5DE7-7DEF-603254AA848F}|MetroOne.DAL\\MetroOne.DAL.csproj|d:\\fptu\\spring2025swd392_3w_g2_be\\metroone.dal\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,8 +54,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 232,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "MetroOne.Api\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "MetroOne.Api\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAkwF8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T07:44:13.386Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -76,7 +77,7 @@
               "RelativeDocumentMoniker": "MetroOne.Api\\Program.cs",
               "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Program.cs",
               "RelativeToolTip": "MetroOne.Api\\Program.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAIAwwF0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-20T13:21:19.515Z",
               "EditorCaption": ""
@@ -84,19 +85,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "MetroOne.API",
+              "Title": "MetroOne.API.csproj",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
               "RelativeDocumentMoniker": "MetroOne.Api\\MetroOne.API.csproj",
               "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
               "RelativeToolTip": "MetroOne.Api\\MetroOne.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-20T13:20:55.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T13:20:55.147Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "DebugController.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\DebugController.cs",
               "RelativeDocumentMoniker": "MetroOne.Api\\Controllers\\DebugController.cs",
@@ -104,12 +104,11 @@
               "RelativeToolTip": "MetroOne.Api\\Controllers\\DebugController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:18:43.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T11:18:43.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TrainController.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\TrainController.cs",
               "RelativeDocumentMoniker": "MetroOne.Api\\Controllers\\TrainController.cs",
@@ -117,25 +116,24 @@
               "RelativeToolTip": "MetroOne.Api\\Controllers\\TrainController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:18:39.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T11:18:39.166Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Implementations\\UserService.cs",
               "RelativeDocumentMoniker": "MetroOne.BLL\\Services\\Implementations\\UserService.cs",
               "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Implementations\\UserService.cs",
               "RelativeToolTip": "MetroOne.BLL\\Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-20T11:35:01.79Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\Repositories\\Implementations\\UserRepository.cs",
               "RelativeDocumentMoniker": "MetroOne.DAL\\Repositories\\Implementations\\UserRepository.cs",
@@ -143,38 +141,37 @@
               "RelativeToolTip": "MetroOne.DAL\\Repositories\\Implementations\\UserRepository.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAswF8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:27:48.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T11:27:48.428Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "Structure.sql",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\Database\\Structure.sql",
               "RelativeDocumentMoniker": "MetroOne.DAL\\Database\\Structure.sql",
               "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\Database\\Structure.sql",
               "RelativeToolTip": "MetroOne.DAL\\Database\\Structure.sql",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAkwF0AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2025-04-20T11:29:45.802Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "IUserService.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "MetroOne.BLL\\Services\\Interfaces\\IUserService.cs",
               "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Interfaces\\IUserService.cs",
               "RelativeToolTip": "MetroOne.BLL\\Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAASwBEAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-20T11:20:46.268Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\Repositories\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "MetroOne.DAL\\Repositories\\Interfaces\\IUserRepository.cs",
@@ -182,12 +179,11 @@
               "RelativeToolTip": "MetroOne.DAL\\Repositories\\Interfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:27:16.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T11:27:16.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
               "Title": "ITrainService.cs",
               "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Interfaces\\ITrainService.cs",
               "RelativeDocumentMoniker": "MetroOne.BLL\\Services\\Interfaces\\ITrainService.cs",
@@ -195,66 +191,7 @@
               "RelativeToolTip": "MetroOne.BLL\\Services\\Interfaces\\ITrainService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:20:55.77Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 232,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "MetroOne.BLL\\Services\\Implementations\\AuthService.cs",
-              "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\Services\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "MetroOne.BLL\\Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAwwHkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T13:43:21.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "APIEndPoints.cs",
-              "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\Constants\\APIEndPoints.cs",
-              "RelativeDocumentMoniker": "MetroOne.DTO\\Constants\\APIEndPoints.cs",
-              "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\Constants\\APIEndPoints.cs",
-              "RelativeToolTip": "MetroOne.DTO\\Constants\\APIEndPoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T13:06:29.684Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "MetroOne.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "MetroOne.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwB4AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:18:53.697Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "MetroOne.Api\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "MetroOne.Api\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T11:19:43.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T11:20:55.77Z"
             }
           ]
         }
