@@ -1,46 +1,6 @@
 [
   {
-<<<<<<< HEAD
-    "ContainingType": "MetroOne.API.Controllers.TrainController.TrainController",
-    "Method": "GetTrainByName",
-    "RelativePath": "api/Train/api/Train",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "trainName",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MetroOne.API.Controllers.TrainController.TrainController",
-    "Method": "Index",
-    "RelativePath": "api/Train/getTrain",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.Controllers.MetroOneController",
-    "Method": "CheckDatabaseConnection",
-    "RelativePath": "MetroOne/CheckDatabaseConnection",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.Controllers.MetroOneController",
-=======
     "ContainingType": "Backend.Controllers.AuthController",
->>>>>>> 5e2bd68df7897be49428a4a12d4320ac997d1c70
     "Method": "Login",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
@@ -75,6 +35,32 @@
     "ContainingType": "Backend.Controllers.DebugController",
     "Method": "CheckDatabaseConnection",
     "RelativePath": "api/debug/db-check",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "GetTrainByName",
+    "RelativePath": "api/Train/api/Train",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trainName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "Index",
+    "RelativePath": "api/Train/getTrain",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
