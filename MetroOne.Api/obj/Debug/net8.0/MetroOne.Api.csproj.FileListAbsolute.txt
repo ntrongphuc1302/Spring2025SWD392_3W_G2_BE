@@ -302,3 +302,4 @@ C:\Users\phuth\Source\Repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net
 C:\Users\phuth\Source\Repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\phuth\Source\Repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\phuth\Source\Repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net8.0\BCrypt.Net-Next.dll

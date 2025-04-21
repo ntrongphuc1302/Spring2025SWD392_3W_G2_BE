@@ -31,8 +31,8 @@ namespace MetroOne.BLL.Services.Implementations
         {
             // Check if the user exists and validate the password
             var user = await _unitOfWork.Users.GetByEmailAsync(dto.Email);
-            if (user == null || user.Password != dto.Password) // Use hashing in real apps
-                return null;
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
+                throw new Exception(message: "Invalid email or password");
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_jwtSettings.Key);
@@ -41,7 +41,7 @@ namespace MetroOne.BLL.Services.Implementations
             {
             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role ?? "User"),
+            new Claim(ClaimTypes.Role, user.Role ?? "Passenger"),
             };
 
             var now = DateTime.UtcNow;
@@ -63,7 +63,7 @@ namespace MetroOne.BLL.Services.Implementations
             var responseOjb = new LoginResponse
             {
                 Token = jwt,
-                Role = user.Role,
+                Role = user.Role ?? "Passenger",
                 FullName = user.FullName,
                 ExpiresIn = _jwtSettings.ExpiryMinutes * 60
             };
@@ -78,32 +78,33 @@ namespace MetroOne.BLL.Services.Implementations
         {
             var role = dto.Role ?? "Passenger"; // Default role
 
-            //check if role is Passenger or Admin or Driver
             if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin" && dto.Role != "Driver")
                 role = "Passenger"; // Default role
 
             // Check if the email already exists
             if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
-                return null;
+                throw new Exception(message:"Email already exists");
 
 
             var user = new User
                 {
                     Email = dto.Email,
-                    Password = dto.Password, // Use hashing in real apps
+                    Password = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor:12),
                     FullName = dto.FullName,
                     Phone = dto.Phone,
-                    Role = role
+                    Role = role,
+                    Status = dto.Status ?? "Active", // Default status
             };
             var result = await _unitOfWork.Users.CreateAsync(user);
             if (!result)
-                return null;
+                throw new Exception("Failed to create user");
             return new RegisterResponse
             {
                 UserId = user.UserId,
                 Email = user.Email,
                 FullName = user.FullName,
-                Role = user.Role
+                Role = user.Role,
+                Status = user.Status
             };
         }
 

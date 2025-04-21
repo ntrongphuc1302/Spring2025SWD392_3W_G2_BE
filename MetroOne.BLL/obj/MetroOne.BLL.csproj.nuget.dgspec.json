@@ -11,7 +11,7 @@
         "projectName": "MetroOne.BLL",
         "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\MetroOne.BLL.csproj",
         "packagesPath": "C:\\Users\\phuth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\obj\\",
+        "outputPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,6 +57,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"
@@ -109,7 +113,7 @@
         "projectName": "MetroOne.DAL",
         "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\MetroOne.DAL.csproj",
         "packagesPath": "C:\\Users\\phuth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\obj\\",
+        "outputPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -152,6 +156,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"
@@ -208,7 +216,7 @@
         "projectName": "MetroOne.DTO",
         "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj",
         "packagesPath": "C:\\Users\\phuth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\phuth\\Source\\Repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\obj\\",
+        "outputPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -247,6 +255,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"

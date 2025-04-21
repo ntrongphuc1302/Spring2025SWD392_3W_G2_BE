@@ -1,11 +1,11 @@
 USE METROONEDB
 GO
--- USERS
-INSERT INTO Users (FullName, Password, Email, Phone, Role) VALUES
-(N'Nguyen Van A', '1', 'admin@gmail.com', '0901234567', 'Passenger'),
-(N'Le Thi Mai', '1', 'maile@gmail.com', '0902345678', 'Passenger'),
-(N'Tran Quoc Bao', '1', 'baotran@gmail.com', '0903456789', 'Admin');
 
+-- USERS
+INSERT INTO Users (FullName, Password, Email, Phone, Role, Status) VALUES
+(N'ADMIN', '$2a$12$UmKL0sykY8/HjkzR78d0P.BCkQhFex2qLZTiXu2TlTVXVc3BycnXW', 'admin@gmail.com', '0694204090', 'Admin', 'Active'), --123456
+(N'Passenger', '$2a$12$a.wVeVicxGJG/KH0OMR2qeaefFwqlP5A52t2rdf6fo3j1RYUYpsUK', 'pass@gmail.com', '0694204090', 'Passenger','Active'),--123456
+(N'Kazei', '$2a$12$FuMXAuzQLrHCsFoHbjfPYeCdLLBMQYJ0miwKAD9I2A97gO.i4QCEK', 'kz@gmail.com', '0694204090', 'Passen','Active');
 -- STATIONS
 INSERT INTO Stations (StationName, StationCode, Location, OrderInRoute) VALUES
 (N'Ben Thanh', 'BTN', N'District 1', 1),
@@ -38,3 +38,5 @@ INSERT INTO Tickets (UserID, TripID, StartStationID, EndStationID, BookingTime, 
 INSERT INTO PaymentStatus (TicketID, PaymentMethod, Amount, PaymentTime, PaymentStatus) VALUES
 (1, 'Momo', 25000, GETDATE(), 'Success'),
 (2, 'ZaloPay', 20000, GETDATE(), 'Success');
+
+select * from Users

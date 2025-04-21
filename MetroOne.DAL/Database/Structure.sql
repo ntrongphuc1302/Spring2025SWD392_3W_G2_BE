@@ -11,7 +11,8 @@ CREATE TABLE Users (
     Password NVARCHAR(100),
     Email NVARCHAR(100) UNIQUE,
     Phone NVARCHAR(20),
-    Role NVARCHAR(50)
+    Role NVARCHAR(50),
+    Status NVARCHAR(50) DEFAULT 'Active'
 );
 go
 

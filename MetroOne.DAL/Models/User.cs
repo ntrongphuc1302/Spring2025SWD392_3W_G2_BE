@@ -16,6 +16,7 @@ public partial class User
     public required string Phone { get; set; }
 
     public required string Role { get; set; }
+    public string? Status { get; set; }
 
     public virtual ICollection<Pass> Passes { get; set; } = new List<Pass>();
 
