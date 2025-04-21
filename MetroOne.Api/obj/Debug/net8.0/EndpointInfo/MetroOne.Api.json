@@ -1,15 +1,16 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "MetroOne API",
-    "version": "v1"
+    "title": "MetroOne.API",
+    "version": "1.0"
   },
   "paths": {
-    "/MetroOne/login": {
+    "/api/auth/login": {
       "post": {
         "tags": [
-          "MetroOne"
+          "Auth"
         ],
+        "summary": "Login a user",
         "requestBody": {
           "content": {
             "application/json": {
@@ -36,11 +37,12 @@
         }
       }
     },
-    "/MetroOne/register": {
+    "/api/auth/register": {
       "post": {
         "tags": [
-          "MetroOne"
+          "Auth"
         ],
+        "summary": "Register a new user",
         "requestBody": {
           "content": {
             "application/json": {
@@ -67,72 +69,130 @@
         }
       }
     },
-    "/MetroOne/user/update": {
-      "put": {
-        "tags": [
-          "MetroOne"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/MetroOne/user/delete": {
-      "delete": {
-        "tags": [
-          "MetroOne"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteUserRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteUserRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteUserRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/MetroOne/CheckDatabaseConnection": {
+    "/api/debug/db-check": {
       "get": {
         "tags": [
-          "MetroOne"
+          "Debug"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/update": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update a user's information",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Deletes a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/delete-hard/{userId}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Hard deletes a user from database",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/all": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all active users",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get a user by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -177,19 +237,6 @@
   },
   "components": {
     "schemas": {
-      "DeleteUserRequest": {
-        "required": [
-          "userId"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginRequest": {
         "required": [
           "email",
@@ -245,7 +292,7 @@
             "nullable": true
           },
           "status": {
-            "pattern": "^(Active|Deactivated|Deleted)$",
+            "pattern": "^(Active|Deactivated)$",
             "type": "string",
             "nullable": true
           }
@@ -287,7 +334,7 @@
             "type": "string"
           },
           "status": {
-            "pattern": "^(Active|Deactivated|Deleted)$",
+            "pattern": "^(Active|Deactivated)$",
             "type": "string",
             "nullable": true
           }

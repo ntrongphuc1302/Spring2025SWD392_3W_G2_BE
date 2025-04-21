@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MetroOne.BLL.Services.Interfaces;
+using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Responses;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ namespace MetroOne.BLL.Services.Implementations
             var user = await _unitOfWork.Users.GetByIdAsync(dto.UserId);
 
             if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
-               throw new Exception("Email already exists"); 
+                throw new Exception("Email already exists");
 
             if (user == null)
                 throw new Exception("User not found");
@@ -52,7 +53,56 @@ namespace MetroOne.BLL.Services.Implementations
             return true;
         }
 
+        public async Task<List<GetAllUsersResponse>> GetAllUsersAsync()
+        {
+            var users = await _unitOfWork.Users.GetAllActiveUsersAsync();
 
+            return users.Select(u => new GetAllUsersResponse
+            {
+                Id = u.UserId,
+                FullName = u.FullName,
+                Email = u.Email,
+                Phone = u.Phone,
+                Role = u.Role,
+                Status = u.Status
+            }).ToList();
+        }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            var user = await _unitOfWork.Users.GetByIdAsync(id);
+            if (user == null || user.Status == "Deleted")
+                throw new Exception("User not found");
+
+            return user;
+        }
+
+        public async Task<bool> HardDeleteUserAsync(int id)
+        {
+            var user = await _unitOfWork.Users.GetByIdAsync(id);
+            if (user != null)
+            {
+                var userId = user.UserId;
+
+                if (user.Status != "Deleted")
+                    throw new Exception("This User cannot be Hard deleted");
+
+                var result = await _unitOfWork.Users.HardDeleteUserAsync(userId);
+                if (result)
+                {
+                    await _unitOfWork.SaveAsync();
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Failed to delete user");
+                }
+            } else
+            {
+                throw new Exception("User not found");
+            }
+
+        }
     }
 }
 
