@@ -99,5 +99,20 @@ namespace MetroOne.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [Authorize, HttpPut]
+        [Route(ApiRoutes.Train.Update)]
+        public async Task<IActionResult> UpdateTrain(UpdateTrainRequest dto)
+        {
+            try
+            {
+                var success = await _trainService.UpdateTrainAsync(dto);
+                return Ok("Train updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

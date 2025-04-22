@@ -15,7 +15,7 @@ namespace MetroOne.BLL.Services.Interfaces
         Task<Train> GetTrainByIdAsync(int id);
         Task<Train> GetTrainByNameAsync(string name);
         Task<CreateTrainRespone> AddTrainAsync(CreateTrainRequest dto);
-        Task<bool> UpdateTrainAsync(Train train);
+        Task<bool> UpdateTrainAsync(UpdateTrainRequest dto);
         Task<bool> DeleteTrainAsync(int id);
     }
 }

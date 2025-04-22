@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MetroOne.DAL.Models;
 using MetroOne.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using static MetroOne.DTO.Constants.ApiRoutes;
+using Train = MetroOne.DAL.Models.Train;
 
 namespace MetroOne.DAL.Repositories.Implementations
 {
@@ -17,19 +19,24 @@ namespace MetroOne.DAL.Repositories.Implementations
             _context = context;
         }
 
-        public async Task AddTrainAsync(Train train)
+        public async Task<bool> AddTrainAsync(Train train)
         {
             _context.Trains.Add(train);
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() >0;
         }
 
-        public async Task DeleteTrainAsync(int TrainID)
+        public async Task<bool> DeleteTrainAsync(int TrainID)
         {
             var train = await _context.Trains.FindAsync(TrainID);
             if (train != null)
             {
                 _context.Trains.Remove(train);
                 await _context.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -43,15 +50,23 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.Trains.FirstOrDefaultAsync(t => t.TrainName == trainName);
         }
 
-        public async Task<IEnumerable<Train?>> GetAllTrainsAsync()
+        public async Task<List<Train?>> GetAllTrainsAsync()
         {
             return await _context.Trains.ToListAsync();
         }
 
-        public async Task UpdateTrainAsync(Train train)
+        public async Task<bool> UpdateTrainAsync(Train dto)
         {
-            _context.Entry(train).State = EntityState.Modified;
+            var train = await _context.Trains.FindAsync(dto.TrainId);
+            if(train != null) { 
+            _context.Entry(dto).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+            return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

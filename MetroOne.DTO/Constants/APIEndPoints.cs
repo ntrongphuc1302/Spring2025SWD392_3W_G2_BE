@@ -26,10 +26,10 @@
             public const string BaseTrain = $"{Base}/train";
             public const string Create = BaseTrain;
             public const string GetAll = $"{BaseTrain}/all";
-            public const string GetById = $"{BaseTrain}/{{id}}";
+            public const string GetById = $"{BaseTrain}/GetTrainById/{{id}}";
             public const string GetByName = $"{BaseTrain}/getTrainByName";
-            public const string Update = $"{BaseTrain}/{{id}}";
-            public const string Delete = $"{BaseTrain}/{{id}}";
+            public const string Update = $"{BaseTrain}/UpdateTrain";
+            public const string Delete = $"{BaseTrain}/DeleteTrain/{{id}}";
         }
 
         public static class Debug

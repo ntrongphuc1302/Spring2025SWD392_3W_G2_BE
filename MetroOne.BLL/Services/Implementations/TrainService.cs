@@ -91,9 +91,28 @@ namespace MetroOne.BLL.Services.Implementations
             return train;
         }
 
-        public Task<bool> UpdateTrainAsync(Train train)
+        public async Task<bool> UpdateTrainAsync(UpdateTrainRequest dto)
         {
-            throw new NotImplementedException();
+            var train = await _unitOfWork.Trains.GetTrainByIdAsync(dto.TrainId);
+            if (train == null)
+                throw new Exception("Train not found!");
+
+            if (!string.IsNullOrEmpty(dto.TrainName))
+                train.TrainName = dto.TrainName;
+
+            if (dto.EstimatedTime.HasValue)
+                train.EstimatedTime = dto.EstimatedTime.Value;
+
+            if (dto.StartStationId.HasValue)
+                train.StartStationId = dto.StartStationId.Value;
+
+            if (dto.EndStationId.HasValue)
+                train.EndStationId = dto.EndStationId.Value;
+
+            if (dto.Capacity.HasValue)
+                train.Capacity = dto.Capacity.Value;
+
+            return await _unitOfWork.Trains.UpdateTrainAsync(train);
         }
     }
 }
