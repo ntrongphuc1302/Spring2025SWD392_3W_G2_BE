@@ -29,10 +29,14 @@ namespace MetroOne.BLL.Services.Implementations
                 EndStationId = dto.EndStationId,
                 Capacity = dto.Capacity,
             };
-            
-            await _unitOfWork.Trains.AddTrainAsync(train);
-            await _unitOfWork.SaveAsync();
 
+            if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName)) { 
+                throw new Exception("Train name already existed!");
+            }
+            else { 
+                await _unitOfWork.Trains.AddTrainAsync(train);
+                await _unitOfWork.SaveAsync();
+            
             return new CreateTrainRespone
             {
                 TrainName = train.TrainName,
@@ -42,6 +46,7 @@ namespace MetroOne.BLL.Services.Implementations
                 Capacity = train.Capacity
             };
         }
+    }
 
         public async Task<bool> DeleteTrainAsync(int id)
         {
@@ -112,7 +117,14 @@ namespace MetroOne.BLL.Services.Implementations
             if (dto.Capacity.HasValue)
                 train.Capacity = dto.Capacity.Value;
 
-            return await _unitOfWork.Trains.UpdateTrainAsync(train);
+            if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName))
+            {
+                throw new Exception("Train name already existed!");
+            }
+            else
+            {
+                return await _unitOfWork.Trains.UpdateTrainAsync(train);
+            }
         }
     }
 }

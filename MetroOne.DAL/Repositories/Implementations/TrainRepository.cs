@@ -68,5 +68,10 @@ namespace MetroOne.DAL.Repositories.Implementations
                 return false;
             }
         }
+
+        public async Task<bool> IsTrainNameExistsAsync(string TrainName)
+        {
+            return await _context.Trains.AnyAsync(t =>t.TrainName == TrainName);
+        }
     }
 }

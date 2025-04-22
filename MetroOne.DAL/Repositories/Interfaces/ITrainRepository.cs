@@ -11,6 +11,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
     {
         Task<List<Train?>> GetAllTrainsAsync();
         Task<Train?> GetTrainByNameAsync(string TrainName);
+        Task<Boolean> IsTrainNameExistsAsync(string TrainName);
         Task<Train?> GetTrainByIdAsync(int id);
         Task<bool> AddTrainAsync(Train train);
         Task<bool> UpdateTrainAsync(Train dto);

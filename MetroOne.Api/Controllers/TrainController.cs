@@ -73,9 +73,15 @@ namespace MetroOne.API.Controllers
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
-
-                var createdTrain = await _trainService.AddTrainAsync(dto);
-                return Ok(createdTrain);
+                try
+                {
+                    var createdTrain = await _trainService.AddTrainAsync(dto);
+                    return Ok(createdTrain);
+                }
+                catch(Exception ex)
+                {
+                    return BadRequest(new { message = ex.Message });
+                }
             }
         }
 
