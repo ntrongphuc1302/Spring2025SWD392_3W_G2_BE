@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using MetroOne.Api.Middlewares;
 using MetroOne.BLL.Services.Implementations;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DAL;
@@ -34,23 +35,23 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 
-     options.Events = new JwtBearerEvents
-        {
-            OnChallenge = context =>
-            {
-                // Skip the default behavior
-                context.HandleResponse();
-                context.Response.StatusCode = 401;
-                context.Response.ContentType = "application/json";
-                return context.Response.WriteAsync("{\"message\": \"You must be logged in to access this resource.\"}");
-            },
-            OnForbidden = context =>
-            {
-                context.Response.StatusCode = 403;
-                context.Response.ContentType = "application/json";
-                return context.Response.WriteAsync("{\"message\": \"You do not have permission to access this resource.\"}");
-            }
-        };
+     //options.Events = new JwtBearerEvents
+     //   {
+     //       OnChallenge = context =>
+     //       {
+     //           // Skip the default behavior
+     //           context.HandleResponse();
+     //           context.Response.StatusCode = 401;
+     //           context.Response.ContentType = "application/json";
+     //           return context.Response.WriteAsync("{\"message\": \"You must be logged in to access this resource.\"}");
+     //       },
+     //       OnForbidden = context =>
+     //       {
+     //           context.Response.StatusCode = 403;
+     //           context.Response.ContentType = "application/json";
+     //           return context.Response.WriteAsync("{\"message\": \"You do not have permission to access this resource.\"}");
+     //       }
+     //   };
 });
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
@@ -146,6 +147,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend");
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseAuthentication(); // JWT must come before UseAuthorization
 
