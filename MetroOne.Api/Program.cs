@@ -103,6 +103,10 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITrainRepository, TrainRepository>();
+builder.Services.AddScoped<ITrainService, TrainService>();
+builder.Services.AddScoped<IStationRepository, StationRepository>();
+builder.Services.AddScoped<IStationService, StationService>();
 
 // Frontend Connection
 builder.Services.AddCors(options =>
@@ -129,7 +133,6 @@ builder.Services.AddDbContext<MetroonedbContext>(options =>
 // Setting up
 
 var app = builder.Build();
-
 
 
 // Configure the HTTP request pipeline.
