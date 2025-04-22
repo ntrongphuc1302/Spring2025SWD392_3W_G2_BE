@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetroOne.DTO.Responses
+namespace MetroOne.DTO.Requests
 {
-    public class GetTrainResponse
+    public class UpdateTrainRequest
     {
-        public string trainName { get; set; }
     }
 }

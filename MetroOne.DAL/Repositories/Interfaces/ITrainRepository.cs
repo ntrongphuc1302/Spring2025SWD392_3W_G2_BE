@@ -9,8 +9,9 @@ namespace MetroOne.DAL.Repositories.Interfaces
 {
     public interface ITrainRepository
     {
-        Task<IEnumerable<Train?>> getTrainsAsync();
-        Task<Train?> getTrainByNameAsync(string TrainName);
+        Task<IEnumerable<Train?>> GetAllTrainsAsync();
+        Task<Train?> GetTrainByNameAsync(string TrainName);
+        Task<Train?> GetTrainByIdAsync(int id);
         Task AddTrainAsync(Train train);
         Task UpdateTrainAsync(Train train);
         Task DeleteTrainAsync(int TrainID);

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MetroOne.DAL.Repositories.Implementations
 {
-    internal class TrainRepository : ITrainRepository
+    public class TrainRepository : ITrainRepository
     {
         private readonly MetroonedbContext _context;
         public TrainRepository(MetroonedbContext context)
@@ -33,12 +33,17 @@ namespace MetroOne.DAL.Repositories.Implementations
             }
         }
 
-        public async Task<Train?> getTrainByNameAsync(string trainName)
+        public async Task<Train?> GetTrainByIdAsync(int id)
+        {
+            return await _context.Trains.FindAsync(id);
+        }
+
+        public async Task<Train?> GetTrainByNameAsync(string trainName)
         {
             return await _context.Trains.FirstOrDefaultAsync(t => t.TrainName == trainName);
         }
 
-        public async Task<IEnumerable<Train?>> getTrainsAsync()
+        public async Task<IEnumerable<Train?>> GetAllTrainsAsync()
         {
             return await _context.Trains.ToListAsync();
         }

@@ -44,7 +44,7 @@
   {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
     "Method": "CreateTrain",
-    "RelativePath": "api/Train",
+    "RelativePath": "api/train",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -55,30 +55,36 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "MetroOne.DTO.Responses.CreateTrainRespone",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
-    "Method": "GetTrainByName",
-    "RelativePath": "api/Train/api/Train",
+    "Method": "GetTrainById",
+    "RelativePath": "api/train/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "trainName",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "DeleteTrain",
+    "RelativePath": "api/train/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -86,11 +92,27 @@
   {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
     "Method": "Index",
-    "RelativePath": "api/Train/getTrain",
+    "RelativePath": "api/train/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "GetTrainByName",
+    "RelativePath": "api/train/getTrainByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

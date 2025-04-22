@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MetroOne.DTO.Responses
 {
-    public class CreateTrainRespone
+    public class GetAllTrainResponse
     {
+        public int TrainId { get; set; }
+
         public string? TrainName { get; set; }
 
         public int StartStationId { get; set; }

@@ -7,31 +7,25 @@ using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Requests;
 using MetroOne.DAL.Models;
 using MetroOne.DTO.Responses;
+using Microsoft.AspNetCore.Authorization;
+using MetroOne.BLL.Services.Implementations;
 
 namespace MetroOne.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class TrainController : ControllerBase
     {
-        private readonly MetroonedbContext _context;
-        private readonly ILogger<TrainController> _logger;
-        private readonly IAuthService _authService;
-        private readonly IUnitOfWork _unitOfWork;
-
-        public TrainController(IUnitOfWork unitOfWork, MetroonedbContext context, ILogger<TrainController> logger, IAuthService authService)
+        private readonly ITrainService _trainService;
+        public TrainController(ITrainService trainService)
         {
-            _unitOfWork = unitOfWork;
-            _context = context;
-            _logger = logger;
-            _authService = authService;
+            _trainService = trainService;
         }
 
-        // GET: TrainController
-        [HttpGet("getTrain")]
+        [HttpGet]
+        [Route(ApiRoutes.Train.GetAll)]
         public async Task<IActionResult> Index()
         {
-            var trains = await _unitOfWork.TrainRepository.getTrainsAsync();
+            var trains = await _trainService.GetAllTrainsAsync();
             if (trains == null)
             {
                 return NotFound("NO TRAIN HAVE BEEN FOUND!");
@@ -39,89 +33,71 @@ namespace MetroOne.API.Controllers
             return Ok(trains);
         }
 
-        [HttpGet("api/[controller]")]
-        // GET: TrainController/Details/
-        public async Task<ActionResult> GetTrainByName(string trainName)
+
+        [HttpGet]
+        [Route(ApiRoutes.Train.GetByName)]
+        public async Task<IActionResult> GetTrainByName(string name)
         {
-            var train = await _unitOfWork.TrainRepository.getTrainByNameAsync(trainName);
-            if (train == null)
+            try
             {
-                return NotFound("TRAIN NOT FOUND OR DOESN'T EXIST!");
+                var train = await _trainService.GetTrainByNameAsync(name);
+                return Ok(train);
             }
-            return Ok(train);
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
-        [HttpPost("/api/[controller]")]
-        public async Task<ActionResult<CreateTrainRespone>> CreateTrain([FromBody] CreateTrainRequest dto)
+        [Authorize]
+        [HttpGet]
+        [Route(ApiRoutes.Train.GetById)]
+        public async Task<IActionResult> GetTrainById(int id)
         {
-            if (dto == null)
-                return BadRequest("Invalid train data.");
-
-            var train = new Train
+            try
             {
-                TrainName = dto.TrainName,
-                StartStationId = dto.StartStationId,
-                EndStationId = dto.EndStationId,
-                Capacity = dto.Capacity,
-                EstimatedTime = dto.EstimatedTime
-            };
-
-            await _unitOfWork.TrainRepository.AddTrainAsync(train);
-            await _unitOfWork.SaveAsync();
-
-            var response = new CreateTrainRespone
+                var train = await _trainService.GetTrainByIdAsync(id);
+                return Ok(train);
+            }
+            catch (Exception ex)
             {
-                TrainName = train.TrainName!,
-                StartStationId = train.StartStationId,
-                EndStationId = train.EndStationId,
-                Capacity = train.Capacity,
-                EstimatedTime = train.EstimatedTime
-            };
-
-            return CreatedAtAction(nameof(GetTrainByName), new { TrainName = response.TrainName }, response);
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
+        [Authorize]
+        [HttpPost]
+        [Route(ApiRoutes.Train.Create)]
+        public async Task<IActionResult> CreateTrain(CreateTrainRequest dto)
+        {
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-        //// GET: TrainController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+                var createdTrain = await _trainService.AddTrainAsync(dto);
+                return Ok(createdTrain);
+            }
+        }
 
-        //// POST: TrainController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        [Authorize]
+        [HttpDelete]
+        [Route(ApiRoutes.Train.Delete)]
+        public async Task<IActionResult> DeleteTrain(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    return BadRequest("Invalid train ID");
+                }
 
-        //// GET: TrainController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: TrainController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+                var success = await _trainService.DeleteTrainAsync(id);
+                return success ? Ok("Train deleted successfully") : NotFound("Train not found or already deleted");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }
