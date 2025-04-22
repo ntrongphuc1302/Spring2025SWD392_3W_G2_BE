@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MetroOne.DTO.Requests
 {
-    public class GetRequest
+    public class GetTrainRequest
     {
         public string trainName { get; set; }
     }

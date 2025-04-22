@@ -43,6 +43,32 @@
   },
   {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "CreateTrain",
+    "RelativePath": "api/Train",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.CreateTrainRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MetroOne.DTO.Responses.CreateTrainRespone",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
     "Method": "GetTrainByName",
     "RelativePath": "api/Train/api/Train",
     "HttpMethod": "GET",

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using MetroOne.DTO.Constants;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DAL.UnitOfWork;
+using MetroOne.DTO.Requests;
+using MetroOne.DAL.Models;
+using MetroOne.DTO.Responses;
 
 namespace MetroOne.API.Controllers
 {
@@ -37,7 +40,7 @@ namespace MetroOne.API.Controllers
         }
 
         [HttpGet("api/[controller]")]
-        // GET: TrainController/Details/5
+        // GET: TrainController/Details/
         public async Task<ActionResult> GetTrainByName(string trainName)
         {
             var train = await _unitOfWork.TrainRepository.getTrainByNameAsync(trainName);
@@ -48,26 +51,36 @@ namespace MetroOne.API.Controllers
             return Ok(train);
         }
 
-        //// GET: TrainController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        [HttpPost("/api/[controller]")]
+        public async Task<ActionResult<CreateTrainRespone>> CreateTrain([FromBody] CreateTrainRequest dto)
+        {
+            if (dto == null)
+                return BadRequest("Invalid train data.");
 
-        //// POST: TrainController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            var train = new Train
+            {
+                TrainName = dto.TrainName,
+                StartStationId = dto.StartStationId,
+                EndStationId = dto.EndStationId,
+                Capacity = dto.Capacity,
+                EstimatedTime = dto.EstimatedTime
+            };
+
+            await _unitOfWork.TrainRepository.AddTrainAsync(train);
+            await _unitOfWork.SaveAsync();
+
+            var response = new CreateTrainRespone
+            {
+                TrainName = train.TrainName!,
+                StartStationId = train.StartStationId,
+                EndStationId = train.EndStationId,
+                Capacity = train.Capacity,
+                EstimatedTime = train.EstimatedTime
+            };
+
+            return CreatedAtAction(nameof(GetTrainByName), new { TrainName = response.TrainName }, response);
+        }
+
 
         //// GET: TrainController/Edit/5
         //public ActionResult Edit(int id)
