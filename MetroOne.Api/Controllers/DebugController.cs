@@ -2,6 +2,7 @@
 using MetroOne.DAL;
 using Microsoft.EntityFrameworkCore;
 using MetroOne.DTO.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers;
 
@@ -18,6 +19,7 @@ public class DebugController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     [Route(ApiRoutes.Debug.CheckDb)]
     public IActionResult CheckDatabaseConnection()
     {

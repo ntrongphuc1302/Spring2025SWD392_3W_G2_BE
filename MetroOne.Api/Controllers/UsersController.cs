@@ -41,7 +41,7 @@ public class UsersController : ControllerBase
     /// Deletes a user 
     /// </summary>
     /// <param name="id">The ID of the user to delete</param>
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [HttpDelete]
     [Route(ApiRoutes.Users.Delete)] 
     public async Task<IActionResult> SoftDeleteUser(int id)
@@ -66,7 +66,7 @@ public class UsersController : ControllerBase
     /// </summary>
     /// <param name="userId">The ID of the user to delete</param>
     /// 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [HttpDelete]
     [Route(ApiRoutes.Users.HardDelete)]
     public async Task<IActionResult> HardDeleteUser(int userId)
@@ -89,7 +89,7 @@ public class UsersController : ControllerBase
     /// </summary>
     /// <returns>List of users</returns>
     /// 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [HttpGet]
     [Route(ApiRoutes.Users.GetAll)]
     public async Task<IActionResult> GetAllUsers()
