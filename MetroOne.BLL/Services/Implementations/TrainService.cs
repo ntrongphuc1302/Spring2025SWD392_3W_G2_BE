@@ -93,7 +93,11 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 throw new Exception("Train not found!");
             }
-            return train;
+            else
+            {
+                return train;
+            }
+                
         }
 
         public async Task<bool> UpdateTrainAsync(UpdateTrainRequest dto)
