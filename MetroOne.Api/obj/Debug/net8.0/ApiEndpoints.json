@@ -42,16 +42,90 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MetroOne.API.Controllers.TrainController",
-    "Method": "CreateTrain",
-    "RelativePath": "api/train",
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Index",
+    "RelativePath": "api/Station/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "CreateStation",
+    "RelativePath": "api/Station/CreateStation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "MetroOne.DTO.Requests.CreateTrainRequest",
+        "Type": "MetroOne.DTO.Requests.CreateStationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Delete",
+    "RelativePath": "api/Station/DeleteStation/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "GetStationById",
+    "RelativePath": "api/Station/GetStationById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "GetTrainByName",
+    "RelativePath": "api/Station/GetStationByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Update",
+    "RelativePath": "api/Station/UpdateStation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.UpdateStationRequest",
         "IsRequired": true
       }
     ],
@@ -65,6 +139,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "CreateTrain",
+    "RelativePath": "api/train/CreateTrain",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.CreateTrainRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
