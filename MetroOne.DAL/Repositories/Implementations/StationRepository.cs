@@ -52,9 +52,9 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.Stations.FirstOrDefaultAsync(s => s.StationName == StationName);
         }
 
-        public async Task<bool> HasStationExistAsync(int StationId)
+        public async Task<bool> HasStationExistAsync(string StationName)
         {
-            return await _context.Stations.AnyAsync(s => s.StationId == StationId);
+            return await _context.Stations.AnyAsync(s => s.StationName == StationName);
         }
 
         public async Task<bool> UpdateStationAsync(Station dto)

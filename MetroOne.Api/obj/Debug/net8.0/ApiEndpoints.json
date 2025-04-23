@@ -116,6 +116,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Update",
+    "RelativePath": "api/Station/UpdateStation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.UpdateStationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
     "Method": "Index",
     "RelativePath": "api/train/all",

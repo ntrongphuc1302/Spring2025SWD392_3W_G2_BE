@@ -21,7 +21,7 @@ namespace MetroOne.API.Controllers
         // GET: StationController
         [HttpGet]
         [Route(ApiRoutes.Stations.GetAll)]
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var stations = await _stationService.GetAllStationAsync();
             if (stations == null)
@@ -38,7 +38,7 @@ namespace MetroOne.API.Controllers
         [Authorize]
         [HttpPost]
         [Route(ApiRoutes.Stations.Create)]
-        public async Task<ActionResult> CreateStation(CreateStationRequest dto)
+        public async Task<IActionResult> CreateStation(CreateStationRequest dto)
         {
             try
             {
@@ -83,20 +83,21 @@ namespace MetroOne.API.Controllers
             }
         }
 
-        //// POST: StationController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        // Put: StationController/Edit
+        [Authorize, HttpPut]
+        [Route(ApiRoutes.Stations.Update)]
+        public async Task<IActionResult> Update(UpdateStationRequest dto)
+        {
+            try
+            {
+                var success = await _stationService.UpdateStationAsync(dto);
+                return Ok("Station updated successfully!");
+            }
+            catch(Exception ex) 
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
 
         // Delete: StationController/Delete
         [Authorize]

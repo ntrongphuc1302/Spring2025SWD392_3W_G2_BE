@@ -32,10 +32,14 @@ namespace MetroOne.BLL.Services.Implementations
                 Location = dto.Location,
                 OrderInRoute = dto.OrderInRoute
             };
-
-            await _unitOfWork.Stations.CreateStationAsync(station);
-            await _unitOfWork.SaveAsync();
-
+            if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
+            {
+                throw new Exception("Station name already existed!");
+            }
+            else { 
+                await _unitOfWork.Stations.CreateStationAsync(station);
+                await _unitOfWork.SaveAsync();
+           
             return new CreateStationRespone
             {
                 StationName = station.StationName,
@@ -43,6 +47,7 @@ namespace MetroOne.BLL.Services.Implementations
                 Location = station.Location,
                 OrderInRoute = station.OrderInRoute
             };
+            }
         }
 
 
@@ -94,9 +99,42 @@ namespace MetroOne.BLL.Services.Implementations
             return station;
         }
 
-        public Task<bool> UpdateStationAsync(UpdateStationRequest dto)
+        public async Task<bool> UpdateStationAsync(UpdateStationRequest dto)
         {
-            throw new NotImplementedException();
+            var station = await _unitOfWork.Stations.GetStationByIdAsync(dto.StationId);
+            if (station == null)
+                throw new Exception("Station not found!");
+
+            // Only update fields that are not null
+            if (!string.IsNullOrWhiteSpace(dto.StationName))
+                station.StationName = dto.StationName;
+
+            if (!string.IsNullOrWhiteSpace(dto.StationCode))
+                station.StationCode = dto.StationCode;
+
+            if (!string.IsNullOrWhiteSpace(dto.Location))
+                station.Location = dto.Location;
+
+            if (dto.OrderInRoute.HasValue)
+                station.OrderInRoute = dto.OrderInRoute.Value;
+            if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
+            {
+                throw new Exception($"Station name already existed!");
+            }
+            else
+            {
+
+                var result = await _unitOfWork.Stations.UpdateStationAsync(station);
+            if (result)
+            {
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+
+            return false;
         }
+
+        }
+
     }
 }
