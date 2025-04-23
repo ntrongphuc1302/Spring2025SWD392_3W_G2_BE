@@ -43,8 +43,18 @@
   },
   {
     "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Index",
+    "RelativePath": "api/Station/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
     "Method": "CreateStation",
-    "RelativePath": "api/Station",
+    "RelativePath": "api/Station/CreateStation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -59,26 +69,48 @@
   },
   {
     "ContainingType": "MetroOne.API.Controllers.StationController",
-    "Method": "Index",
-    "RelativePath": "api/Station/all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MetroOne.API.Controllers.TrainController",
-    "Method": "CreateTrain",
-    "RelativePath": "api/train",
-    "HttpMethod": "POST",
+    "Method": "Delete",
+    "RelativePath": "api/Station/DeleteStation/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "MetroOne.DTO.Requests.CreateTrainRequest",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "GetStationById",
+    "RelativePath": "api/Station/GetStationById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "GetTrainByName",
+    "RelativePath": "api/Station/GetStationByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -91,6 +123,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.TrainController",
+    "Method": "CreateTrain",
+    "RelativePath": "api/train/CreateTrain",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.CreateTrainRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

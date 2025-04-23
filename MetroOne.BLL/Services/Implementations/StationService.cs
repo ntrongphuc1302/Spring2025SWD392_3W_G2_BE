@@ -8,6 +8,7 @@ using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Responses;
+using static MetroOne.DTO.Constants.ApiRoutes;
 
 namespace MetroOne.BLL.Services.Implementations
 {
@@ -45,9 +46,19 @@ namespace MetroOne.BLL.Services.Implementations
         }
 
 
-        public Task<bool> DeleteStationAsync(int id)
+        public async Task<bool> DeleteStationAsync(int id)
         {
-            throw new NotImplementedException();
+            var station = await _unitOfWork.Stations.GetStationByIdAsync(id);
+            if(station != null)
+            {
+                await _unitOfWork.Stations.DeleteStationAsync(station.StationId);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            else
+            {
+                throw new Exception("Train not found");
+            }
         }
 
         public async Task<List<GetAllStationRespone>> GetAllStationAsync()
@@ -65,12 +76,22 @@ namespace MetroOne.BLL.Services.Implementations
 
         public Task<Station> GetStationByNameAsync(string StationName)
         {
-            throw new NotImplementedException();
+            var station = _unitOfWork.Stations.GetStationByNameAsync(StationName);
+            if(station == null)
+            {
+                throw new Exception("Station not found!");
+            }
+            return station;
         }
 
-        public Task<Station> GetTrainById(int id)
+        public Task<Station> GetStationByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var station = _unitOfWork.Stations.GetStationByIdAsync(id);
+            if (station == null)
+            {
+                throw new Exception("Station not found!");
+            }
+            return station;
         }
 
         public Task<bool> UpdateStationAsync(UpdateStationRequest dto)

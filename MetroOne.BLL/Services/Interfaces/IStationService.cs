@@ -13,7 +13,7 @@ namespace MetroOne.BLL.Services.Interfaces
     {
         Task<List<GetAllStationRespone>> GetAllStationAsync();
         Task<bool> UpdateStationAsync(UpdateStationRequest dto);
-        Task<Station> GetTrainById(int id);
+        Task<Station> GetStationByIdAsync(int id);
         Task<Station> GetStationByNameAsync(string StationName);
         Task<CreateStationRespone> AddStationAsync(CreateStationRequest dto);
         Task<bool> DeleteStationAsync(int id);

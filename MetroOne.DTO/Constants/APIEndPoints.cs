@@ -24,7 +24,7 @@
         public static class Train
         {
             public const string BaseTrain = $"{Base}/train";
-            public const string Create = BaseTrain;
+            public const string Create = $"{BaseTrain}/CreateTrain";
             public const string GetAll = $"{BaseTrain}/all";
             public const string GetById = $"{BaseTrain}/GetTrainById/{{id}}";
             public const string GetByName = $"{BaseTrain}/getTrainByName";
@@ -34,7 +34,7 @@
         public static class Stations
         {
             public const string BaseStation = $"{Base}/Station";
-            public const string Create = BaseStation;
+            public const string Create = $"{BaseStation}/CreateStation";
             public const string GetAll = $"{BaseStation}/all";
             public const string GetById = $"{BaseStation}/GetStationById/{{id}}";
             public const string GetByName = $"{BaseStation}/GetStationByName";

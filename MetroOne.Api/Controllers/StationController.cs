@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
+using MetroOne.BLL.Services.Implementations;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Constants;
 using MetroOne.DTO.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +35,7 @@ namespace MetroOne.API.Controllers
         }
 
         // POST: StationController/Create
+        [Authorize]
         [HttpPost]
         [Route(ApiRoutes.Stations.Create)]
         public async Task<ActionResult> CreateStation(CreateStationRequest dto)
@@ -50,11 +53,35 @@ namespace MetroOne.API.Controllers
 
         }
 
-        //// GET: StationController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        [Route(ApiRoutes.Stations.GetByName)]
+        public async Task<IActionResult> GetTrainByName(string name)
+        {
+            try
+            {
+                var train = await _stationService.GetStationByNameAsync(name);
+                return Ok(train);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        [Route(ApiRoutes.Stations.GetById)]
+        public async Task<IActionResult> GetStationById(int id)
+        {
+            try
+            {
+                var train = await _stationService.GetStationByIdAsync(id);
+                return Ok(train);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
 
         //// POST: StationController/Edit/5
         //[HttpPost]
@@ -71,25 +98,25 @@ namespace MetroOne.API.Controllers
         //    }
         //}
 
-        //// GET: StationController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: StationController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        // Delete: StationController/Delete
+        [Authorize]
+        [HttpDelete]
+        [Route(ApiRoutes.Stations.Delete)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                if (id < 0)
+                {
+                    return BadRequest("Invalid train ID");
+                }
+                var success = await _stationService.DeleteStationAsync(id);
+                return success ? Ok("Station deleted successfully") : NotFound("Station not found or already deleted");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

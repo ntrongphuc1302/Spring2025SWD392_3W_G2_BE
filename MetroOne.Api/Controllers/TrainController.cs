@@ -49,7 +49,6 @@ namespace MetroOne.API.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet]
         [Route(ApiRoutes.Train.GetById)]
         public async Task<IActionResult> GetTrainById(int id)
