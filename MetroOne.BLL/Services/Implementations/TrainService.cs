@@ -78,22 +78,49 @@ namespace MetroOne.BLL.Services.Implementations
             }).ToList();
         }
 
-        public async Task<Train> GetTrainByIdAsync(int id)
+        public async Task<TrainResponse> GetTrainByIdAsync(int id)
         {
             var train = await _unitOfWork.Trains.GetTrainByIdAsync(id);
-            if(train == null) 
+            if (train == null)
                 throw new Exception("Train not found!");
-                return train;
+
+            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+
+            return new TrainResponse
+            {
+                TrainId = train.TrainId,
+                TrainName = train.TrainName,
+                EstimatedTime = train.EstimatedTime,
+                Capacity = train.Capacity,
+                StartStationId = train.StartStationId,
+                EndStationId = train.EndStationId,
+                StartStation = startStation.StationName,
+                EndStation = endStation.StationName
+            };
         }
 
-        public async Task<Train> GetTrainByNameAsync(string name)
+
+        public async Task<TrainResponse> GetTrainByNameAsync(string name)
         {
             var train = await _unitOfWork.Trains.GetTrainByNameAsync(name);
-            if(train == null)
-            {
+            if (train == null)
                 throw new Exception("Train not found!");
-            }
-            return train;
+
+            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+
+            return new TrainResponse
+            {
+                TrainId = train.TrainId,
+                TrainName = train.TrainName,
+                EstimatedTime = train.EstimatedTime,
+                Capacity = train.Capacity,
+                StartStationId = train.StartStationId,
+                EndStationId = train.EndStationId,
+                StartStation = startStation.StationName,
+                EndStation = endStation.StationName
+            };
         }
 
         public async Task<bool> UpdateTrainAsync(UpdateTrainRequest dto)
