@@ -42,6 +42,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "Index",
+    "RelativePath": "api/Station/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MetroOne.API.Controllers.TrainController",
     "Method": "CreateTrain",
     "RelativePath": "api/train",

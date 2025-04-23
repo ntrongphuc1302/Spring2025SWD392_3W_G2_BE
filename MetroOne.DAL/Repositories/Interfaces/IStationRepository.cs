@@ -12,7 +12,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
         Task<List<Station?>> GetAllStationAsync();
         Task<Station?> GetStationByIdAsync(int id);
         Task<Station?> GetStationByNameAsync(string StationName);
-        Task<Boolean> HasStationExistAsync(string StationName);
+        Task<Boolean> HasStationExistAsync(int StationId);
         Task<bool> CreateStationAsync(Station station);
         Task<bool> UpdateStationAsync(Station dto);
         Task<bool> DeleteStationAsync(int id);

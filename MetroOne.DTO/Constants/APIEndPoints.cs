@@ -31,6 +31,16 @@
             public const string Update = $"{BaseTrain}/UpdateTrain";
             public const string Delete = $"{BaseTrain}/DeleteTrain/{{id}}";
         }
+        public static class Stations
+        {
+            public const string BaseStation = $"{Base}/Station";
+            public const string Create = BaseStation;
+            public const string GetAll = $"{BaseStation}/all";
+            public const string GetById = $"{BaseStation}/GetStationById/{{id}}";
+            public const string GetByName = $"{BaseStation}/GetStationByName";
+            public const string Update = $"{BaseStation}/UpdateStation";
+            public const string Delete = $"{BaseStation}/DeleteStation/{{id}}";
+        }
 
         public static class Debug
         {
