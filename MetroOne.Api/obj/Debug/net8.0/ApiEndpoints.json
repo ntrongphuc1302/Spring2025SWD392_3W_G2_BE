@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "MetroOne.API.Controllers.StationController",
+    "Method": "CreateStation",
+    "RelativePath": "api/Station",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MetroOne.DTO.Requests.CreateStationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MetroOne.API.Controllers.StationController",
     "Method": "Index",
     "RelativePath": "api/Station/all",
     "HttpMethod": "GET",

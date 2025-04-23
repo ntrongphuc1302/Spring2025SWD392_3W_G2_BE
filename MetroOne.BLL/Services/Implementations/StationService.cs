@@ -21,22 +21,11 @@ namespace MetroOne.BLL.Services.Implementations
 
         public async Task<CreateStationRespone> AddStationAsync(CreateStationRequest dto)
         {
-            var random = new Random();
-            int newStationId;
-
-            // Generate a unique StationId
-            do
-            {
-                newStationId = random.Next(100000, 999999); // 6-digit random number
-            }
-            while (await _unitOfWork.Stations.HasStationExistAsync(newStationId));
-
             // Generate station code from name
-            var stationCode = dto.StationName?.Replace(" ", "").ToUpper();
+            var stationCode = dto.StationName?.Replace(" ", "");
 
             var station = new Station
             {
-                StationId = newStationId,
                 StationName = dto.StationName,
                 StationCode = stationCode,
                 Location = dto.Location,
@@ -48,7 +37,6 @@ namespace MetroOne.BLL.Services.Implementations
 
             return new CreateStationRespone
             {
-                StationId = station.StationId,
                 StationName = station.StationName,
                 StationCode = station.StationCode,
                 Location = station.Location,

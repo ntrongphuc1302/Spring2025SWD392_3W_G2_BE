@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Constants;
+using MetroOne.DTO.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,32 +32,23 @@ namespace MetroOne.API.Controllers
             }
         }
 
-        //// GET: StationController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+        // POST: StationController/Create
+        [HttpPost]
+        [Route(ApiRoutes.Stations.Create)]
+        public async Task<ActionResult> CreateStation(CreateStationRequest dto)
+        {
+            try
+            {
+                var createStation = await _stationService.AddStationAsync(dto);
+                return Ok(createStation);
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                return BadRequest(new { message = errorMessage });
+            }
 
-        //// GET: StationController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: StationController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        }
 
         //// GET: StationController/Edit/5
         //public ActionResult Edit(int id)
