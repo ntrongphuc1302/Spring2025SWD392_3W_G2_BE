@@ -62,7 +62,7 @@ namespace MetroOne.BLL.Services.Implementations
             }
             else
             {
-                throw new Exception("Train not found");
+                throw new Exception("Station not found");
             }
         }
 
@@ -79,9 +79,9 @@ namespace MetroOne.BLL.Services.Implementations
             }).ToList();
         }
 
-        public Task<Station> GetStationByNameAsync(string StationName)
+        public async Task<Station> GetStationByNameAsync(string StationName)
         {
-            var station = _unitOfWork.Stations.GetStationByNameAsync(StationName);
+            var station = await _unitOfWork.Stations.GetStationByNameAsync(StationName);
             if(station == null)
             {
                 throw new Exception("Station not found!");
@@ -89,9 +89,9 @@ namespace MetroOne.BLL.Services.Implementations
             return station;
         }
 
-        public Task<Station> GetStationByIdAsync(int id)
+        public async Task<Station> GetStationByIdAsync(int id)
         {
-            var station = _unitOfWork.Stations.GetStationByIdAsync(id);
+            var station = await _unitOfWork.Stations.GetStationByIdAsync(id);
             if (station == null)
             {
                 throw new Exception("Station not found!");
