@@ -9,7 +9,6 @@ namespace MetroOne.DTO.Responses
 {
     public class CreateStationRespone
     {
-        [Required]
         public string? StationName { get; set; }
 
         public string? StationCode { get; set; }
