@@ -1,6 +1,0 @@
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.csproj.AssemblyReference.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.AssemblyInfoInputs.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.AssemblyInfo.cs
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.csproj.CoreCompileInputs.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.sourcelink.json
