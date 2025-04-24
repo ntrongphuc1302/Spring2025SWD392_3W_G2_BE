@@ -18,6 +18,7 @@ namespace MetroOne.DAL.UnitOfWork
         public ITrainRepository Trains { get; private set; }
         public IStationRepository Stations { get; private set; }
         public ITicketRepository Tickets { get; private set; }
+        public ITripRepository Trips { get; private set; }
 
         public UnitOfWork(
             MetroonedbContext context,
@@ -28,6 +29,7 @@ namespace MetroOne.DAL.UnitOfWork
             Trains = new TrainRepository(context);
             Stations = new StationRepository(context);
             Tickets = new TicketRepository(context);
+            Trips = new TripRepository(context);
         }
 
         public async Task<int> SaveAsync()

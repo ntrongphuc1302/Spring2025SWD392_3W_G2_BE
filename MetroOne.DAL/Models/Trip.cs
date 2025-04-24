@@ -13,7 +13,7 @@ public partial class Trip
 
     public DateTime? ArrivalTime { get; set; }
 
-    //public string? TrainCode { get; set; }
+    public string? TrainCode { get; set; }
 
     public string? CoachNumber { get; set; }
 

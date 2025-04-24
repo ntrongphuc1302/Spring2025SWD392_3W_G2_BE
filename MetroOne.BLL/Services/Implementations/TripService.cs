@@ -20,19 +20,31 @@ namespace MetroOne.BLL.Services.Implementations
         }
         public async Task<CreateTripRespone> CreateTripAsync(CreateTripRequest dto)
         {
-            //var train = await _unitOfWork.Trains.GetTrainByIdAsync(dto.TrainId);
-            //if (train == null)
-            //{
-            //    throw new Exception("Train not found!");
-            //}
-            //var trip = new Trip
-            //{
-            //    TrainId = train.TrainId,
-            //    DepartureTime = dto.DepartureTime,
-            //    ArrivalTime = dto.ArrivalTime,
-            //    TrainCode = train.,
-            return null;
-            //};
+            var train = await _unitOfWork.Trains.GetTrainByIdAsync(dto.TrainId);
+            if (train == null)
+            {
+                throw new Exception("Train not found!");
+            }
+                var trip = new Trip
+                {
+                    TrainId = train.TrainId,
+                    DepartureTime = dto.DepartureTime,
+                    ArrivalTime = dto.ArrivalTime,
+                    TrainCode = train.TrainName,
+                    CoachNumber = dto.CoachNumber //CoachNumber is Status of the train.
+                };
+            
+            await _unitOfWork.Trips.CreateTripsAsync(trip);
+            await _unitOfWork.SaveAsync();
+
+            return new CreateTripRespone
+            {
+                TrainId = trip.TrainId,
+                TrainCode = trip.TrainCode,
+                DepartureTime = trip.DepartureTime,
+                ArrivalTime = trip.ArrivalTime,
+                CoachNumber = trip.CoachNumber
+            };
         }
 
         public Task<bool> DeleteTripAsync(int TripId)

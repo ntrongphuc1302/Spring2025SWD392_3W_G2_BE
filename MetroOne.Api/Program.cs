@@ -118,6 +118,7 @@ builder.Services.AddScoped<ITrainService, TrainService>();
 //Station
 builder.Services.AddScoped<IStationRepository, StationRepository>();
 builder.Services.AddScoped<IStationService, StationService>();
+
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<ITripRepository, TripRepository>();
 
