@@ -20,6 +20,9 @@ public class TicketController : ControllerBase
     {
         try
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var result = await _ticketService.CreateTicketAsync(request);
             return Ok(result);
         }

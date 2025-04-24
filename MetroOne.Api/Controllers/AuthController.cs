@@ -26,6 +26,8 @@ public class AuthController : ControllerBase
     [Route(ApiRoutes.Auth.Login)]
     public async Task<IActionResult> Login([FromBody] LoginRequest dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
         try
         {
             var result = await _authService.LoginAsync(dto);
@@ -45,6 +47,8 @@ public class AuthController : ControllerBase
     [Route(ApiRoutes.Auth.Register)]
     public async Task<IActionResult> Register(RegisterRequest dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
         try
         {
             var result = await _authService.RegisterAsync(dto);
