@@ -10,6 +10,7 @@ namespace MetroOne.DTO.Responses
     {
         public int TrainId { get; set; }
         public string TrainName { get; set; }
+        public string TrainCode { get; set; }
         public TimeOnly? EstimatedTime { get; set; }
         public int StartStationId { get; set; }
         public int EndStationId { get; set; }

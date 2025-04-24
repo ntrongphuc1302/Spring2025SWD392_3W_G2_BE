@@ -52,6 +52,16 @@
             public const string Delete = $"{BaseTicket}/DeleteTicket/{{id}}";
         }
 
+        public static class Trip
+        {
+            public const string BaseTrip = $"{Base}/trip";
+            public const string Create = $"{BaseTrip}/CreateTrip";
+            public const string GetAll = $"{BaseTrip}/all";
+            public const string GetById = $"{BaseTrip}/GetTripById/{{id}}";
+            public const string Update = $"{BaseTrip}/UpdateTrip";
+            public const string Delete = $"{BaseTrip}/DeleteTrip/{{id}}";
+        }
+
         public static class Debug
         {
             public const string CheckDb = $"{Base}/debug/db-check";

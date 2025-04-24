@@ -23,12 +23,11 @@ namespace MetroOne.BLL.Services.Implementations
         public async Task<CreateStationRespone> AddStationAsync(CreateStationRequest dto)
         {
             // Generate station code from name
-            var stationCode = dto.StationName?.Replace(" ", "");
 
             var station = new Station
             {
                 StationName = dto.StationName,
-                StationCode = stationCode,
+                StationCode = dto.StationCode,
                 Location = dto.Location,
                 OrderInRoute = dto.OrderInRoute
             };

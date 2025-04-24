@@ -119,6 +119,9 @@ builder.Services.AddScoped<ITrainService, TrainService>();
 builder.Services.AddScoped<IStationRepository, StationRepository>();
 builder.Services.AddScoped<IStationService, StationService>();
 
+builder.Services.AddScoped<ITripService, TripService>();
+builder.Services.AddScoped<ITripRepository, TripRepository>();
+
 //Ticket
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
