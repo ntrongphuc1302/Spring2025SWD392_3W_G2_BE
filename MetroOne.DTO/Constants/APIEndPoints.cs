@@ -42,6 +42,16 @@
             public const string Delete = $"{BaseStation}/DeleteStation/{{id}}";
         }
 
+        public static class Ticket
+        {
+            public const string BaseTicket = $"{Base}/ticket";
+            public const string Create = $"{BaseTicket}/CreateTicket";
+            public const string GetAll = $"{BaseTicket}/all";
+            public const string GetById = $"{BaseTicket}/GetTicketById/{{id}}";
+            public const string Update = $"{BaseTicket}/UpdateTicket";
+            public const string Delete = $"{BaseTicket}/DeleteTicket/{{id}}";
+        }
+
         public static class Debug
         {
             public const string CheckDb = $"{Base}/debug/db-check";
