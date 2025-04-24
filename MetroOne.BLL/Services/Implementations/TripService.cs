@@ -29,9 +29,7 @@ namespace MetroOne.BLL.Services.Implementations
                 {
                     TrainId = train.TrainId,
                     DepartureTime = dto.DepartureTime,
-                    ArrivalTime = dto.ArrivalTime,
-                    TrainCode = train.TrainName,
-                    CoachNumber = dto.CoachNumber //CoachNumber is Status of the train.
+                    ArrivalTime = dto.ArrivalTime
                 };
             
             await _unitOfWork.Trips.CreateTripsAsync(trip);
@@ -40,10 +38,8 @@ namespace MetroOne.BLL.Services.Implementations
             return new CreateTripRespone
             {
                 TrainId = trip.TrainId,
-                TrainCode = trip.TrainCode,
                 DepartureTime = trip.DepartureTime,
-                ArrivalTime = trip.ArrivalTime,
-                CoachNumber = trip.CoachNumber
+                ArrivalTime = trip.ArrivalTime
             };
         }
 

@@ -172,9 +172,7 @@ public partial class MetroonedbContext : DbContext
 
             entity.Property(e => e.TripId).HasColumnName("TripID");
             entity.Property(e => e.ArrivalTime).HasColumnType("datetime");
-            entity.Property(e => e.CoachNumber).HasMaxLength(20);
             entity.Property(e => e.DepartureTime).HasColumnType("datetime");
-            entity.Property(e => e.TrainCode).HasMaxLength(20);
             entity.Property(e => e.TrainId).HasColumnName("TrainID");
 
             entity.HasOne(d => d.Train).WithMany(p => p.Trips)
