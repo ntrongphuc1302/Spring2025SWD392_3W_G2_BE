@@ -12,6 +12,7 @@ namespace MetroOne.DAL.UnitOfWork
         IUserRepository Users { get; }
         ITrainRepository Trains { get; }
         IStationRepository Stations { get; }
+        ITicketRepository Tickets { get; }
 
         Task<int> SaveAsync();
     }

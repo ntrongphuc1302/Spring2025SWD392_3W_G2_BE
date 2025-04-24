@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MetroOne.DAL.Repositories.Implementations;
 using MetroOne.DAL.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MetroOne.DAL.UnitOfWork
 {
@@ -16,6 +17,7 @@ namespace MetroOne.DAL.UnitOfWork
 
         public ITrainRepository Trains { get; private set; }
         public IStationRepository Stations { get; private set; }
+        public ITicketRepository Tickets { get; private set; }
 
         public UnitOfWork(
             MetroonedbContext context,
@@ -25,6 +27,7 @@ namespace MetroOne.DAL.UnitOfWork
             Users = userRepository;
             Trains = new TrainRepository(context);
             Stations = new StationRepository(context);
+            Tickets = new TicketRepository(context);
         }
 
         public async Task<int> SaveAsync()
