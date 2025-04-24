@@ -12,8 +12,8 @@ namespace MetroOne.BLL.Services.Interfaces
     public interface ITrainService
     {
         Task<List<GetAllTrainResponse>> GetAllTrainsAsync();
-        Task<Train> GetTrainByIdAsync(int id);
-        Task<Train> GetTrainByNameAsync(string name);
+        Task<TrainResponse> GetTrainByIdAsync(int id);
+        Task<TrainResponse> GetTrainByNameAsync(string name);
         Task<CreateTrainRespone> AddTrainAsync(CreateTrainRequest dto);
         Task<bool> UpdateTrainAsync(UpdateTrainRequest dto);
         Task<bool> DeleteTrainAsync(int id);
