@@ -49,6 +49,7 @@ public class UsersController : ControllerBase
     [Route(ApiRoutes.Users.Delete)] 
     public async Task<IActionResult> SoftDeleteUser(int id)
     {
+
         try
         {
             if (id <= 0)
