@@ -25,6 +25,9 @@ public class UsersController : ControllerBase
     [Route(ApiRoutes.Users.Update)]
     public async Task<IActionResult> UpdateUser(UpdateUserRequest dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         try
         {
             var success = await _userService.UpdateUserAsync(dto);

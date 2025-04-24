@@ -1,5 +1,7 @@
 using System.Reflection;
 using System.Text;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using MetroOne.Api.Middlewares;
 using MetroOne.BLL.Services.Implementations;
 using MetroOne.BLL.Services.Interfaces;
@@ -96,19 +98,37 @@ builder.Services.AddAuthorization();
 #endregion
 
 #region CORS
+
+//Unit of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllers();
+//Auth
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+//User
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+//Train
 builder.Services.AddScoped<ITrainRepository, TrainRepository>();
 builder.Services.AddScoped<ITrainService, TrainService>();
+
+//Station
 builder.Services.AddScoped<IStationRepository, StationRepository>();
 builder.Services.AddScoped<IStationService, StationService>();
+<<<<<<< HEAD
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<ITripRepository, TripRepository>();
+=======
+
+//Ticket
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<ITicketService, TicketService>();
+
+
+>>>>>>> 775d6c85f927893c4854ee7a29446ed5d347963e
 // Frontend Connection
 builder.Services.AddCors(options =>
 {
@@ -122,6 +142,10 @@ builder.Services.AddCors(options =>
 });
 
 #endregion
+
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters(); 
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTicketRequestValidator>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
