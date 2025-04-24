@@ -1,7 +1,0 @@
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.csproj.AssemblyReference.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfoInputs.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfo.cs
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.csproj.CoreCompileInputs.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\phuth\source\repos\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.sourcelink.json

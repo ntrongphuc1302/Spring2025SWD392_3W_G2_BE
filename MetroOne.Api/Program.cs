@@ -118,17 +118,14 @@ builder.Services.AddScoped<ITrainService, TrainService>();
 //Station
 builder.Services.AddScoped<IStationRepository, StationRepository>();
 builder.Services.AddScoped<IStationService, StationService>();
-<<<<<<< HEAD
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<ITripRepository, TripRepository>();
-=======
 
 //Ticket
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 
 
->>>>>>> 775d6c85f927893c4854ee7a29446ed5d347963e
 // Frontend Connection
 builder.Services.AddCors(options =>
 {
