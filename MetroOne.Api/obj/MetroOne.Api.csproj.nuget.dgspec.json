@@ -66,6 +66,14 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"
@@ -184,6 +192,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"
@@ -284,6 +300,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.3.0, )"
@@ -383,6 +407,14 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
             },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",

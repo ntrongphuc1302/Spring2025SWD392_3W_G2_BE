@@ -1,5 +1,7 @@
 using System.Reflection;
 using System.Text;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using MetroOne.Api.Middlewares;
 using MetroOne.BLL.Services.Implementations;
 using MetroOne.BLL.Services.Interfaces;
@@ -135,6 +137,10 @@ builder.Services.AddCors(options =>
 });
 
 #endregion
+
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters(); 
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTicketRequestValidator>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
