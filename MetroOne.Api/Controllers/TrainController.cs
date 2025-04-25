@@ -69,18 +69,16 @@ namespace MetroOne.API.Controllers
         [Route(ApiRoutes.Train.Create)]
         public async Task<IActionResult> CreateTrain(CreateTrainRequest dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
             {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-                try
-                {
-                    var createdTrain = await _trainService.AddTrainAsync(dto);
-                    return Ok(createdTrain);
-                }
-                catch(Exception ex)
-                {
-                    return BadRequest(new { message = ex.Message });
-                }
+                var createdTrain = await _trainService.AddTrainAsync(dto);
+                return Ok(createdTrain);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -109,6 +107,8 @@ namespace MetroOne.API.Controllers
         [Route(ApiRoutes.Train.Update)]
         public async Task<IActionResult> UpdateTrain(UpdateTrainRequest dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             try
             {
                 var success = await _trainService.UpdateTrainAsync(dto);

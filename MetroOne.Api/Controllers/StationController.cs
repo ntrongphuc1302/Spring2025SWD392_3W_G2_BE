@@ -35,11 +35,13 @@ namespace MetroOne.API.Controllers
         }
 
         // POST: StationController/Create
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route(ApiRoutes.Stations.Create)]
         public async Task<IActionResult> CreateStation(CreateStationRequest dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             try
             {
                 var createStation = await _stationService.AddStationAsync(dto);
@@ -84,10 +86,13 @@ namespace MetroOne.API.Controllers
         }
 
         // Put: StationController/Edit
-        [Authorize, HttpPut]
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
         [Route(ApiRoutes.Stations.Update)]
         public async Task<IActionResult> Update(UpdateStationRequest dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             try
             {
                 var success = await _stationService.UpdateStationAsync(dto);
@@ -100,7 +105,7 @@ namespace MetroOne.API.Controllers
         }
 
         // Delete: StationController/Delete
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route(ApiRoutes.Stations.Delete)]
         public async Task<IActionResult> Delete(int id)

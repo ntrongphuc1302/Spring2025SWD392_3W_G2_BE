@@ -15,10 +15,5 @@ namespace MetroOne.DTO.Requests
         public DateTime? DepartureTime { get; set; }
 
         public DateTime? ArrivalTime { get; set; }
-
-        public string? TrainCode { get; set; }
-
-        public string? CoachNumber { get; set; }
-
     }
 }

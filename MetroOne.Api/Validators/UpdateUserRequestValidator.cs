@@ -1,6 +1,9 @@
 ﻿using FluentValidation;
 using MetroOne.DTO.Requests;
 
+namespace MetroOne.Api.Validators;
+
+
 public class UpdateUserRequestValidator : AbstractValidator<UpdateUserRequest>
 {
     public UpdateUserRequestValidator()

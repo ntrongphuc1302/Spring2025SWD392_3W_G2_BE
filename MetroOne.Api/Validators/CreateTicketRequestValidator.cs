@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
-using MetroOne.DTO;
+using MetroOne.DTO.Requests;
+
+namespace MetroOne.Api.Validators;
 
 public class CreateTicketRequestValidator : AbstractValidator<CreateTicketRequest>
 {
