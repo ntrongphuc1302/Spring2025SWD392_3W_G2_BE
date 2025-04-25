@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MetroOne.DAL.Models;
 using MetroOne.DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace MetroOne.DAL.Repositories.Implementations
 {
@@ -35,6 +36,11 @@ namespace MetroOne.DAL.Repositories.Implementations
             {
                 return false;
             }
+        }
+
+        public async Task<List<Trip>> GetAllTripAsync()
+        {
+            return await _context.Trips.ToListAsync();
         }
 
         public async Task<bool> UpdateTripsAsync(Trip dto)
