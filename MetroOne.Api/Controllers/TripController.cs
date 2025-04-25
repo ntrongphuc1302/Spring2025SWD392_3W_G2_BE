@@ -1,6 +1,8 @@
-﻿using MetroOne.BLL.Services.Interfaces;
+﻿using System.Threading.Tasks;
+using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Constants;
 using MetroOne.DTO.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +29,7 @@ namespace MetroOne.API.Controllers
             return Ok(trips);
         }
 
+
         // GET: TripController/Details/5
         //public ActionResult Details(int id)
         //{
@@ -34,7 +37,7 @@ namespace MetroOne.API.Controllers
         //}
 
         // POST: TripController/Create
-        [HttpPost]
+        [HttpPost, Authorize]
         [Route(ApiRoutes.Trip.Create)]
         public async Task<IActionResult> Create(CreateTripRequest dto)
         {
@@ -48,27 +51,6 @@ namespace MetroOne.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
-        // POST: TripController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        // GET: TripController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
 
         // POST: TripController/Edit/5
         //[HttpPost]
@@ -85,25 +67,21 @@ namespace MetroOne.API.Controllers
         //    }
         //}
 
-        // GET: TripController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
+        //Delete: TripController/Delete/
+        [HttpDelete, Authorize]
+        [Route(ApiRoutes.Trip.Delete)]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                var success = await _tripService.DeleteTripAsync(id);
+                return success ? Ok("Trip deleted successfully") : NotFound("Trip not found or already deleted");
 
-        // POST: TripController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            }
+            catch(Exception ex) 
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

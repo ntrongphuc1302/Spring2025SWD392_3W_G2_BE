@@ -43,6 +43,11 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.Trips.ToListAsync();
         }
 
+        public async Task<Trip> GetByTripIdAsync(int id)
+        {
+            return await _context.Trips.FindAsync(id);
+        }
+
         public async Task<bool> UpdateTripsAsync(Trip dto)
         {
             var trip = await _context.Trips.FindAsync(dto.TrainId);

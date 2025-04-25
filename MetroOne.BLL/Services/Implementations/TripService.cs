@@ -38,9 +38,19 @@ namespace MetroOne.BLL.Services.Implementations
             };
         }
 
-        public Task<bool> DeleteTripAsync(int TripId)
+        public async Task<bool> DeleteTripAsync(int TripId)
         {
-            throw new NotImplementedException();
+            var trip = await _unitOfWork.Trips.GetByTripIdAsync(TripId);
+            if(trip != null)
+            {
+                await _unitOfWork.Trips.DeleteTripsAsync(trip.TripId);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public async Task<List<GetAllTripsRespone>> GetAllTripsAsync()
