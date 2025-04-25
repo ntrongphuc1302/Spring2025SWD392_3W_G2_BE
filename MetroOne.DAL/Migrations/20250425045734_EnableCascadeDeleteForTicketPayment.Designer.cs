@@ -4,6 +4,7 @@ using MetroOne.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MetroOne.DAL.Migrations
 {
     [DbContext(typeof(MetroonedbContext))]
-    partial class MetroonedbContextModelSnapshot : ModelSnapshot
+    [Migration("20250425045734_EnableCascadeDeleteForTicketPayment")]
+    partial class EnableCascadeDeleteForTicketPayment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -314,7 +317,6 @@ namespace MetroOne.DAL.Migrations
                     b.HasOne("MetroOne.DAL.Models.Ticket", "Ticket")
                         .WithOne("PaymentStatus")
                         .HasForeignKey("MetroOne.DAL.Models.PaymentStatus", "TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__PaymentSt__Ticke__4E88ABD4");
 

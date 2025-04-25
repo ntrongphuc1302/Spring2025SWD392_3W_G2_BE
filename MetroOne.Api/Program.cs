@@ -151,6 +151,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.Reg
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateStationRequestValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateUserRequestValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateTrainRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateTicketRequestValidator>();
 #endregion
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
