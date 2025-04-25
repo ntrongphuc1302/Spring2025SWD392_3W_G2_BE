@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
+using MetroOne.DTO.Requests;
+using MetroOne.DTO.Responses;
+using static MetroOne.DTO.Constants.ApiRoutes;
 
 namespace MetroOne.BLL.Services.Implementations
 {
@@ -18,9 +21,12 @@ namespace MetroOne.BLL.Services.Implementations
             _unitOfWork = unitOfWork;
         }
 
+        
+
         public async Task<CreateTicketResponse> CreateTicketAsync(CreateTicketRequest request)
         {
-            var ticket = new Ticket
+            var bookingTime = DateTime.UtcNow;
+            var ticket = new DAL.Models.Ticket
             {
                 UserId = request.UserId,
                 TripId = request.TripId,
@@ -28,7 +34,8 @@ namespace MetroOne.BLL.Services.Implementations
                 EndStationId = request.EndStationId,
                 Price = request.Price,
                 Status = request.Status ?? "Pending",
-                Qrcode = request.QRCode
+                Qrcode = request.QRCode,
+                BookingTime = bookingTime
             };
 
             var success = await _unitOfWork.Tickets.CreateAsync(ticket);
@@ -47,6 +54,72 @@ namespace MetroOne.BLL.Services.Implementations
                 Status = ticket.Status,
                 QRCode = ticket.Qrcode
             };
+        }
+
+        public async Task<List<GetAllTicketResponse>> GetAllTicketsAsync()
+        {
+            var tickets = await _unitOfWork.Tickets.GetAll();
+            var ticketResponses = tickets.Select(ticket => new GetAllTicketResponse
+            {
+                TicketId = ticket.TicketId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
+                StartStationId = ticket.StartStationId,
+                EndStationId = ticket.EndStationId,
+                BookingTime = ticket.BookingTime,
+                Price = ticket.Price,
+                Status = ticket.Status,
+                Qrcode = ticket.Qrcode
+            }).ToList();
+            return ticketResponses;
+        }
+
+        public async Task<GetAllTicketResponse> GetByIdAsync(int id)
+        {
+            var ticket = await _unitOfWork.Tickets.GetByIdAsync(id);
+            if (ticket == null)
+                throw new Exception("Ticket not found");
+            return new GetAllTicketResponse
+                {TicketId = ticket.TicketId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
+                StartStationId = ticket.StartStationId,
+                EndStationId = ticket.EndStationId,
+                BookingTime = ticket.BookingTime,
+                Price = ticket.Price,
+                Status = ticket.Status,
+                Qrcode = ticket.Qrcode
+            };
+        }
+
+        public async Task<bool> UpdateTicketAsync(UpdateTicketRequest request)
+        {
+            var ticket = await _unitOfWork.Tickets.GetByIdAsync(request.TicketId);
+            if (ticket == null)
+                throw new Exception("Ticket not found");
+            ticket.UserId = request.UserId;
+            ticket.TripId = request.TripId;
+            ticket.StartStationId = request.StartStationId;
+            ticket.EndStationId = request.EndStationId;
+            //ticket.BookingTime = request.BookingTime;
+            ticket.Price = request.Price;
+            ticket.Status = request.Status ?? "Pending";
+            ticket.Qrcode = request.QRCode;
+            var success = await _unitOfWork.Tickets.UpdateAsync(ticket);
+            if (!success)
+                throw new Exception("Failed to update ticket");
+            return true;
+        }
+
+        public async Task<bool> DeleteTicketAsync(int id)
+        {
+            var ticket = await _unitOfWork.Tickets.GetByIdAsync(id);
+            if (ticket == null)
+                throw new Exception("Ticket not found");
+            var success = await _unitOfWork.Tickets.DeleteAsync(id);
+            if (!success)
+                throw new Exception("Failed to delete ticket");
+            return true;
         }
     }
 

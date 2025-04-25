@@ -89,7 +89,7 @@ public partial class MetroonedbContext : DbContext
 
             entity.HasOne(d => d.Ticket).WithOne(p => p.PaymentStatus)
                 .HasForeignKey<PaymentStatus>(d => d.TicketId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__PaymentSt__Ticke__4E88ABD4");
         });
 
