@@ -59,38 +59,61 @@ namespace MetroOne.BLL.Services.Implementations
         public async Task<List<GetAllTicketResponse>> GetAllTicketsAsync()
         {
             var tickets = await _unitOfWork.Tickets.GetAll();
-            var ticketResponses = tickets.Select(ticket => new GetAllTicketResponse
+
+            var ticketResponses = new List<GetAllTicketResponse>();
+
+            foreach (var ticket in tickets)
             {
-                TicketId = ticket.TicketId,
-                UserId = ticket.UserId,
-                TripId = ticket.TripId,
-                StartStationId = ticket.StartStationId,
-                EndStationId = ticket.EndStationId,
-                BookingTime = ticket.BookingTime,
-                Price = ticket.Price,
-                Status = ticket.Status,
-                Qrcode = ticket.Qrcode
-            }).ToList();
+                // Fetch related Trip
+                var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
+
+                // Fetch related Stations
+                var startStation = await _unitOfWork.Stations.GetStationByIdAsync(ticket.StartStationId);
+                var endStation = await _unitOfWork.Stations.GetStationByIdAsync(ticket.EndStationId);
+
+                ticketResponses.Add(new GetAllTicketResponse
+                {
+                    TicketId = ticket.TicketId,
+                    DepartureTime = trip?.DepartureTime,
+                    ArrivalTime = trip?.ArrivalTime,
+                    StartStation = startStation?.StationName ?? "Unknown",
+                    EndStation = endStation?.StationName ?? "Unknown",
+                    BookingTime = ticket.BookingTime,
+                    Price = ticket.Price,
+                    Status = ticket.Status,
+                    Qrcode = ticket.Qrcode
+                });
+            }
+
             return ticketResponses;
         }
+
 
         public async Task<GetAllTicketResponse> GetByIdAsync(int id)
         {
             var ticket = await _unitOfWork.Tickets.GetByIdAsync(id);
+            var train = await _unitOfWork.Trains.GetTrainByIdAsync(id);
             if (ticket == null)
                 throw new Exception("Ticket not found");
+
+            var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
+            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+
             return new GetAllTicketResponse
-                {TicketId = ticket.TicketId,
-                UserId = ticket.UserId,
-                TripId = ticket.TripId,
-                StartStationId = ticket.StartStationId,
-                EndStationId = ticket.EndStationId,
+            {
+                TicketId = ticket.TicketId,
+                DepartureTime = trip?.DepartureTime,
+                ArrivalTime = trip?.ArrivalTime,
+                StartStation = startStation?.StationName ?? "Unknown",
+                EndStation = endStation?.StationName ?? "Unknown",
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
                 Qrcode = ticket.Qrcode
             };
         }
+
 
         public async Task<bool> UpdateTicketAsync(UpdateTicketRequest request)
         {

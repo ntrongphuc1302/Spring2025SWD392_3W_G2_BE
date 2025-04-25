@@ -10,13 +10,12 @@ namespace MetroOne.DTO.Responses
     {
         public int TicketId { get; set; }
 
-        public int UserId { get; set; }
+        public DateTime? DepartureTime { get; set; }
 
-        public int TripId { get; set; }
+        public DateTime? ArrivalTime { get; set; }
 
-        public int StartStationId { get; set; }
-
-        public int EndStationId { get; set; }
+        public string StartStation { get; set; }
+        public string EndStation { get; set; }
 
         public DateTime? BookingTime { get; set; }
 
