@@ -141,9 +141,17 @@ builder.Services.AddCors(options =>
 
 #endregion
 
+#region Validators
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters(); 
-builder.Services.AddValidatorsFromAssemblyContaining<CreateTicketRequestValidator>();
-
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateStationRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateTicketRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateTrainRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.LoginRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.RegisterRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateStationRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateUserRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.UpdateTrainRequestValidator>();
+#endregion
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

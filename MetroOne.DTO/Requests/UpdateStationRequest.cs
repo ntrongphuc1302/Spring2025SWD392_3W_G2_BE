@@ -9,7 +9,6 @@ namespace MetroOne.DTO.Requests
 {
     public class UpdateStationRequest
     {
-        [Required]
         public int StationId { get; set; }
 
         public string? StationName { get; set; }

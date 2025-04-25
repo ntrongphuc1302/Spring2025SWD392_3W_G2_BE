@@ -1,6 +1,10 @@
 ﻿using FluentValidation;
 using MetroOne.DTO.Requests;
 
+
+namespace MetroOne.Api.Validators;
+
+
 public class LoginRequestValidator : AbstractValidator<LoginRequest>
 {
     public LoginRequestValidator()

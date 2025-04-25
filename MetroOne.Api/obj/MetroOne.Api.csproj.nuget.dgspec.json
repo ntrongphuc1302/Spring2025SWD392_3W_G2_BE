@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.API.csproj": {}
+    "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj": {}
   },
   "projects": {
-    "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.API.csproj": {
+    "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.API.csproj",
+        "projectUniqueName": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
         "projectName": "MetroOne.API",
-        "projectPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.API.csproj",
+        "projectPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
         "packagesPath": "C:\\Users\\Phucs\\.nuget\\packages\\",
-        "outputPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\obj\\",
+        "outputPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

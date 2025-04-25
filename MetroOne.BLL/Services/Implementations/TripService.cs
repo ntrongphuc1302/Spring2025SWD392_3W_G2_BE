@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MetroOne.BLL.Services.Interfaces;
+﻿using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Requests;
