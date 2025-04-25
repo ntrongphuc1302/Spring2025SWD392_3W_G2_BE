@@ -9107,23 +9107,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Phucs\\.nuget\\packages\\": {},
+    "C:\\Users\\phuth\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
-      "projectName": "MetroOne.API",
-      "projectPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\MetroOne.API.csproj",
-      "packagesPath": "C:\\Users\\Phucs\\.nuget\\packages\\",
-      "outputPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.Api\\obj\\",
+      "projectUniqueName": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.Api.csproj",
+      "projectName": "MetroOne.Api",
+      "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\MetroOne.Api.csproj",
+      "packagesPath": "C:\\Users\\phuth\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Phucs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\phuth\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9132,18 +9132,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\MetroOne.BLL.csproj": {
-              "projectPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\MetroOne.BLL.csproj"
+            "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\MetroOne.BLL.csproj": {
+              "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.BLL\\MetroOne.BLL.csproj"
             },
-            "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {
-              "projectPath": "D:\\FPTU\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj"
+            "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj": {
+              "projectPath": "C:\\Users\\phuth\\source\\repos\\Spring2025SWD392_3W_G2_BE\\MetroOne.DTO\\MetroOne.DTO.csproj"
             }
           }
         }

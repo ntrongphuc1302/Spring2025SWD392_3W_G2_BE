@@ -9,6 +9,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
 {
     public interface ITripRepository
     {
+        Task<List<Trip>> GetAllTripAsync();
         Task<bool> CreateTripsAsync(Trip trip);
         Task<bool> UpdateTripsAsync(Trip trip);
         Task<bool> DeleteTripsAsync(int id);

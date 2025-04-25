@@ -10,6 +10,7 @@ namespace MetroOne.BLL.Services.Interfaces
 {
     public interface ITripService
     {
+        Task<List<GetAllTripsRespone>> GetAllTripsAsync();
         Task<CreateTripRespone> CreateTripAsync(CreateTripRequest dto);
         Task<bool> UpdateTripAsync(UpdateStationRequest dto);
         Task<bool> DeleteTripAsync(int TripId);
