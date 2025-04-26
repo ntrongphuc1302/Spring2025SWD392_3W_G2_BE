@@ -51,47 +51,47 @@ namespace MetroOne.BLL.Services.Implementations
             };
         }
 
-        public async Task<List<GetAllTicketResponse>> GetAllTicketsAsync()
-        {
-            var tickets = await _unitOfWork.Tickets.GetAll();
+        //public async Task<List<GetAllTicketResponse>> GetAllTicketsAsync()
+        //{
+        //    var tickets = await _unitOfWork.Tickets.GetAll();
 
-            var ticketResponses = new List<GetAllTicketResponse>();
+        //    var ticketResponses = new List<GetAllTicketResponse>();
 
-            foreach (var ticket in tickets)
-            {
-                TicketId = ticket.TicketId,
-                UserId = ticket.UserId,
-                TripId = ticket.TripId,
-                BookingTime = ticket.BookingTime,
-                Price = ticket.Price,
-                Status = ticket.Status,
-                ValidTo = ticket.ValidTo,
-            }).ToList();
-            return ticketResponses;
-        }
+        //    foreach (var ticket in tickets)
+        //    {
+        //        TicketId = ticket.TicketId,
+        //        UserId = ticket.UserId,
+        //        TripId = ticket.TripId,
+        //        BookingTime = ticket.BookingTime,
+        //        Price = ticket.Price,
+        //        Status = ticket.Status,
+        //        ValidTo = ticket.ValidTo,
+        //    }).ToList();
+        //    return ticketResponses;
+        //}
 
 
-        public async Task<GetAllTicketResponse> GetByIdAsync(int id)
-        {
-            var ticket = await _unitOfWork.Tickets.GetByIdAsync(id);
-            var train = await _unitOfWork.Trains.GetTrainByIdAsync(id);
-            if (ticket == null)
-                throw new Exception("Ticket not found");
+        //public async Task<GetAllTicketResponse> GetByIdAsync(int id)
+        //{
+        //    var ticket = await _unitOfWork.Tickets.GetByIdAsync(id);
+        //    var train = await _unitOfWork.Trains.GetTrainByIdAsync(id);
+        //    if (ticket == null)
+        //        throw new Exception("Ticket not found");
 
-            var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
-            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
-            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+        //    var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
+        //    var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+        //    var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
 
-            return new GetAllTicketResponse
-                {TicketId = ticket.TicketId,
-                UserId = ticket.UserId,
-                TripId = ticket.TripId,
-                BookingTime = ticket.BookingTime,
-                Price = ticket.Price,
-                Status = ticket.Status,
-                ValidTo = ticket.ValidTo,
-            };
-        }
+        //    return new GetAllTicketResponse
+        //        {TicketId = ticket.TicketId,
+        //        UserId = ticket.UserId,
+        //        TripId = ticket.TripId,
+        //        BookingTime = ticket.BookingTime,
+        //        Price = ticket.Price,
+        //        Status = ticket.Status,
+        //        ValidTo = ticket.ValidTo,
+        //    };
+        //}
 
 
         public async Task<bool> UpdateTicketAsync(UpdateTicketRequest request)
@@ -120,6 +120,16 @@ namespace MetroOne.BLL.Services.Implementations
             if (!success)
                 throw new Exception("Failed to delete ticket");
             return true;
+        }
+
+        public Task<List<GetAllTicketResponse>> GetAllTicketsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetAllTicketResponse> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 
