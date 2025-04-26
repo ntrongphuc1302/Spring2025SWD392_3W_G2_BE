@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MetroOne.DAL.Models;
 using MetroOne.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using static MetroOne.DTO.Constants.ApiRoutes;

@@ -13,7 +13,7 @@ namespace MetroOne.BLL.Services.Interfaces
         Task<CreateTicketResponse> CreateTicketAsync(CreateTicketRequest request);
         Task<List<GetAllTicketResponse>> GetAllTicketsAsync();
         Task<GetAllTicketResponse> GetByIdAsync(int id);
-        Task<bool> UpdateTicketAsync(UpdateTicketRequest request);
+        //Task<bool> UpdateTicketAsync(UpdateTicketRequest request);
         Task<bool> DeleteTicketAsync(int id);
     }
 }

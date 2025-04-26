@@ -10,8 +10,6 @@ namespace MetroOne.DAL.Repositories.Interfaces
     public interface IPaymentStatusRepository
     {
         Task<List<string>> GetStatusesAsync();
-        Task<PaymentStatus> GetByIdAsync(int id);
-        Task<PaymentStatus> GetByTicketIdAsync(int id);
         Task<bool> CreateAsync(string paymentStatus);
         Task<bool> UpdateAsync(int id, string paymentStatus);
         Task<bool> DeleteAsync(int id);

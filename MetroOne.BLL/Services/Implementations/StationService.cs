@@ -27,9 +27,9 @@ namespace MetroOne.BLL.Services.Implementations
             var station = new Station
             {
                 StationName = dto.StationName,
-                StationCode = dto.StationCode,
-                Location = dto.Location,
-                OrderInRoute = dto.OrderInRoute
+                //StationCode = dto.StationCode,
+                //Location = dto.Location,
+                //OrderInRoute = dto.OrderInRoute
             };
             if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
             {
@@ -42,9 +42,9 @@ namespace MetroOne.BLL.Services.Implementations
             return new CreateStationRespone
             {
                 StationName = station.StationName,
-                StationCode = station.StationCode,
-                Location = station.Location,
-                OrderInRoute = station.OrderInRoute
+                //StationCode = station.StationCode,
+                //Location = station.Location,
+                //OrderInRoute = station.OrderInRoute
             };
             }
         }
@@ -72,9 +72,9 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 StationId = s.StationId, 
                 StationName = s.StationName,
-                StationCode = s.StationCode,
-                Location = s.Location,
-                OrderInRoute = s.OrderInRoute
+                //StationCode = s.StationCode,
+                //Location = s.Location,
+                //OrderInRoute = s.OrderInRoute
             }).ToList();
         }
 
@@ -108,14 +108,14 @@ namespace MetroOne.BLL.Services.Implementations
             if (!string.IsNullOrWhiteSpace(dto.StationName))
                 station.StationName = dto.StationName;
 
-            if (!string.IsNullOrWhiteSpace(dto.StationCode))
-                station.StationCode = dto.StationCode;
+            //if (!string.IsNullOrWhiteSpace(dto.StationCode))
+            //    station.StationCode = dto.StationCode;
 
-            if (!string.IsNullOrWhiteSpace(dto.Location))
-                station.Location = dto.Location;
+            //if (!string.IsNullOrWhiteSpace(dto.Location))
+            //    station.Location = dto.Location;
 
-            if (dto.OrderInRoute.HasValue)
-                station.OrderInRoute = dto.OrderInRoute.Value;
+            //if (dto.OrderInRoute.HasValue)
+            //    station.OrderInRoute = dto.OrderInRoute.Value;
             if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
             {
                 throw new Exception($"Station name already existed!");

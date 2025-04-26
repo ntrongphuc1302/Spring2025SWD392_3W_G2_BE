@@ -9,17 +9,11 @@ public partial class Station
 
     public string? StationName { get; set; }
 
-    public string? StationCode { get; set; }
+    public int? LocationId { get; set; }
 
-    public string? Location { get; set; }
+    public virtual Location? Location { get; set; }
 
-    public int? OrderInRoute { get; set; }
+    public virtual ICollection<Route> RouteEndStations { get; set; } = new List<Route>();
 
-    public virtual ICollection<Ticket> TicketEndStations { get; set; } = new List<Ticket>();
-
-    public virtual ICollection<Ticket> TicketStartStations { get; set; } = new List<Ticket>();
-
-    public virtual ICollection<Train> TrainEndStations { get; set; } = new List<Train>();
-
-    public virtual ICollection<Train> TrainStartStations { get; set; } = new List<Train>();
+    public virtual ICollection<Route> RouteStartStations { get; set; } = new List<Route>();
 }

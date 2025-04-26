@@ -32,8 +32,8 @@ namespace MetroOne.BLL.Services.Implementations
             user.Status = dto.Status;
             user.FullName = dto.FullName;
             user.Email = dto.Email;
-            user.Phone = dto.Phone;
-            user.Role = dto.Role ?? "Passenger";
+            //user.Phone = dto.Phone;
+            //user.Role = dto.Role ?? "Passenger";
             return await _unitOfWork.Users.UpdateUserAsync(user);
         }
 
@@ -45,9 +45,9 @@ namespace MetroOne.BLL.Services.Implementations
 
             user.Status = "Deleted";
             user.Email = $"deleted_{Guid.NewGuid()}@example.com";
-            user.Phone = "0000000000";
+            //user.Phone = "0000000000";
             user.FullName = "Deleted User";
-            user.Role = "Deleted";
+            //user.Role = "Deleted";
 
             await _unitOfWork.Users.UpdateUserAsync(user);
             return true;
@@ -62,8 +62,8 @@ namespace MetroOne.BLL.Services.Implementations
                 Id = u.UserId,
                 FullName = u.FullName,
                 Email = u.Email,
-                Phone = u.Phone,
-                Role = u.Role,
+                //Phone = u.Phone,
+                //Role = u.Role,
                 Status = u.Status
             }).ToList();
         }

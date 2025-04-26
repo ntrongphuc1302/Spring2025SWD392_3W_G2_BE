@@ -32,7 +32,7 @@ namespace MetroOne.BLL.Services.Implementations
 
             return new CreateTripRespone
             {
-                TrainId = trip.TrainId,
+                //TrainId = trip.TrainId,
                 DepartureTime = trip.DepartureTime,
                 ArrivalTime = trip.ArrivalTime
             };

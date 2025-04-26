@@ -25,8 +25,8 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 TrainName = dto.TrainName,
                 EstimatedTime = dto.EstimatedTime,
-                StartStationId = dto.StartStationId,
-                EndStationId = dto.EndStationId,
+                //StartStationId = dto.StartStationId,
+                //EndStationId = dto.EndStationId,
                 Capacity = dto.Capacity,
             };
 
@@ -41,9 +41,9 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 TrainName = train.TrainName,
                 EstimatedTime = train.EstimatedTime,
-                StartStationId = train.StartStationId,
-                EndStationId = train.EndStationId,
-                Capacity = train.Capacity
+                //StartStationId = train.StartStationId,
+                //EndStationId = train.EndStationId,
+                //Capacity = train.Capacity
             };
         }
     }
@@ -71,9 +71,9 @@ namespace MetroOne.BLL.Services.Implementations
                 TrainId = t.TrainId,
                 TrainName = t.TrainName,
                 EstimatedTime = t.EstimatedTime,
-                StartStationId = t.StartStationId,
-                EndStationId = t.EndStationId,
-                Capacity = t.Capacity
+                //StartStationId = t.StartStationId,
+                //EndStationId = t.EndStationId,
+                //Capacity = t.Capacity
                 
             }).ToList();
         }
@@ -84,19 +84,19 @@ namespace MetroOne.BLL.Services.Implementations
             if (train == null)
                 throw new Exception("Train not found!");
 
-            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
-            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+            //var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+            //var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
 
             return new TrainResponse
             {
                 TrainId = train.TrainId,
                 TrainName = train.TrainName,
                 EstimatedTime = train.EstimatedTime,
-                Capacity = train.Capacity,
-                StartStationId = train.StartStationId,
-                EndStationId = train.EndStationId,
-                StartStation = startStation.StationName,
-                EndStation = endStation.StationName
+                //Capacity = train.Capacity,
+                //StartStationId = train.StartStationId,
+                //EndStationId = train.EndStationId,
+                //StartStation = startStation.StationName,
+                //EndStation = endStation.StationName
             };
         }
 
@@ -107,19 +107,19 @@ namespace MetroOne.BLL.Services.Implementations
             if (train == null)
                 throw new Exception("Train not found!");
 
-            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
-            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
+            //var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
+            //var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
 
             return new TrainResponse
             {
                 TrainId = train.TrainId,
                 TrainName = train.TrainName,
                 EstimatedTime = train.EstimatedTime,
-                Capacity = train.Capacity,
-                StartStationId = train.StartStationId,
-                EndStationId = train.EndStationId,
-                StartStation = startStation.StationName,
-                EndStation = endStation.StationName
+                //Capacity = train.Capacity,
+                //StartStationId = train.StartStationId,
+                //EndStationId = train.EndStationId,
+                //StartStation = startStation.StationName,
+                //EndStation = endStation.StationName
             };
         }
 
@@ -135,11 +135,11 @@ namespace MetroOne.BLL.Services.Implementations
             if (dto.EstimatedTime.HasValue)
                 train.EstimatedTime = dto.EstimatedTime.Value;
 
-            if (dto.StartStationId.HasValue)
-                train.StartStationId = dto.StartStationId.Value;
+            //if (dto.StartStationId.HasValue)
+            //    train.StartStationId = dto.StartStationId.Value;
 
-            if (dto.EndStationId.HasValue)
-                train.EndStationId = dto.EndStationId.Value;
+            //if (dto.EndStationId.HasValue)
+            //    train.EndStationId = dto.EndStationId.Value;
 
             if (dto.Capacity.HasValue)
                 train.Capacity = dto.Capacity.Value;
