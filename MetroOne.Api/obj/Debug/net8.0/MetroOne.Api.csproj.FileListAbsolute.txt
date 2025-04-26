@@ -621,3 +621,10 @@ D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.pdb
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.genruntimeconfig.cache
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\ref\MetroOne.API.dll
 >>>>>>> fd3de8eb0f1f13023ed6602247e97c44a7f2a3f7
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.csproj.AssemblyReference.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfoInputs.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfo.cs
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.csproj.CoreCompileInputs.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.sourcelink.json
