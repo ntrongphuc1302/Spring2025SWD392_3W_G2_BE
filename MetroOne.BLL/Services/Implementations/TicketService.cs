@@ -22,7 +22,6 @@ namespace MetroOne.BLL.Services.Implementations
         }
 
         
-
         public async Task<CreateTicketResponse> CreateTicketAsync(CreateTicketRequest request)
         {
             var bookingTime = DateTime.UtcNow;
@@ -30,12 +29,10 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 UserId = request.UserId,
                 TripId = request.TripId,
-                //StartStationId = request.StartStationId,
-                //EndStationId = request.EndStationId,
+                BookingTime = bookingTime,
                 Price = request.Price,
-                Status = request.Status ?? "Pending",
-                //Qrcode = request.QRCode,
-                BookingTime = bookingTime
+                Status = request.Status ?? "Active",
+                ValidTo = request.ValidTo,
             };
 
             var success = await _unitOfWork.Tickets.CreateAsync(ticket);
@@ -45,14 +42,12 @@ namespace MetroOne.BLL.Services.Implementations
             return new CreateTicketResponse
             {
                 TicketId = ticket.TicketId,
-                //UserId = ticket.UserId,
-                //TripId = ticket.TripId,
-                //StartStationId = ticket.StartStationId,
-                //EndStationId = ticket.EndStationId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
-                //QRCode = ticket.Qrcode
+                ValidTo = ticket.ValidTo,
             };
         }
 
@@ -62,14 +57,12 @@ namespace MetroOne.BLL.Services.Implementations
             var ticketResponses = tickets.Select(ticket => new GetAllTicketResponse
             {
                 TicketId = ticket.TicketId,
-                //UserId = ticket.UserId,
-                //TripId = ticket.TripId,
-                //StartStationId = ticket.StartStationId,
-                //EndStationId = ticket.EndStationId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
-                //Qrcode = ticket.Qrcode
+                ValidTo = ticket.ValidTo,
             }).ToList();
             return ticketResponses;
         }
@@ -81,35 +74,31 @@ namespace MetroOne.BLL.Services.Implementations
                 throw new Exception("Ticket not found");
             return new GetAllTicketResponse
                 {TicketId = ticket.TicketId,
-                //UserId = ticket.UserId,
-                //TripId = ticket.TripId,
-                //StartStationId = ticket.StartStationId,
-                //EndStationId = ticket.EndStationId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
-                //Qrcode = ticket.Qrcode
+                ValidTo = ticket.ValidTo,
             };
         }
 
-        //public async Task<bool> UpdateTicketAsync(UpdateTicketRequest request)
-        //{
-        //    var ticket = await _unitOfWork.Tickets.GetByIdAsync(request.TicketId);
-        //    if (ticket == null)
-        //        throw new Exception("Ticket not found");
-        //    ticket.UserId = request.UserId;
-        //    ticket.TripId = request.TripId;
-        //    //ticket.StartStationId = request.StartStationId;
-        //    //ticket.EndStationId = request.EndStationId;
-        //    //ticket.BookingTime = request.BookingTime;
-        //    ticket.Price = request.Price;
-        //    ticket.Status = request.Status ?? "Pending";
-        //    ticket.Qrcode = request.QRCode;
-        //    var success = await _unitOfWork.Tickets.UpdateAsync(ticket);
-        //    if (!success)
-        //        throw new Exception("Failed to update ticket");
-        //    return true;
-        //}
+        public async Task<bool> UpdateTicketAsync(UpdateTicketRequest request)
+        {
+            var ticket = await _unitOfWork.Tickets.GetByIdAsync(request.TicketId);
+            if (ticket == null)
+                throw new Exception("Ticket not found");
+            ticket.UserId = request.UserId;
+            ticket.TripId = request.TripId;
+            //ticket.BookingTime = request.BookingTime;
+            ticket.Price = request.Price;
+            ticket.Status = request.Status ?? "Pending";
+            ticket.ValidTo = request.ValidTo;
+            var success = await _unitOfWork.Tickets.UpdateAsync(ticket);
+            if (!success)
+                throw new Exception("Failed to update ticket");
+            return true;
+        }
 
         public async Task<bool> DeleteTicketAsync(int id)
         {

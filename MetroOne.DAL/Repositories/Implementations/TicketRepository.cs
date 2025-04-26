@@ -50,27 +50,25 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         }
 
-        //public Task<bool> UpdateAsync(Ticket ticket)
-        //{
-        //    var existingTicket = _context.Tickets.FirstOrDefault(t => t.TicketId == ticket.TicketId);
-        //    if (existingTicket == null)
-        //    {
-        //        throw new Exception("Ticket not found");
-        //    }
-        //    else
-        //    {
-        //        existingTicket.UserId = ticket.UserId;
-        //        existingTicket.TripId = ticket.TripId;
-        //        existingTicket.StartStationId = ticket.StartStationId;
-        //        existingTicket.EndStationId = ticket.EndStationId;
-        //        //existingTicket.BookingTime = ticket.BookingTime;
-        //        existingTicket.Price = ticket.Price;
-        //        existingTicket.Status = ticket.Status;
-        //        existingTicket.Qrcode = ticket.Qrcode;
-        //        _context.Tickets.Update(existingTicket);
-        //        return Task.FromResult(_context.SaveChanges() > 0);
-        //    }
-        //}
+        public Task<bool> UpdateAsync(Ticket ticket)
+        {
+            var existingTicket = _context.Tickets.FirstOrDefault(t => t.TicketId == ticket.TicketId);
+            if (existingTicket == null)
+            {
+                throw new Exception("Ticket not found");
+            }
+            else
+            {
+                existingTicket.UserId = ticket.UserId;
+                existingTicket.TripId = ticket.TripId;
+                //existingTicket.BookingTime = ticket.BookingTime;
+                existingTicket.Price = ticket.Price;
+                existingTicket.Status = ticket.Status;
+                existingTicket.ValidTo = ticket.ValidTo;
+                _context.Tickets.Update(existingTicket);
+                return Task.FromResult(_context.SaveChanges() > 0);
+            }
+        }
 
         public Task<bool> DeleteAsync(int id)
         {

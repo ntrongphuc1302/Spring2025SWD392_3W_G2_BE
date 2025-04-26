@@ -13,14 +13,18 @@ public class CreateTicketRequestValidator : AbstractValidator<CreateTicketReques
         RuleFor(x => x.TripId)
             .GreaterThan(0).WithMessage("TripId must be greater than 0.");
 
-        RuleFor(x => x.StartStationId)
-            .GreaterThan(0).WithMessage("StartStationId must be greater than 0.");
-
-        RuleFor(x => x.EndStationId)
-            .GreaterThan(0).WithMessage("EndStationId must be greater than 0.")
-            .NotEqual(x => x.StartStationId).WithMessage("Start and End stations cannot be the same.");
-
         RuleFor(x => x.Price)
             .GreaterThan(0).WithMessage("Price must be greater than 0.");
+
+        RuleFor(x => x.Status)
+            .NotEmpty().WithMessage("Status is required.")
+            .Must(status => status == "Active" || status == "Expired")
+            .WithMessage("Status must be either Pending, Paid, or Expired.");
+        
+        RuleFor(x => x.ValidTo)
+            .NotEmpty().WithMessage("ValidTo is required.")
+            .Must(validTo => validTo > DateTime.UtcNow)
+            .WithMessage("ValidTo must be in the future.");
+
     }
 }
