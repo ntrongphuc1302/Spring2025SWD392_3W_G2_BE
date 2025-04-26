@@ -53,17 +53,22 @@ namespace MetroOne.BLL.Services.Implementations
             }
         }
 
-        public async Task<List<GetAllTripsRespone>> GetAllTripsAsync()
+        public Task<List<GetAllTripsRespone>> GetAllTripsAsync()
         {
-            var trips = await _unitOfWork.Trips.GetAllTripAsync();
-            return trips.Select(tr => new GetAllTripsRespone 
-            {
-                TripId = tr.TripId,
-                TrainId = tr.TrainId,
-                DepartureTime = tr.DepartureTime,
-                ArrivalTime = tr.ArrivalTime
-            }).ToList();
+            throw new NotImplementedException();
         }
+
+        //public async Task<List<GetAllTripsRespone>> GetAllTripsAsync()
+        //{
+        //    var trips = await _unitOfWork.Trips.GetAllTripAsync();
+        //    return trips.Select(tr => new GetAllTripsRespone 
+        //    {
+        //        TripId = tr.TripId,
+        //        TrainId = tr.TrainId,
+        //        DepartureTime = tr.DepartureTime,
+        //        ArrivalTime = tr.ArrivalTime
+        //    }).ToList();
+        //}
 
         public Task<bool> UpdateTripAsync(UpdateStationRequest dto)
         {
