@@ -39,7 +39,7 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         public async Task<List<Station?>> GetAllStationAsync()
         {
-            return await _context.Stations.ToListAsync();
+            return await _context.Stations.Include(s => s.Location).ToListAsync();
         }
 
         public async Task<Station?> GetStationByIdAsync(int id)

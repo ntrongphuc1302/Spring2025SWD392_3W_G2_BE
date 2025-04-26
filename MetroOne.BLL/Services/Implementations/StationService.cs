@@ -23,31 +23,33 @@ namespace MetroOne.BLL.Services.Implementations
         public async Task<CreateStationRespone> AddStationAsync(CreateStationRequest dto)
         {
             // Generate station code from name
-
             var station = new Station
             {
                 StationName = dto.StationName,
-                //StationCode = dto.StationCode,
-                //Location = dto.Location,
-                //OrderInRoute = dto.OrderInRoute
+                LocationId = dto.LocationId,
             };
-            if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
+
+            if (await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
             {
                 throw new Exception("Station name already existed!");
             }
-            else { 
+            else
+            {
                 await _unitOfWork.Stations.CreateStationAsync(station);
                 await _unitOfWork.SaveAsync();
-           
-            return new CreateStationRespone
-            {
-                StationName = station.StationName,
-                //StationCode = station.StationCode,
-                //Location = station.Location,
-                //OrderInRoute = station.OrderInRoute
-            };
+
+                // ✅ Lấy LocationName dựa vào LocationId
+                var location = await _unitOfWork.Locations.GetLocationByIdAsync(dto.LocationId);
+
+                return new CreateStationRespone
+                {
+                    StationId = station.StationId,
+                    StationName = station.StationName,
+                    LocationName = location?.LocationName    // Lấy tên Location
+                };
             }
         }
+
 
 
         public async Task<bool> DeleteStationAsync(int id)
@@ -72,6 +74,7 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 StationId = s.StationId, 
                 StationName = s.StationName,
+                LocationName = s.Location?.LocationName
                 //StationCode = s.StationCode,
                 //Location = s.Location,
                 //OrderInRoute = s.OrderInRoute
@@ -106,24 +109,18 @@ namespace MetroOne.BLL.Services.Implementations
 
             // Only update fields that are not null
             if (!string.IsNullOrWhiteSpace(dto.StationName))
+            {
+                if (await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
+                {
+                    throw new Exception($"Station name already existed!");
+                }
                 station.StationName = dto.StationName;
-
-            //if (!string.IsNullOrWhiteSpace(dto.StationCode))
-            //    station.StationCode = dto.StationCode;
-
-            //if (!string.IsNullOrWhiteSpace(dto.Location))
-            //    station.Location = dto.Location;
-
-            //if (dto.OrderInRoute.HasValue)
-            //    station.OrderInRoute = dto.OrderInRoute.Value;
-            if(await _unitOfWork.Stations.HasStationExistAsync(dto.StationName))
-            {
-                throw new Exception($"Station name already existed!");
             }
-            else
-            {
 
-                var result = await _unitOfWork.Stations.UpdateStationAsync(station);
+            if (dto.LocationId.HasValue && dto.LocationId > 0)
+                station.LocationId = dto.LocationId.Value;
+
+            var result = await _unitOfWork.Stations.UpdateStationAsync(station);
             if (result)
             {
                 await _unitOfWork.SaveAsync();
@@ -131,8 +128,6 @@ namespace MetroOne.BLL.Services.Implementations
             }
 
             return false;
-        }
-
         }
 
     }

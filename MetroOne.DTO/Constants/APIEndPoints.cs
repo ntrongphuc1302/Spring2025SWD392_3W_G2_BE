@@ -10,6 +10,16 @@
             public const string Register = $"{Base}/auth/register";
         }
 
+        public static class Locations
+        {
+            public const string BaseLocation = $"{Base}/Location";
+            public const string Create = $"{BaseLocation}/CreateLocation";
+            public const string GetAll = $"{BaseLocation}/all";
+            public const string GetById = $"{BaseLocation}/GetLocationById/{{id}}";
+            public const string GetByName = $"{BaseLocation}/GetLocationByName";
+            public const string Update = $"{BaseLocation}/UpdateLocation";
+            public const string Delete = $"{BaseLocation}/DeleteLocation/{{id}}";
+        }
         public static class Users
         {
             public const string BaseUser = $"{Base}/user";

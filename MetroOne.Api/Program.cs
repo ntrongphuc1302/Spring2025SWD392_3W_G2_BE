@@ -111,6 +111,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+//Location
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+
 //Train
 builder.Services.AddScoped<ITrainRepository, TrainRepository>();
 builder.Services.AddScoped<ITrainService, TrainService>();
