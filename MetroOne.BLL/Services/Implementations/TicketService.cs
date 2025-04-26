@@ -59,29 +59,6 @@ namespace MetroOne.BLL.Services.Implementations
 
             foreach (var ticket in tickets)
             {
-<<<<<<< HEAD
-                // Fetch related Trip
-                var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
-
-                // Fetch related Stations
-                var startStation = await _unitOfWork.Stations.GetStationByIdAsync(ticket.StartStationId);
-                var endStation = await _unitOfWork.Stations.GetStationByIdAsync(ticket.EndStationId);
-
-                ticketResponses.Add(new GetAllTicketResponse
-                {
-                    TicketId = ticket.TicketId,
-                    DepartureTime = trip?.DepartureTime,
-                    ArrivalTime = trip?.ArrivalTime,
-                    StartStation = startStation?.StationName ?? "Unknown",
-                    EndStation = endStation?.StationName ?? "Unknown",
-                    BookingTime = ticket.BookingTime,
-                    Price = ticket.Price,
-                    Status = ticket.Status,
-                    Qrcode = ticket.Qrcode
-                });
-            }
-
-=======
                 TicketId = ticket.TicketId,
                 UserId = ticket.UserId,
                 TripId = ticket.TripId,
@@ -90,7 +67,6 @@ namespace MetroOne.BLL.Services.Implementations
                 Status = ticket.Status,
                 ValidTo = ticket.ValidTo,
             }).ToList();
->>>>>>> fd3de8eb0f1f13023ed6602247e97c44a7f2a3f7
             return ticketResponses;
         }
 
@@ -107,18 +83,9 @@ namespace MetroOne.BLL.Services.Implementations
             var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
 
             return new GetAllTicketResponse
-<<<<<<< HEAD
-            {
-                TicketId = ticket.TicketId,
-                DepartureTime = trip?.DepartureTime,
-                ArrivalTime = trip?.ArrivalTime,
-                StartStation = startStation?.StationName ?? "Unknown",
-                EndStation = endStation?.StationName ?? "Unknown",
-=======
                 {TicketId = ticket.TicketId,
                 UserId = ticket.UserId,
                 TripId = ticket.TripId,
->>>>>>> fd3de8eb0f1f13023ed6602247e97c44a7f2a3f7
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
