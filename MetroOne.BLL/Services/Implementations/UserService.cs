@@ -24,31 +24,31 @@ namespace MetroOne.BLL.Services.Implementations
         {
             var user = await _unitOfWork.Users.GetByIdAsync(dto.UserId);
 
-            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
-                throw new Exception("Email already exists");
+            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email, dto.UserId))
+        
 
             if (user == null)
                 throw new Exception("User not found");
             user.Status = dto.Status;
             user.FullName = dto.FullName;
             user.Email = dto.Email;
-            //user.Phone = dto.Phone;
-            //user.Role = dto.Role ?? "Passenger";
+            user.Permission = dto.Permission;
             return await _unitOfWork.Users.UpdateUserAsync(user);
         }
 
         public async Task<bool> SoftDeleteUserAsync(int userId)
         {
             var user = await _unitOfWork.Users.GetByIdAsync(userId);
+
             if (user == null || user.Status == "Deleted")
                 return false;
 
             user.Status = "Deleted";
-            user.Email = $"deleted_{Guid.NewGuid()}@example.com";
-            //user.Phone = "0000000000";
+            user.Email = $"deleted_{Guid.NewGuid()}@deleted.com"; 
             user.FullName = "Deleted User";
-            //user.Role = "Deleted";
 
+            user.Password = $"{Guid.NewGuid()}";
+            
             await _unitOfWork.Users.UpdateUserAsync(user);
             return true;
         }
@@ -59,11 +59,10 @@ namespace MetroOne.BLL.Services.Implementations
 
             return users.Select(u => new GetAllUsersResponse
             {
-                Id = u.UserId,
+                UserId = u.UserId,
                 FullName = u.FullName,
                 Email = u.Email,
-                //Phone = u.Phone,
-                //Role = u.Role,
+                Permission = u.Permission,
                 Status = u.Status
             }).ToList();
         }

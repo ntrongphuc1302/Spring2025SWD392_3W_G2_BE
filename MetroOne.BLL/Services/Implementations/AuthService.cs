@@ -89,7 +89,7 @@ namespace MetroOne.BLL.Services.Implementations
                 role = "Passenger";
 
             // Check if the email already exists
-            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
+            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email, 0))
                 throw new Exception(message:"Email already exists");
 
 

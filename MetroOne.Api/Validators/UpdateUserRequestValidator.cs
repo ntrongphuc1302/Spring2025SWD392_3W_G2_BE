@@ -20,12 +20,8 @@ public class UpdateUserRequestValidator : AbstractValidator<UpdateUserRequest>
             .NotEmpty().WithMessage("Email is required.")
             .EmailAddress().WithMessage("Invalid email format.");
 
-        RuleFor(x => x.Phone)
-            .NotEmpty().WithMessage("Phone is required.")
-            .Matches(@"^(0|\+84)[3|5|7|8|9]\d{8}$").WithMessage("Invalid phone number.");
-
-        RuleFor(x => x.Role)
-            .NotEmpty().WithMessage("Role is required.")
+        RuleFor(x => x.Permission)
+            .NotEmpty().WithMessage("Permission is required.")
             .Must(role => role == "Admin" || role == "Passenger")
             .WithMessage("Role must be either Admin or Passenger.");
 

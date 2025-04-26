@@ -26,9 +26,9 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task<bool> IsEmailExistsAsync(string email)
+        public async Task<bool> IsEmailExistsAsync(string email, int userId)
         {
-            return await _context.Users.AnyAsync(u => u.Email == email);
+            return await _context.Users.AnyAsync(u => u.Email == email && u.UserId != userId);
         }
 
         public async Task<bool> CreateAsync(User user)
@@ -61,7 +61,11 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         public async Task<bool> HardDeleteUserAsync(int userId)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return false;
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 

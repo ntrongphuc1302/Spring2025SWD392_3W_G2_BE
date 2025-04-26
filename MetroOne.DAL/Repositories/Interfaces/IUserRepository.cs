@@ -12,7 +12,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
     {
         Task<User?> GetByIdAsync(int id);
         Task<User?> GetByEmailAsync(string email);
-        Task<Boolean> IsEmailExistsAsync(string email);
+        Task<Boolean> IsEmailExistsAsync(string email, int userId);
         Task<Boolean> CreateAsync(User user);
         Task<bool> UpdateUserAsync(User dto);
         Task<List<User>> GetAllActiveUsersAsync();
