@@ -30,7 +30,6 @@ namespace MetroOne.DAL.UnitOfWork
             Stations = new StationRepository(context);
             Tickets = new TicketRepository(context);
             Trips = new TripRepository(context);
-            PaymentStatuses = new PaymentStatusRepository(context);
         }
 
         public async Task<int> SaveAsync()

@@ -1,5 +1,4 @@
 ﻿using MetroOne.DAL.Models;
-using MetroOne.DAL;
 using MetroOne.DAL.Repositories.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
@@ -27,9 +26,9 @@ namespace MetroOne.DAL.Repositories.Implementations
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task<bool> IsEmailExistsAsync(string email)
+        public async Task<bool> IsEmailExistsAsync(string email, int userId)
         {
-            return await _context.Users.AnyAsync(u => u.Email == email);
+            return await _context.Users.AnyAsync(u => u.Email == email && u.UserId != userId);
         }
 
         public async Task<bool> CreateAsync(User user)
@@ -44,8 +43,8 @@ namespace MetroOne.DAL.Repositories.Implementations
             if (user == null) return false;
 
             if (!string.IsNullOrWhiteSpace(dto.FullName)) user.FullName = dto.FullName;
-            if (!string.IsNullOrWhiteSpace(dto.Phone)) user.Phone = dto.Phone;
-            if (!string.IsNullOrWhiteSpace(dto.Role)) user.Role = dto.Role;
+            if (!string.IsNullOrWhiteSpace(dto.Email)) user.Email = dto.Email;
+            if (!string.IsNullOrWhiteSpace(dto.Permission)) user.Permission = dto.Permission;
             if (!string.IsNullOrWhiteSpace(dto.Status)) user.Status = dto.Status;
 
             _context.Users.Update(user);
@@ -62,36 +61,11 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         public async Task<bool> HardDeleteUserAsync(int userId)
         {
-            var user = await _context.Users
-                .Include(u => u.Tickets)
-                    .ThenInclude(t => t.PaymentStatus)
-                .Include(u => u.Passes)
-                .FirstOrDefaultAsync(u => u.UserId == userId && u.Status == "Deleted");
-
-            if (user == null)
-                return false;
-
-            // 1. Delete payment statuses
-            foreach (var ticket in user.Tickets)
-            {
-                if (ticket.PaymentStatus != null)
-                {
-                    _context.PaymentStatuses.Remove(ticket.PaymentStatus);
-                }
-            }
-
-            // 2. Delete tickets
-            _context.Tickets.RemoveRange(user.Tickets);
-
-            // 3. Delete passes
-            _context.Passes.RemoveRange(user.Passes);
-
-            // 4. Finally, delete the user
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return false;
             _context.Users.Remove(user);
-
             await _context.SaveChangesAsync();
             return true;
-
         }
     }
 

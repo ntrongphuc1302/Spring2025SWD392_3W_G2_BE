@@ -61,12 +61,10 @@ namespace MetroOne.DAL.Repositories.Implementations
             {
                 existingTicket.UserId = ticket.UserId;
                 existingTicket.TripId = ticket.TripId;
-                existingTicket.StartStationId = ticket.StartStationId;
-                existingTicket.EndStationId = ticket.EndStationId;
                 //existingTicket.BookingTime = ticket.BookingTime;
                 existingTicket.Price = ticket.Price;
                 existingTicket.Status = ticket.Status;
-                existingTicket.Qrcode = ticket.Qrcode;
+                existingTicket.ValidTo = ticket.ValidTo;
                 _context.Tickets.Update(existingTicket);
                 return Task.FromResult(_context.SaveChanges() > 0);
             }

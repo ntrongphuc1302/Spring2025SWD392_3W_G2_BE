@@ -22,7 +22,6 @@ namespace MetroOne.BLL.Services.Implementations
         }
 
         
-
         public async Task<CreateTicketResponse> CreateTicketAsync(CreateTicketRequest request)
         {
             var bookingTime = DateTime.UtcNow;
@@ -30,12 +29,10 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 UserId = request.UserId,
                 TripId = request.TripId,
-                StartStationId = request.StartStationId,
-                EndStationId = request.EndStationId,
+                BookingTime = bookingTime,
                 Price = request.Price,
-                Status = request.Status ?? "Pending",
-                Qrcode = request.QRCode,
-                BookingTime = bookingTime
+                Status = request.Status ?? "Active",
+                ValidTo = request.ValidTo,
             };
 
             var success = await _unitOfWork.Tickets.CreateAsync(ticket);
@@ -47,12 +44,10 @@ namespace MetroOne.BLL.Services.Implementations
                 TicketId = ticket.TicketId,
                 UserId = ticket.UserId,
                 TripId = ticket.TripId,
-                StartStationId = ticket.StartStationId,
-                EndStationId = ticket.EndStationId,
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
-                QRCode = ticket.Qrcode
+                ValidTo = ticket.ValidTo,
             };
         }
 
@@ -64,6 +59,7 @@ namespace MetroOne.BLL.Services.Implementations
 
             foreach (var ticket in tickets)
             {
+<<<<<<< HEAD
                 // Fetch related Trip
                 var trip = await _unitOfWork.Trips.GetByTripIdAsync(ticket.TripId);
 
@@ -85,6 +81,16 @@ namespace MetroOne.BLL.Services.Implementations
                 });
             }
 
+=======
+                TicketId = ticket.TicketId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
+                BookingTime = ticket.BookingTime,
+                Price = ticket.Price,
+                Status = ticket.Status,
+                ValidTo = ticket.ValidTo,
+            }).ToList();
+>>>>>>> fd3de8eb0f1f13023ed6602247e97c44a7f2a3f7
             return ticketResponses;
         }
 
@@ -101,16 +107,22 @@ namespace MetroOne.BLL.Services.Implementations
             var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
 
             return new GetAllTicketResponse
+<<<<<<< HEAD
             {
                 TicketId = ticket.TicketId,
                 DepartureTime = trip?.DepartureTime,
                 ArrivalTime = trip?.ArrivalTime,
                 StartStation = startStation?.StationName ?? "Unknown",
                 EndStation = endStation?.StationName ?? "Unknown",
+=======
+                {TicketId = ticket.TicketId,
+                UserId = ticket.UserId,
+                TripId = ticket.TripId,
+>>>>>>> fd3de8eb0f1f13023ed6602247e97c44a7f2a3f7
                 BookingTime = ticket.BookingTime,
                 Price = ticket.Price,
                 Status = ticket.Status,
-                Qrcode = ticket.Qrcode
+                ValidTo = ticket.ValidTo,
             };
         }
 
@@ -122,12 +134,10 @@ namespace MetroOne.BLL.Services.Implementations
                 throw new Exception("Ticket not found");
             ticket.UserId = request.UserId;
             ticket.TripId = request.TripId;
-            ticket.StartStationId = request.StartStationId;
-            ticket.EndStationId = request.EndStationId;
             //ticket.BookingTime = request.BookingTime;
             ticket.Price = request.Price;
             ticket.Status = request.Status ?? "Pending";
-            ticket.Qrcode = request.QRCode;
+            ticket.ValidTo = request.ValidTo;
             var success = await _unitOfWork.Tickets.UpdateAsync(ticket);
             if (!success)
                 throw new Exception("Failed to update ticket");

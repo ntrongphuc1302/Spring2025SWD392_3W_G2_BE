@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,17 @@ namespace MetroOne.DTO.Requests
 {
     public class RegisterRequest
     {
-        public required string FullName { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
-        public required string Phone { get; set; }
-        public string? Role { get; set; }
+        [DefaultValue("Full name")]
+        public string? FullName { get; set; }
+        [DefaultValue("example@email.com")]
+        public string? Email { get; set; }
+        [DefaultValue("Your_password")]
+        public string? Password { get; set; }
+        [DefaultValue("Active")]
         public string? Status { get; set; }
+        [DefaultValue("Passenger")]
+        public string? Permission { get; set; }
+
     }
 
 }

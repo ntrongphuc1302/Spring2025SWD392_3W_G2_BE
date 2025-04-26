@@ -41,7 +41,7 @@ namespace MetroOne.BLL.Services.Implementations
             {
             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role ?? "Passenger"),
+            new Claim(ClaimTypes.Role, user.Permission ?? "Passenger"),
             };
 
             var now = DateTime.UtcNow;
@@ -63,7 +63,7 @@ namespace MetroOne.BLL.Services.Implementations
             var responseOjb = new LoginResponse
             {
                 Token = jwt,
-                Role = user.Role ?? "Passenger",
+                Role = user.Permission ?? "Passenger",
                 FullName = user.FullName,
                 ExpiresIn = _jwtSettings.ExpiryMinutes * 60
             };
@@ -76,7 +76,7 @@ namespace MetroOne.BLL.Services.Implementations
         #region Register
         public async Task<RegisterResponse?> RegisterAsync(RegisterRequest dto)
         {
-            var role = dto.Role ?? "Passenger";
+            var role = dto.Permission ?? "Passenger";
 
             if (string.Equals(dto.Status, "Deleted", StringComparison.OrdinalIgnoreCase))
                 throw new Exception("Cannot register with Deleted status");
@@ -85,11 +85,11 @@ namespace MetroOne.BLL.Services.Implementations
 
 
 
-            if (dto.Role != null && dto.Role != "Passenger" && dto.Role != "Admin")
+            if (dto.Permission != null && dto.Permission != "Passenger" && dto.Permission != "Admin")
                 role = "Passenger";
 
             // Check if the email already exists
-            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email))
+            if (await _unitOfWork.Users.IsEmailExistsAsync(dto.Email, 0))
                 throw new Exception(message:"Email already exists");
 
 
@@ -98,8 +98,7 @@ namespace MetroOne.BLL.Services.Implementations
                     Email = dto.Email,
                     Password = BCrypt.Net.BCrypt.HashPassword(dto.Password, workFactor:12),
                     FullName = dto.FullName,
-                    Phone = dto.Phone,
-                    Role = role,
+                    Permission = role,
                     Status = status
             };
             var result = await _unitOfWork.Users.CreateAsync(user);
@@ -110,7 +109,7 @@ namespace MetroOne.BLL.Services.Implementations
                 UserId = user.UserId,
                 Email = user.Email,
                 FullName = user.FullName,
-                Role = user.Role,
+                Role = user.Permission,
                 Status = user.Status
             };
         }

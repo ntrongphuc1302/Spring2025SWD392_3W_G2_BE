@@ -9,16 +9,13 @@ public partial class Train
 
     public string? TrainName { get; set; }
 
-    public int StartStationId { get; set; }
-
-    public int EndStationId { get; set; }
-    public int Capacity { get; set; }
-
     public TimeOnly? EstimatedTime { get; set; }
 
-    public virtual Station EndStation { get; set; } = null!;
+    public int? Capacity { get; set; }
 
-    public virtual Station StartStation { get; set; } = null!;
+    public int? RouteLocationId { get; set; }
+
+    public virtual RouteLocation? RouteLocation { get; set; }
 
     public virtual ICollection<Trip> Trips { get; set; } = new List<Trip>();
 }
