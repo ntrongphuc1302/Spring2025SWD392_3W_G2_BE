@@ -34,3 +34,9 @@ D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\refint\MetroOne.
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.pdb
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.genruntimeconfig.cache
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\ref\MetroOne.DAL.dll
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.csproj.AssemblyReference.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.AssemblyInfoInputs.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.AssemblyInfo.cs
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.csproj.CoreCompileInputs.cache
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.DAL\obj\Debug\net8.0\MetroOne.DAL.sourcelink.json
