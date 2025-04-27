@@ -11,15 +11,25 @@ namespace MetroOne.DAL.Repositories.Implementations
         {
             _context = context;
         }
-        public Task<bool> CreateAsync(RouteLocation routeLocation)
+        public async Task<bool> CreateAsync(RouteLocation routeLocation)
         {
-            throw new NotImplementedException();
+            _context.RouteLocations.Add(routeLocation);
+            var result = await _context.SaveChangesAsync();
+            return result > 0;
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var routeLocation = await _context.RouteLocations.FindAsync(id);
+            if (routeLocation == null)
+            {
+                throw new Exception("Route location not found");
+            }
+            _context.RouteLocations.Remove(routeLocation);
+            var result = await _context.SaveChangesAsync();
+            return result > 0;
         }
+
 
         public async Task<List<RouteLocation>> GetAll()
         {
@@ -49,9 +59,16 @@ namespace MetroOne.DAL.Repositories.Implementations
             }
         }
 
-        public Task<bool> UpdateAsync(RouteLocation routeLocation)
+        public async Task<RouteLocation?> GetByLocationIdAsync(int locationId)
         {
-            throw new NotImplementedException();
+            return await _context.RouteLocations.FirstOrDefaultAsync(rl => rl.LocationId == locationId);
+        }
+
+        public async Task<bool> UpdateAsync(RouteLocation routeLocation)
+        {
+            _context.RouteLocations.Update(routeLocation);
+            var result = await _context.SaveChangesAsync();
+            return result > 0;
         }
     }
 }

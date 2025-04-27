@@ -14,7 +14,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
         Task<bool> DeleteAsync(int id);
         Task<List<RouteLocation>> GetAll();
         Task<RouteLocation> GetByIdAsync(int id);
-        //Task<List <RouteLocation>> GetByLocationIdAsync(int locationId);
+        Task<RouteLocation?> GetByLocationIdAsync(int locationId);
     }
 }
 

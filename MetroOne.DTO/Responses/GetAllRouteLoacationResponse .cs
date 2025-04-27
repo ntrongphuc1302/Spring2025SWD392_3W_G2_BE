@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetroOne.DTO.Requests
+namespace MetroOne.DTO.Responses
 {
-    public class UpdateRouteLoacationRequest
+    public class GetAllRouteLocationResponse
     {
         public int RouteLocationId { get; set; }
-        public int LocationId { get; set; }
+
+        public int? LocationId { get; set; }
     }
 }
