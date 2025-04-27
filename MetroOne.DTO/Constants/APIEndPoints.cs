@@ -72,6 +72,26 @@
             public const string Delete = $"{BaseTrip}/DeleteTrip/{{id}}";
         }
 
+        public static class Route
+        {
+            public const string BaseRoute = $"{Base}/route";
+            public const string Create = $"{BaseRoute}/CreateRoute";
+            public const string GetAll = $"{BaseRoute}/all";
+            public const string GetById = $"{BaseRoute}/GetRouteById/{{id}}";
+            public const string Update = $"{BaseRoute}/UpdateRoute";
+            public const string Delete = $"{BaseRoute}/DeleteRoute/{{id}}";
+        }
+
+        public static class RouteLocation
+        {
+            public const string BaseRouteLocation = $"{Base}/route-location";
+            public const string Create = $"{BaseRouteLocation}/CreateRouteLocation";
+            public const string GetAll = $"{BaseRouteLocation}/all";
+            public const string GetById = $"{BaseRouteLocation}/GetRouteLocationById/{{id}}";
+            public const string Update = $"{BaseRouteLocation}/UpdateRouteLocation";
+            public const string Delete = $"{BaseRouteLocation}/DeleteRouteLocation/{{id}}";
+        }
+
         public static class Debug
         {
             public const string CheckDb = $"{Base}/debug/db-check";
