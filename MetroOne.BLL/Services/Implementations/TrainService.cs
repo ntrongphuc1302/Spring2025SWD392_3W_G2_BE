@@ -46,6 +46,7 @@ namespace MetroOne.BLL.Services.Implementations
                 {
                     TrainName = train.TrainName,
                     EstimatedTime = train.EstimatedTime,
+                    Capacity = train.Capacity,
                     //LocationName = routeLocation.Location?.LocationName
                 };
             }
