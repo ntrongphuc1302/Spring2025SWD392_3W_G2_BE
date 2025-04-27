@@ -41,6 +41,8 @@ namespace MetroOne.API.Controllers
         [Route(ApiRoutes.Trip.Create)]
         public async Task<IActionResult> Create(CreateTripRequest dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             try
             {
                 var createTrip = await _tripService.CreateTripAsync(dto);
