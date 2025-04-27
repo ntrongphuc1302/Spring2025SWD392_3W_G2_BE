@@ -595,7 +595,6 @@ D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.Gen
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfoInputs.cache
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.AssemblyInfo.cs
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.csproj.CoreCompileInputs.cache
-D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.MvcApplicationPartsAssemblyInfo.cs
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.MvcApplicationPartsAssemblyInfo.cache
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.sourcelink.json
 D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\scopedcss\bundle\MetroOne.API.styles.css
