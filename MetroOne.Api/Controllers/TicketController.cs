@@ -49,25 +49,25 @@ public class TicketController : ControllerBase
         }
     }
 
-    //[Authorize]
-    //[HttpPut]
-    //[Route(ApiRoutes.Ticket.Update)]
-    //public async Task<IActionResult> Update([FromBody] UpdateTicketRequest request)
-    //{
-    //    if (!ModelState.IsValid)
-    //        return BadRequest(ModelState);
-    //    try
-    //    {
-    //        if (!ModelState.IsValid)
-    //            return BadRequest(ModelState);
-    //        var result = await _ticketService.UpdateTicketAsync(request);
-    //        return Ok(result);
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        return BadRequest(new { message = e.Message });
-    //    }
-    //}
+    [Authorize]
+    [HttpPut]
+    [Route(ApiRoutes.Ticket.Update)]
+    public async Task<IActionResult> Update([FromBody] UpdateTicketRequest request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await _ticketService.UpdateTicketAsync(request);
+            return Ok(result);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
+    }
 
     [HttpPost]
     [Route(ApiRoutes.Ticket.Create)]

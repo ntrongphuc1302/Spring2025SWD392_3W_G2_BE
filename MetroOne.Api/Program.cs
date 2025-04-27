@@ -130,6 +130,9 @@ builder.Services.AddScoped<ITripRepository, TripRepository>();
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 
+//Route
+builder.Services.AddScoped<IRouteService, RouteService>();
+builder.Services.AddScoped<IRouteRepository, RouteRepository>();
 
 // Frontend Connection
 builder.Services.AddCors(options =>
@@ -148,7 +151,7 @@ builder.Services.AddCors(options =>
 #region Validators
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters(); 
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateStationRequestValidator>();
-builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateTicketRequestValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateTicketRequestValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.CreateTrainRequestValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.LoginRequestValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MetroOne.Api.Validators.RegisterRequestValidator>();
