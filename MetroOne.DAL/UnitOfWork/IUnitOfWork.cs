@@ -16,7 +16,7 @@ namespace MetroOne.DAL.UnitOfWork
         ITripRepository Trips { get; }
         ILocationRepository Locations { get; }
         IRouteRepository Routes { get; }
-        //IRouteLocationRepository RouteLocations { get; }
+        IRouteLocationRepository RouteLocations { get; }
 
         Task<int> SaveAsync();
     }

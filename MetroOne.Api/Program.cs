@@ -134,6 +134,10 @@ builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IRouteService, RouteService>();
 builder.Services.AddScoped<IRouteRepository, RouteRepository>();
 
+//RouteLocation
+builder.Services.AddScoped<IRouteLocationRepository, RouteLocationRepository>();
+builder.Services.AddScoped<IRouteLocationService, RouteLocationService>();
+
 // Frontend Connection
 builder.Services.AddCors(options =>
 {
