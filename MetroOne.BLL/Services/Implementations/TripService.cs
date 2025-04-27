@@ -26,6 +26,7 @@ namespace MetroOne.BLL.Services.Implementations
                 {
                     TrainId = train.TrainId,
                     //RouteId = route.RouteId,
+                    RouteId = dto.RouteId,
                     DepartureTime = dto.DepartureTime,
                     ArrivalTime = dto.ArrivalTime
                 };
@@ -39,7 +40,7 @@ namespace MetroOne.BLL.Services.Implementations
                 DepartureTime = trip.DepartureTime,
                 ArrivalTime = trip.ArrivalTime,
                 TrainName = train.TrainName,     
-                //RouteName = route.RouteName      
+                //RouteName = route.RouteName
             };
         }
 
@@ -71,8 +72,8 @@ namespace MetroOne.BLL.Services.Implementations
                 TripId = tr.TripId,
                 DepartureTime = tr.DepartureTime,
                 ArrivalTime = tr.ArrivalTime,
-                TrainName = tr.Train?.TrainName,    // thêm dòng này
-                RouteName = tr.Route?.RouteName     // thêm dòng này
+                TrainName = tr.Train?.TrainName,   
+                RouteName = tr.Route?.RouteName     
             }).ToList();
         }
 

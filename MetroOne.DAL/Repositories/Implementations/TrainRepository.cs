@@ -41,17 +41,27 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         public async Task<Train?> GetTrainByIdAsync(int id)
         {
-            return await _context.Trains.FindAsync(id);
+            return await _context.Trains
+                .Include(t => t.RouteLocation) // Include RouteLocation
+                .ThenInclude(rl => rl.Location) // rồi include tiếp Location
+                .FirstOrDefaultAsync(t => t.TrainId == id);
         }
+
 
         public async Task<Train?> GetTrainByNameAsync(string trainName)
         {
-            return await _context.Trains.FirstOrDefaultAsync(t => t.TrainName == trainName);
+            return await _context.Trains
+                .Include(t => t.RouteLocation) // Include RouteLocation
+                .ThenInclude(rl => rl.Location)
+                .FirstOrDefaultAsync(t => t.TrainName == trainName);
         }
 
-        public async Task<List<Train?>> GetAllTrainsAsync()
+        public async Task<List<Train>> GetAllTrainsAsync()
         {
-            return await _context.Trains.ToListAsync();
+            return await _context.Trains
+                .Include(t => t.RouteLocation)  // Include RouteLocation
+                .ThenInclude(rl => rl.Location) // Include Location từ RouteLocation
+                .ToListAsync();
         }
 
         public async Task<bool> UpdateTrainAsync(Train dto)
