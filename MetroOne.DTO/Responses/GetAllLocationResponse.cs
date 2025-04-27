@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetroOne.DTO.Requests
+namespace MetroOne.DTO.Responses
 {
-    public class CreateStationRequest
+    public class GetAllLocationResponse
     {
-        public string? StationName { get; set; }
         public int LocationId { get; set; }
+        public string LocationName { get; set; }
     }
 }

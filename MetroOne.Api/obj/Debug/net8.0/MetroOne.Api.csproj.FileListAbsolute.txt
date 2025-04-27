@@ -917,11 +917,12 @@ C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MetroOne.API.props
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MetroOne.API.props
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.0A0C5D93.Up2Date
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.dll
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\refint\MetroOne.API.dll
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.xml
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.pdb
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.API.genruntimeconfig.cache
 C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\ref\MetroOne.API.dll
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\bin\Debug\net8.0\appsettings.json
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\phuth\Desktop\Project\Spring2025SWD392_3W_G2_BE\MetroOne.Api\obj\Debug\net8.0\MetroOne.0A0C5D93.Up2Date

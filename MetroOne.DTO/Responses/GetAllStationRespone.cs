@@ -12,10 +12,6 @@ namespace MetroOne.DTO.Responses
 
         public string? StationName { get; set; }
 
-        public string? StationCode { get; set; }
-
-        public string? Location { get; set; }
-
-        public int? OrderInRoute { get; set; }
+        public string? LocationName { get; set; }
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MetroOne.DTO.Requests
 {
-    public class UpdateStationRequest
+    public class CreateLocationRequest
     {
-        public int StationId { get; set; }      
-        public string? StationName { get; set; }
-        public int? LocationId { get; set; }
+        [Required]
+        public string LocationName { get; set; }
     }
+
 }
