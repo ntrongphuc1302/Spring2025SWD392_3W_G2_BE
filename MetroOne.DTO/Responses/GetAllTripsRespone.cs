@@ -10,7 +10,8 @@ namespace MetroOne.DTO.Responses
     {
         public int TripId { get; set; }
 
-        public int TrainId { get; set; }
+        public string TrainName { get; set; }
+        public string RouteName { get; set; }
 
         public DateTime? DepartureTime { get; set; }
 

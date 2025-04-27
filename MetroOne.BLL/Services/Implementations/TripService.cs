@@ -3,6 +3,7 @@ using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Responses;
+using Microsoft.AspNetCore.Routing;
 
 namespace MetroOne.BLL.Services.Implementations
 {
@@ -16,6 +17,7 @@ namespace MetroOne.BLL.Services.Implementations
         public async Task<CreateTripRespone> CreateTripAsync(CreateTripRequest dto)
         {
             var train = await _unitOfWork.Trains.GetTrainByIdAsync(dto.TrainId);
+            //var route = await _unitOfWork.Routes.GetRouteByIdAsync(dto.RouteId);
             if (train == null)
             {
                 throw new Exception("Train not found!");
@@ -23,6 +25,7 @@ namespace MetroOne.BLL.Services.Implementations
                 var trip = new Trip
                 {
                     TrainId = train.TrainId,
+                    //RouteId = route.RouteId,
                     DepartureTime = dto.DepartureTime,
                     ArrivalTime = dto.ArrivalTime
                 };
@@ -34,7 +37,9 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 //TrainId = trip.TrainId,
                 DepartureTime = trip.DepartureTime,
-                ArrivalTime = trip.ArrivalTime
+                ArrivalTime = trip.ArrivalTime,
+                TrainName = train.TrainName,     
+                //RouteName = route.RouteName      
             };
         }
 
@@ -53,22 +58,24 @@ namespace MetroOne.BLL.Services.Implementations
             }
         }
 
-        public Task<List<GetAllTripsRespone>> GetAllTripsAsync()
+        //public Task<List<GetAllTripsRespone>> GetAllTripsAsync()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public async Task<List<GetAllTripsRespone>> GetAllTripsAsync()
         {
-            throw new NotImplementedException();
+            var trips = await _unitOfWork.Trips.GetAllTripAsync();
+            return trips.Select(tr => new GetAllTripsRespone
+            {
+                TripId = tr.TripId,
+                DepartureTime = tr.DepartureTime,
+                ArrivalTime = tr.ArrivalTime,
+                TrainName = tr.Train?.TrainName,    // thêm dòng này
+                RouteName = tr.Route?.RouteName     // thêm dòng này
+            }).ToList();
         }
 
-        //public async Task<List<GetAllTripsRespone>> GetAllTripsAsync()
-        //{
-        //    var trips = await _unitOfWork.Trips.GetAllTripAsync();
-        //    return trips.Select(tr => new GetAllTripsRespone 
-        //    {
-        //        TripId = tr.TripId,
-        //        TrainId = tr.TrainId,
-        //        DepartureTime = tr.DepartureTime,
-        //        ArrivalTime = tr.ArrivalTime
-        //    }).ToList();
-        //}
 
         public Task<bool> UpdateTripAsync(UpdateStationRequest dto)
         {

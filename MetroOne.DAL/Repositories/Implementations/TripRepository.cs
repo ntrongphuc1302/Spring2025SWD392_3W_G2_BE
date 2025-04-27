@@ -40,7 +40,10 @@ namespace MetroOne.DAL.Repositories.Implementations
 
         public async Task<List<Trip>> GetAllTripAsync()
         {
-            return await _context.Trips.ToListAsync();
+            return await _context.Trips
+                .Include(tr => tr.Train)
+                .Include(tr => tr.Route)
+                .ToListAsync();
         }
 
         public async Task<Trip> GetByTripIdAsync(int id)

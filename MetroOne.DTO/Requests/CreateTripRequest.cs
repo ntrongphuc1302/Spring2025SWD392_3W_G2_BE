@@ -10,10 +10,14 @@ namespace MetroOne.DTO.Requests
     public class CreateTripRequest
     {
         [Required]
-        public int TrainId { get; set; }
+        public int TripId { get; set; }
 
         public DateTime? DepartureTime { get; set; }
 
         public DateTime? ArrivalTime { get; set; }
+
+        public int RouteId { get; set; }
+
+        public int TrainId { get; set; }
     }
 }
