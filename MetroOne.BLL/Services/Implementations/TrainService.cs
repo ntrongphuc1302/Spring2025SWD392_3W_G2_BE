@@ -25,28 +25,31 @@ namespace MetroOne.BLL.Services.Implementations
             {
                 TrainName = dto.TrainName,
                 EstimatedTime = dto.EstimatedTime,
-                //StartStationId = dto.StartStationId,
-                //EndStationId = dto.EndStationId,
+                RouteLocationId = dto.RouteLocationId,
                 Capacity = dto.Capacity,
             };
-
-            if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName)) { 
+            //var routeLocation = await _unitOfWork.RouteLocations.GetRouteLocationByIdAsync(dto.RouteLocationId);
+            //if (routeLocation == null)
+            //{
+            //    throw new Exception("RouteLocation not found!");
+            //}
+            if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName))
+            {
                 throw new Exception("Train name already existed!");
             }
-            else { 
+            else
+            {
                 await _unitOfWork.Trains.AddTrainAsync(train);
                 await _unitOfWork.SaveAsync();
-            
-            return new CreateTrainRespone
-            {
-                TrainName = train.TrainName,
-                EstimatedTime = train.EstimatedTime,
-                //StartStationId = train.StartStationId,
-                //EndStationId = train.EndStationId,
-                //Capacity = train.Capacity
-            };
+
+                return new CreateTrainRespone
+                {
+                    TrainName = train.TrainName,
+                    EstimatedTime = train.EstimatedTime,
+                    //LocationName = routeLocation.Location?.LocationName
+                };
+            }
         }
-    }
 
         public async Task<bool> DeleteTrainAsync(int id)
         {
@@ -71,10 +74,8 @@ namespace MetroOne.BLL.Services.Implementations
                 TrainId = t.TrainId,
                 TrainName = t.TrainName,
                 EstimatedTime = t.EstimatedTime,
-                //StartStationId = t.StartStationId,
-                //EndStationId = t.EndStationId,
-                //Capacity = t.Capacity
-                
+                Capacity = t.Capacity,
+                LocationName = t.RouteLocation?.Location?.LocationName // Lấy tên địa điểm
             }).ToList();
         }
 
@@ -84,22 +85,15 @@ namespace MetroOne.BLL.Services.Implementations
             if (train == null)
                 throw new Exception("Train not found!");
 
-            //var startStation = await _unitOfWork.Stations.GetStationByIdAsync(train.StartStationId);
-            //var endStation = await _unitOfWork.Stations.GetStationByIdAsync(train.EndStationId);
-
             return new TrainResponse
             {
                 TrainId = train.TrainId,
                 TrainName = train.TrainName,
                 EstimatedTime = train.EstimatedTime,
-                //Capacity = train.Capacity,
-                //StartStationId = train.StartStationId,
-                //EndStationId = train.EndStationId,
-                //StartStation = startStation.StationName,
-                //EndStation = endStation.StationName
+                Capacity = train.Capacity,
+                LocationName = train.RouteLocation?.Location?.LocationName // thêm dòng này
             };
         }
-
 
         public async Task<TrainResponse> GetTrainByNameAsync(string name)
         {
@@ -115,11 +109,8 @@ namespace MetroOne.BLL.Services.Implementations
                 TrainId = train.TrainId,
                 TrainName = train.TrainName,
                 EstimatedTime = train.EstimatedTime,
-                //Capacity = train.Capacity,
-                //StartStationId = train.StartStationId,
-                //EndStationId = train.EndStationId,
-                //StartStation = startStation.StationName,
-                //EndStation = endStation.StationName
+                Capacity = train.Capacity,
+                LocationName = train.RouteLocation?.Location?.LocationName // thêm dòng này
             };
         }
 
@@ -129,29 +120,28 @@ namespace MetroOne.BLL.Services.Implementations
             if (train == null)
                 throw new Exception("Train not found!");
 
-            if (!string.IsNullOrEmpty(dto.TrainName))
+            // Nếu đổi tên thì kiểm tra tên mới đã tồn tại chưa (khác với chính nó)
+            if (!string.IsNullOrEmpty(dto.TrainName) && dto.TrainName != train.TrainName)
+            {
+                if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName))
+                    throw new Exception("Train name already existed!");
+
                 train.TrainName = dto.TrainName;
+            }
 
             if (dto.EstimatedTime.HasValue)
                 train.EstimatedTime = dto.EstimatedTime.Value;
 
-            //if (dto.StartStationId.HasValue)
-            //    train.StartStationId = dto.StartStationId.Value;
-
-            //if (dto.EndStationId.HasValue)
-            //    train.EndStationId = dto.EndStationId.Value;
-
             if (dto.Capacity.HasValue)
                 train.Capacity = dto.Capacity.Value;
 
-            if (await _unitOfWork.Trains.IsTrainNameExistsAsync(dto.TrainName))
-            {
-                throw new Exception("Train name already existed!");
-            }
-            else
-            {
-                return await _unitOfWork.Trains.UpdateTrainAsync(train);
-            }
+            if (dto.RouteLocationId.HasValue)
+                train.RouteLocationId = dto.RouteLocationId.Value;
+
+            await _unitOfWork.Trains.UpdateTrainAsync(train);
+            await _unitOfWork.SaveAsync();
+
+            return true;
         }
     }
-}
+    }

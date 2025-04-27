@@ -9,15 +9,10 @@ namespace MetroOne.DTO.Responses
 {
     public class CreateTrainRespone
     {
+        public int TrainId { get; set; }
         public string? TrainName { get; set; }
-
-        public int StartStationId { get; set; }
-
-        public int EndStationId { get; set; }
-        [Required]
-        [Range(50, 500, ErrorMessage = "Capacity must be between 50 and 500")]
-        public int Capacity { get; set; }
-
         public TimeOnly? EstimatedTime { get; set; }
+        public int? Capacity { get; set; }
+        public string LocationName { get; set; }
     }
 }
