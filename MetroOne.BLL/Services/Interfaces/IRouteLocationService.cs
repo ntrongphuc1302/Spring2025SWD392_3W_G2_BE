@@ -14,8 +14,8 @@ namespace MetroOne.BLL.Services.Interfaces
         Task<CreateRouteLoacationResponse> CreateAsync(CreateRouteLoacationRequest request);
         Task<bool> UpdateAsync(UpdateRouteLoacationRequest request);
         Task<bool> DeleteAsync(int id);
-        Task<List<RouteLocation>> GetAll();
-        Task<RouteLocation> GetByIdAsync(int id);
+        Task<List<GetAllRouteLocationResponse>> GetAll();
+        Task<GetAllRouteLocationResponse> GetByIdAsync(int id);
         //Task<List <RouteLocation>> GetByLocationIdAsync(int locationId);
     }
 }

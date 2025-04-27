@@ -8,6 +8,6 @@ namespace MetroOne.DTO.Requests
 {
     public class CreateRouteLoacationRequest
     {
-        public int? LocationId { get; set; }
+        public int LocationId { get; set; }
     }
 }
