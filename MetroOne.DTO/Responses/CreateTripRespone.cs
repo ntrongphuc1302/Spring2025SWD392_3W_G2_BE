@@ -8,10 +8,14 @@ namespace MetroOne.DTO.Responses
 {
     public class CreateTripRespone
     {
-        public int TrainId { get; set; }
+        public int TripId { get; set; }
 
         public DateTime? DepartureTime { get; set; }
 
         public DateTime? ArrivalTime { get; set; }
+
+        public string RouteName { get; set; }
+
+        public string TrainName { get; set; }
     }
 }

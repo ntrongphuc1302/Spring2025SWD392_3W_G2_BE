@@ -6,9 +6,9 @@ public class CreateTripRequestValidator : AbstractValidator<CreateTripRequest>
 {
     public CreateTripRequestValidator()
     {
-        RuleFor(x => x.TrainId)
-            .GreaterThan(0)
-            .WithMessage("TrainId must be greater than 0.");
+        //RuleFor(x => x.TrainId)
+        //    .GreaterThan(0)
+        //    .WithMessage("TrainId must be greater than 0.");
 
         RuleFor(x => x.DepartureTime)
             .NotNull().WithMessage("DepartureTime is required.")
