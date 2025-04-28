@@ -92,6 +92,16 @@
             public const string Delete = $"{BaseRouteLocation}/DeleteRouteLocation/{{id}}";
         }
 
+        public static class Payment
+        {
+            public const string BasePayment = $"{Base}/payment";
+            public const string Create = $"{BasePayment}/CreatePayment";
+            public const string GetAll = $"{BasePayment}/all";
+            public const string GetById = $"{BasePayment}/GetPaymentById/{{id}}";
+            public const string Update = $"{BasePayment}/UpdatePayment";
+            public const string Delete = $"{BasePayment}/DeletePayment/{{id}}";
+        }
+
         public static class Debug
         {
             public const string CheckDb = $"{Base}/debug/db-check";

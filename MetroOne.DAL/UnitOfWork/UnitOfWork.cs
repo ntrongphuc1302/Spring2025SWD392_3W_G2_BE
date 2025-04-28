@@ -21,6 +21,7 @@ namespace MetroOne.DAL.UnitOfWork
         public ITripRepository Trips { get; private set; }
         public IRouteRepository Routes { get; private set; }
         public IRouteLocationRepository RouteLocations { get; private set; }
+        public IPaymentRepository Payments { get; private set; }
 
 
         public UnitOfWork(
@@ -36,6 +37,7 @@ namespace MetroOne.DAL.UnitOfWork
             Locations = new LocationRepository(context);
             RouteLocations = new RouteLocationRepository(context);
             Routes = new RouteRepository(context);
+            Payments = new PaymentRepository(context);
         }
 
         public async Task<int> SaveAsync()

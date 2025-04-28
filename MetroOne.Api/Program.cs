@@ -138,6 +138,10 @@ builder.Services.AddScoped<IRouteRepository, RouteRepository>();
 builder.Services.AddScoped<IRouteLocationRepository, RouteLocationRepository>();
 builder.Services.AddScoped<IRouteLocationService, RouteLocationService>();
 
+//Payment
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 // Frontend Connection
 builder.Services.AddCors(options =>
 {

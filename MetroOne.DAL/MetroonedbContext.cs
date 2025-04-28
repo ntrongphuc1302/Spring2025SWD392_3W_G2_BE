@@ -39,10 +39,12 @@ public partial class MetroonedbContext : DbContext
     public virtual DbSet<Trip> Trips { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Payment> Payments { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Server=NEBULA\\SQLEXPRESS;Database=METROONEDB;User Id=sa;Password=123456; Trusted_Connection=True;Encrypt=False; ");
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Server=NEBULA\\SQLEXPRESS;Database=METROONEDB;User Id=sa;Password=123456; Trusted_Connection=True;Encrypt=False; ");
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -193,6 +195,28 @@ public partial class MetroonedbContext : DbContext
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasDefaultValue("Active");
+        });
+        modelBuilder.Entity<Payment>(entity =>
+        {
+            entity.HasKey(e => e.PaymentId);
+
+            entity.Property(e => e.Method)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            entity.Property(e => e.PaymentDate)
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(e => e.Ticket)
+                .WithOne(t => t.Payment)
+                .HasForeignKey<Payment>(p => p.TicketId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Payment_Ticket");
         });
 
         OnModelCreatingPartial(modelBuilder);

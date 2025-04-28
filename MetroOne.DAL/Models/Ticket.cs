@@ -22,4 +22,6 @@ public partial class Ticket
     public virtual Trip? Trip { get; set; }
 
     public virtual User? User { get; set; }
+    public Payment Payment { get; set; }
+
 }

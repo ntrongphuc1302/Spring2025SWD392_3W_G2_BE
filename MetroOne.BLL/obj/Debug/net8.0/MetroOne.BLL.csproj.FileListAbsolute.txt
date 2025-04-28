@@ -58,3 +58,23 @@ C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.pdb
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.genruntimeconfig.cache
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\ref\MetroOne.BLL.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.BLL.deps.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.BLL.runtimeconfig.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.BLL.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.BLL.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.DAL.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.DTO.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.DAL.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\bin\Debug\net8.0\MetroOne.DTO.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.csproj.AssemblyReference.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.AssemblyInfoInputs.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.AssemblyInfo.cs
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.csproj.CoreCompileInputs.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.sourcelink.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.280ACED7.Up2Date
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\refint\MetroOne.BLL.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\MetroOne.BLL.genruntimeconfig.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.BLL\obj\Debug\net8.0\ref\MetroOne.BLL.dll

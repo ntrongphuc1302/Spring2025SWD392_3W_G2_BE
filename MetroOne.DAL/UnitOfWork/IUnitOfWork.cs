@@ -18,6 +18,8 @@ namespace MetroOne.DAL.UnitOfWork
         IRouteRepository Routes { get; }
         IRouteLocationRepository RouteLocations { get; }
 
+        IPaymentRepository Payments { get; }
+
         Task<int> SaveAsync();
     }
 

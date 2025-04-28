@@ -88,7 +88,7 @@ public class TicketController : ControllerBase
         }
     }
 
-    [Authorize]
+    //[Authorize]
     [HttpDelete]
     [Route(ApiRoutes.Ticket.Delete)]
     public async Task<IActionResult> Delete(int id)

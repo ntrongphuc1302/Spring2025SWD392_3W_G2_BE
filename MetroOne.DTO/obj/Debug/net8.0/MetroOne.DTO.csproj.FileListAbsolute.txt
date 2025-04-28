@@ -43,3 +43,18 @@ C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.pdb
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.genruntimeconfig.cache
 C:\Users\phuth\Desktop\Project - Copy\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\ref\MetroOne.DTO.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\bin\Debug\net8.0\MetroOne.DTO.deps.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\bin\Debug\net8.0\MetroOne.DTO.runtimeconfig.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\bin\Debug\net8.0\MetroOne.DTO.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\bin\Debug\net8.0\MetroOne.DTO.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.csproj.AssemblyReference.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.AssemblyInfoInputs.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.AssemblyInfo.cs
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.csproj.CoreCompileInputs.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.sourcelink.json
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\refint\MetroOne.DTO.dll
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.pdb
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\MetroOne.DTO.genruntimeconfig.cache
+D:\FPTU\Spring2025SWD392_3W_G2_BE\MetroOne.DTO\obj\Debug\net8.0\ref\MetroOne.DTO.dll
