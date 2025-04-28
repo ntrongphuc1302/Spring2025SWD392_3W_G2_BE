@@ -108,7 +108,7 @@ public class TicketController : ControllerBase
 
     //[Authorize]
     [HttpGet]
-    [Route("api/tickets/details")]
+    [Route("api/tickets/details/user")]
     public async Task<IActionResult> GetTicketDetailsByUserId(int userId)
     {
         try
@@ -143,7 +143,7 @@ public class TicketController : ControllerBase
 
     //[Authorize]
     [HttpGet]
-    [Route("api/tickets/{ticketId}")]
+    [Route("api/tickets/details/{ticketId}")]
     public async Task<IActionResult> GetTicketDetailsByTicketId(int ticketId)
     {
         try
