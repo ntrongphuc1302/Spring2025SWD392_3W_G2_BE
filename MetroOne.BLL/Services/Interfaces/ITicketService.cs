@@ -15,5 +15,7 @@ namespace MetroOne.BLL.Services.Interfaces
         Task<GetAllTicketResponse> GetByIdAsync(int id);
         Task<bool> UpdateTicketAsync(UpdateTicketRequest request);
         Task<bool> DeleteTicketAsync(int id);
+        Task<List<DAL.Models.Ticket>> GetTicketsByUserIdAsync(int userId);
+        Task<DAL.Models.Ticket> GetTicketByIdAsync(int ticketId);
     }
 }

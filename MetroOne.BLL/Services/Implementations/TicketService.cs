@@ -8,6 +8,7 @@ using MetroOne.DAL.Models;
 using MetroOne.DAL.UnitOfWork;
 using MetroOne.DTO.Requests;
 using MetroOne.DTO.Responses;
+using Microsoft.EntityFrameworkCore;
 using static MetroOne.DTO.Constants.ApiRoutes;
 
 namespace MetroOne.BLL.Services.Implementations
@@ -111,6 +112,17 @@ namespace MetroOne.BLL.Services.Implementations
                 throw new Exception("Failed to delete ticket");
             return true;
         }
+
+        public async Task<List<DAL.Models.Ticket>> GetTicketsByUserIdAsync(int userId)
+        {
+            return await _unitOfWork.Tickets.GetTicketsByUserIdAsync(userId);
+        }
+
+        public async Task<DAL.Models.Ticket> GetTicketByIdAsync(int ticketId)
+        {
+            return await _unitOfWork.Tickets.GetTicketByIdAsync(ticketId);
+        }
     }
+
 
 }

@@ -14,5 +14,7 @@ namespace MetroOne.DAL.Repositories.Interfaces
         Task<bool> CreateAsync(Ticket ticket);
         Task<bool> UpdateAsync(Ticket ticket);
         Task<bool> DeleteAsync(int id);
+        Task<List<Ticket>> GetTicketsByUserIdAsync(int userId);
+        Task<Ticket> GetTicketByIdAsync(int ticketId);
     }
 }

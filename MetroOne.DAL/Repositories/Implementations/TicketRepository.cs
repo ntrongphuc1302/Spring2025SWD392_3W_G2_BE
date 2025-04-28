@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MetroOne.DAL.Models;
 using MetroOne.DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace MetroOne.DAL.Repositories.Implementations
 {
@@ -81,6 +82,52 @@ namespace MetroOne.DAL.Repositories.Implementations
             {
                 _context.Tickets.Remove(ticket);
                 return Task.FromResult(_context.SaveChanges() > 0);
+            }
+        }
+
+        // New method to get tickets by userId with user details
+        public async Task<List<Ticket>> GetTicketsByUserIdAsync(int userId)
+        {
+            try
+            {
+                // Include user data (assuming Ticket has a User navigation property)
+                var tickets = await _context.Tickets
+                    .Where(t => t.UserId == userId)
+                    .Include(t => t.User)  // Include user information with the ticket
+                    .ToListAsync();
+
+                if (tickets == null || !tickets.Any())
+                {
+                    throw new Exception("No tickets found for this user.");
+                }
+
+                return tickets;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error fetching tickets for the user.", ex);
+            }
+        }
+
+        public async Task<Ticket> GetTicketByIdAsync(int ticketId)
+        {
+            try
+            {
+                var ticket = await _context.Tickets
+                    .Where(t => t.TicketId == ticketId)
+                    .Include(t => t.User) // Include user information with the ticket
+                    .FirstOrDefaultAsync();
+
+                if (ticket == null)
+                {
+                    throw new Exception("Ticket not found");
+                }
+
+                return ticket;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error fetching ticket by ID.", ex);
             }
         }
     }

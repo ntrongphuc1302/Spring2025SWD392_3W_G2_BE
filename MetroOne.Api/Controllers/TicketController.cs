@@ -1,6 +1,7 @@
 ﻿using MetroOne.BLL.Services.Interfaces;
 using MetroOne.DTO.Constants;
 using MetroOne.DTO.Requests;
+using MetroOne.DTO.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -104,4 +105,75 @@ public class TicketController : ControllerBase
             return BadRequest(new { message = e.Message });
         }
     }
+
+    //[Authorize]
+    [HttpGet]
+    [Route("api/tickets/details")]
+    public async Task<IActionResult> GetTicketDetailsByUserId(int userId)
+    {
+        try
+        {
+            // Fetch the tickets from the service
+            var tickets = await _ticketService.GetTicketsByUserIdAsync(userId);
+
+            if (tickets == null || !tickets.Any())
+            {
+                return NotFound(new { message = "No tickets found for the specified user" });
+            }
+
+            // Combine the data into the response DTO
+            var ticketDetails = tickets.Select(ticket => new TicketDetailResponse
+            {
+                TicketId = ticket.TicketId,
+                TicketStatus = ticket.Status,
+                Price = ticket.Price,
+                BookingTime = ticket.BookingTime,
+                ValidTo = ticket.ValidTo,
+                UserFullName = ticket.User?.FullName,
+                UserEmail = ticket.User?.Email
+            }).ToList();
+
+            return Ok(ticketDetails);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
+    }
+
+    //[Authorize]
+    [HttpGet]
+    [Route("api/tickets/{ticketId}")]
+    public async Task<IActionResult> GetTicketDetailsByTicketId(int ticketId)
+    {
+        try
+        {
+            // Fetch the ticket from the service
+            var ticket = await _ticketService.GetTicketByIdAsync(ticketId);
+
+            if (ticket == null)
+            {
+                return NotFound(new { message = "Ticket not found" });
+            }
+
+            // Combine the data into a response DTO (you can modify this based on what you need)
+            var ticketDetail = new TicketDetailWithUserResponse
+            {
+                TicketId = ticket.TicketId,
+                TicketStatus = ticket.Status,
+                Price = (decimal)ticket.Price,
+                BookingTime = (DateTime)ticket.BookingTime,
+                ValidTo = (DateTime)ticket.ValidTo,
+                UserFullName = ticket.User?.FullName,
+                UserEmail = ticket.User?.Email
+            };
+
+            return Ok(ticketDetail);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
+    }
+
 }
