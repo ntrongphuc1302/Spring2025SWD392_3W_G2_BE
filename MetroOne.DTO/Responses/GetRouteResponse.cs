@@ -10,9 +10,9 @@ namespace MetroOne.DTO.Responses
     {
         public int RouteId { get; set; }
 
-        public int? StartStationId { get; set; }
+        public string StartStationName { get; set; }
 
-        public int? EndStationId { get; set; }
+        public string EndStationName { get; set; }
 
         public string? RouteName { get; set; }
 

@@ -17,6 +17,12 @@ namespace MetroOne.BLL.Services.Implementations
 
         public async Task<CreateRouteResponse> CreateRouteAsync(CreateRouteRequest request)
         {
+            var startStation = await _unitOfWork.Stations.GetStationByIdAsync(request.StartStationId);
+            var startStationName = startStation.StationName;
+
+            // Lấy tên trạm kết thúc
+            var endStation = await _unitOfWork.Stations.GetStationByIdAsync(request.EndStationId);
+            var endStationName = endStation.StationName;
             var route = new Route
             {
                 RouteName = request.RouteName,
@@ -32,8 +38,10 @@ namespace MetroOne.BLL.Services.Implementations
                 RouteId = route.RouteId,
                 RouteName = route.RouteName,
                 RouteLocationId = route.RouteLocationId,
-                StartStationId = route.StartStationId,
-                EndStationId = route.EndStationId
+                //StartStationId = route.StartStationId,
+                //EndStationId = route.EndStationId,
+                StartStationName = startStationName, 
+                EndStationName = endStationName
             };
         }
 
@@ -48,30 +56,52 @@ namespace MetroOne.BLL.Services.Implementations
         public async Task<List<GetRouteResponse>> GetAllRoutesAsync()
         {
             var routes = await _unitOfWork.Routes.GetAllAsync();
-            return routes.Select(r => new GetRouteResponse
+
+            var routeResponses = new List<GetRouteResponse>();
+
+            foreach (var route in routes)
             {
-                RouteId = r.RouteId,
-                RouteName = r.RouteName,
-                RouteLocationId = r.RouteLocationId,
-                StartStationId = r.StartStationId,
-                EndStationId = r.EndStationId
-            }).ToList();
+                // Gọi lấy Station theo Id
+                var startStation = await _unitOfWork.Stations.GetStationByIdAsync(route.StartStationId ?? 0);
+                var endStation = await _unitOfWork.Stations.GetStationByIdAsync(route.EndStationId ?? 0);
+
+                routeResponses.Add(new GetRouteResponse
+                {
+                    RouteId = route.RouteId,
+                    RouteName = route.RouteName,
+                    RouteLocationId = route.RouteLocationId,
+                    StartStationName = startStation?.StationName ?? "Unknown",
+                    EndStationName = endStation?.StationName ?? "Unknown"
+                });
+            }
+
+            return routeResponses;
         }
-        
+
 
         public async Task<GetRouteResponse> GetRouteByIdAsync(int routeId)
         {
             var route = await _unitOfWork.Routes.GetByIdAsync(routeId);
             if (route == null) return null;
+
+            var startStation = route.StartStationId.HasValue
+                ? await _unitOfWork.Stations.GetStationByIdAsync(route.StartStationId.Value)
+                : null;
+
+            var endStation = route.EndStationId.HasValue
+                ? await _unitOfWork.Stations.GetStationByIdAsync(route.EndStationId.Value)
+                : null;
+
             return new GetRouteResponse
             {
                 RouteId = route.RouteId,
                 RouteName = route.RouteName,
                 RouteLocationId = route.RouteLocationId,
-                StartStationId = route.StartStationId,
-                EndStationId = route.EndStationId
+                StartStationName = startStation?.StationName ?? "Unknown",
+                EndStationName = endStation?.StationName ?? "Unknown"
             };
         }
+
 
         public async Task<bool> UpdateRouteAsync(UpdateRouteRequest request)
         {
