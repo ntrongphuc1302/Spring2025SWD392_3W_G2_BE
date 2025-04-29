@@ -8,9 +8,9 @@ namespace MetroOne.DTO.Requests
 {
     public class CreateRouteRequest
     {
-        public int? StartStationId { get; set; }
+        public int StartStationId { get; set; }
 
-        public int? EndStationId { get; set; }
+        public int EndStationId { get; set; }
 
         public string? RouteName { get; set; }
 
